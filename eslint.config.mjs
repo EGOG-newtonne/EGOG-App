@@ -10,6 +10,8 @@ export default tseslint.config(
       "**/coverage/**",
       "**/dist/**",
       "**/node_modules/**",
+      "packages/contracts/artifacts/**",
+      "packages/contracts/cache/**",
     ],
   },
   eslint.configs.recommended,
@@ -32,4 +34,3 @@ export default tseslint.config(
     },
   },
 );
-

@@ -7,6 +7,8 @@
 .omx/
 .worktrees/
 coverage/
+packages/contracts/artifacts/
+packages/contracts/cache/
 dist/
 node_modules/
 *.key
