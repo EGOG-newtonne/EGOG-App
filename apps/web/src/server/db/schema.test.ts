@@ -63,4 +63,13 @@ describe("database schema", () => {
       expect.arrayContaining(["status", "deadline", "expires_at", "nonce"]),
     );
   });
+
+  it("stores EIP-712 nonces without truncating uint256-compatible values", () => {
+    const nonceColumn = getTableConfig(participationRequests).columns.find(
+      (column) => column.name === "nonce",
+    );
+
+    expect(nonceColumn?.getSQLType()).toBe("numeric(78, 0)");
+    expect(nonceColumn?.dataType).toBe("bigint");
+  });
 });

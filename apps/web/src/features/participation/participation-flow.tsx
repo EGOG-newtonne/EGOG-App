@@ -6,7 +6,7 @@ import {
   useWallets,
   type SignTypedDataParams,
 } from "@privy-io/react-auth";
-import { buildParticipationTypedData } from "@egog/shared";
+import { buildSerializableParticipationTypedData } from "@egog/shared";
 import { Check, Circle, ExternalLink, LoaderCircle, ShieldCheck, Wallet } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
@@ -174,10 +174,10 @@ export function ParticipationFlow({
         nonce: BigInt(challenge.message.nonce),
         deadline: BigInt(challenge.message.deadline),
       } as const;
-      const typedData = buildParticipationTypedData(
-          clientEnvironment.NEXT_PUBLIC_PARTICIPATION_CONTRACT_ADDRESS as Address,
-          message,
-        );
+      const typedData = buildSerializableParticipationTypedData(
+        clientEnvironment.NEXT_PUBLIC_PARTICIPATION_CONTRACT_ADDRESS as Address,
+        message,
+      );
       const { signature } = await signTypedData(
         {
           ...typedData,

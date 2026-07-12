@@ -1,0 +1,1 @@
+ALTER TABLE "participation_requests" ALTER COLUMN "nonce" SET DATA TYPE numeric(78, 0);

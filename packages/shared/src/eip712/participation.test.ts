@@ -2,6 +2,7 @@ import { describe, expect, test } from "vitest";
 
 import {
   buildParticipationTypedData,
+  buildSerializableParticipationTypedData,
   hashParticipationTypedData,
   participationTypes,
 } from "./participation.js";
@@ -69,5 +70,20 @@ describe("Participation EIP-712 definition", () => {
       verifyingContract: devContract,
     });
     expect(typedData.primaryType).toBe("Participation");
+  });
+
+  test("builds JSON-serializable typed data for wallet SDKs", () => {
+    const typedData = buildSerializableParticipationTypedData(
+      devContract,
+      message,
+    );
+
+    expect(() => JSON.stringify(typedData)).not.toThrow();
+    expect(typedData.message).toMatchObject({
+      snapshotVersion: "3",
+      memberNumber: "9",
+      nonce: "7",
+      deadline: "1800000000",
+    });
   });
 });

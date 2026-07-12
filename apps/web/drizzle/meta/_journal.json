@@ -15,6 +15,13 @@
       "when": 1783869354923,
       "tag": "0001_participation-member-reservation",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1783872348147,
+      "tag": "0002_nonce-uint256-storage",
+      "breakpoints": true
     }
   ]
 }

@@ -28,20 +28,42 @@ export type ParticipationMessage = {
   deadline: bigint;
 };
 
+function participationDomain(verifyingContract: Address) {
+  return {
+    name: "EGOG Participation",
+    version: "1",
+    chainId: giwaTestnet.id,
+    verifyingContract,
+  } as const;
+}
+
 export function buildParticipationTypedData(
   verifyingContract: Address,
   message: ParticipationMessage,
 ) {
   return {
-    domain: {
-      name: "EGOG Participation",
-      version: "1",
-      chainId: giwaTestnet.id,
-      verifyingContract,
-    },
+    domain: participationDomain(verifyingContract),
     types: participationTypes,
     primaryType: "Participation" as const,
     message,
+  } as const;
+}
+
+export function buildSerializableParticipationTypedData(
+  verifyingContract: Address,
+  message: ParticipationMessage,
+) {
+  const typedData = buildParticipationTypedData(verifyingContract, message);
+
+  return {
+    ...typedData,
+    message: {
+      ...message,
+      snapshotVersion: message.snapshotVersion.toString(),
+      memberNumber: message.memberNumber.toString(),
+      nonce: message.nonce.toString(),
+      deadline: message.deadline.toString(),
+    },
   } as const;
 }
 
@@ -49,5 +71,10 @@ export function hashParticipationTypedData(
   verifyingContract: Address,
   message: ParticipationMessage,
 ) {
-  return hashTypedData(buildParticipationTypedData(verifyingContract, message));
+  return hashTypedData({
+    domain: participationDomain(verifyingContract),
+    types: participationTypes,
+    primaryType: "Participation",
+    message,
+  });
 }
