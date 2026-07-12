@@ -1,8 +1,8 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "allowJs": false,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
@@ -20,8 +20,6 @@
       }
     ],
     "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
     "target": "ES2022"
   },
   "include": [
