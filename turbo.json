@@ -3,10 +3,54 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
+      "env": [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_REGION",
+        "AWS_S3_BUCKET",
+        "AWS_SECRET_ACCESS_KEY",
+        "CRON_SECRET",
+        "DATABASE_DIRECT_URL",
+        "DATABASE_URL",
+        "GIWA_CHAIN_ID",
+        "GIWA_RELAYER_PRIVATE_KEY",
+        "GIWA_RPC_URL",
+        "NEXT_PUBLIC_APP_ENV",
+        "NEXT_PUBLIC_GIWA_CHAIN_ID",
+        "NEXT_PUBLIC_GIWA_EXPLORER_URL",
+        "NEXT_PUBLIC_GIWA_RPC_URL",
+        "NEXT_PUBLIC_PARTICIPATION_CONTRACT_ADDRESS",
+        "NEXT_PUBLIC_PINATA_GATEWAY_URL",
+        "NEXT_PUBLIC_PRIVY_APP_ID",
+        "PARTICIPATION_CONTRACT_ADDRESS",
+        "PINATA_JWT",
+        "PRIVY_APP_SECRET"
+      ],
       "outputs": [".next/**", "dist/**"]
     },
     "dev": {
       "cache": false,
+      "env": [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_REGION",
+        "AWS_S3_BUCKET",
+        "AWS_SECRET_ACCESS_KEY",
+        "CRON_SECRET",
+        "DATABASE_DIRECT_URL",
+        "DATABASE_URL",
+        "GIWA_CHAIN_ID",
+        "GIWA_RELAYER_PRIVATE_KEY",
+        "GIWA_RPC_URL",
+        "NEXT_PUBLIC_APP_ENV",
+        "NEXT_PUBLIC_GIWA_CHAIN_ID",
+        "NEXT_PUBLIC_GIWA_EXPLORER_URL",
+        "NEXT_PUBLIC_GIWA_RPC_URL",
+        "NEXT_PUBLIC_PARTICIPATION_CONTRACT_ADDRESS",
+        "NEXT_PUBLIC_PINATA_GATEWAY_URL",
+        "NEXT_PUBLIC_PRIVY_APP_ID",
+        "PARTICIPATION_CONTRACT_ADDRESS",
+        "PINATA_JWT",
+        "PRIVY_APP_SECRET"
+      ],
       "persistent": true
     },
     "lint": {
@@ -21,4 +65,3 @@
     }
   }
 }
-

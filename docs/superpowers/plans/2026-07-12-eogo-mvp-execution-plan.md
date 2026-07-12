@@ -136,19 +136,21 @@ pnpm build
 
 ### Task A03: 환경변수 계약과 외부 준비물 체크리스트
 
-**Priority/Status:** P0 / READY  
+**Priority/Status:** P0 / COMPLETED
 **Owner:** Infra + Product owner
 
 **Files:**
-- Create: `apps/web/src/env/server.ts`
-- Create: `apps/web/src/env/client.ts`
+- Create: `apps/web/src/env/env.server.ts`
+- Create: `apps/web/src/env/env.client.ts`
+- Create: `apps/web/src/env/env.server.schema.ts`
+- Create: `apps/web/src/env/env.client.schema.ts`
 - Create: `docs/runbooks/external-prerequisites.md`
 - Modify: `.env.example`
 
-- [ ] Dev/Demo 환경변수를 분리하고 각 변수의 발급 주체를 문서화한다.
-- [ ] 최소 변수 계약을 정의한다: Privy app ID/secret, Supabase pooled/direct URL, Pinata JWT/gateway, S3 bucket/region/credentials, GIWA RPC/explorer/chain ID, Dev/Demo contract address, relayer key, cron secret.
-- [ ] 서버 secret이 client bundle에 노출되지 않도록 server/client schema를 분리한다.
-- [ ] 제출 정확한 마감 시각과 Newtonne 피드백 요청 담당자를 체크리스트에 포함한다.
+- [x] Dev/Demo 환경변수를 분리하고 각 변수의 발급 주체를 문서화한다.
+- [x] 최소 변수 계약을 정의한다: Privy app ID/secret, Supabase pooled/direct URL, Pinata JWT/gateway, S3 bucket/region/credentials, GIWA RPC/explorer/chain ID, Dev/Demo contract address, relayer key, cron secret.
+- [x] 서버 secret이 client bundle에 노출되지 않도록 server/client schema를 분리한다.
+- [x] 제출 정확한 마감 시각과 Newtonne 피드백 요청 담당자를 체크리스트에 포함한다.
 
 **Done:** 빠진 변수에서 앱이 명확한 변수명과 함께 시작을 거부하고, 값 자체는 로그에 출력되지 않음.
 
