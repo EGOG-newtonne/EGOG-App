@@ -27,7 +27,7 @@
 | `GIWA_CHAIN_ID` | Server-only config | GIWA / Infra | `91342` | `91342` | Chain ID matches RPC |
 | `PARTICIPATION_CONTRACT_ADDRESS` | Server-only config | Contract owner / Contract engineer | `0x4f0D8b9A1624177cF21373Ab184d053443489FD5` | `0xE97Cf932E2b8C87bEBAb27b8EcA8EFEc71F29E46` | Bytecode, roles, and active project verified |
 | `GIWA_RELAYER_PRIVATE_KEY` | Secret | Wallet owner / Infra | `0xc0f8380B4629B3142728F9755C784dA6b9B70881` | `0x5256FD2BB9d34d9a02103cb2AEC2458356aCED1a` | Each wallet funded with 0.05 test ETH |
-| `CRON_SECRET` | Secret | Infra | `EGOG Dev` generated secret | `EGOG A04 Demo CRON_SECRET` | Stored locally and in Vercel; endpoint test awaits route implementation |
+| `CRON_SECRET` | Secret | Infra | `EGOG Dev` generated secret | `EGOG A04 Demo CRON_SECRET` | Route and authorization tests pass; Production runtime verification awaits current deployment |
 | `NEXT_PUBLIC_GIWA_RPC_URL` | Public | GIWA RPC provider / Infra | `https://sepolia-rpc.giwa.io` | Same endpoint | Browser/server RPC available |
 | `NEXT_PUBLIC_GIWA_EXPLORER_URL` | Public | GIWA / Infra | `https://sepolia-explorer.giwa.io` | Same explorer | Explorer opens |
 | `NEXT_PUBLIC_GIWA_CHAIN_ID` | Public | GIWA / Infra | `91342` | `91342` | Matches server chain ID |
@@ -53,7 +53,9 @@
 | Vercel project and separated environment settings | Infra | [x] `egog-app-web`, Development/Preview use Dev resources | [x] Production uses Demo resources; all 20 variables configured | 2026-07-12 KST |
 | Google Stitch project and MCP access | Product designer | [x] `EGOG Climate Participation Portal`; `get_project` and `list_screens` passed | [x] API key stored in Codex config without repository exposure | 2026-07-12 KST |
 
-## Vercel deployment evidence
+## Vercel baseline deployment evidence
+
+This records the last successful baseline deployment. It does not prove that the current commit is deployed; current-deployment evidence belongs in the dated QA record.
 
 | Item | Evidence |
 | --- | --- |
