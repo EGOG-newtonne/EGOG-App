@@ -1,4 +1,4 @@
-# EOGO External Prerequisites
+# EGOG External Prerequisites
 
 ## Rules
 
@@ -12,26 +12,26 @@
 
 | Variable | Exposure | Issuer / owner | Dev resource | Demo resource | Verification |
 | --- | --- | --- | --- | --- | --- |
-| `NEXT_PUBLIC_APP_ENV` | Public | Infra | `development` | `demo` | App banner/environment label |
-| `NEXT_PUBLIC_PRIVY_APP_ID` | Public | Privy / Product owner | Record app name | Record app name | Google login opens |
-| `PRIVY_APP_SECRET` | Secret | Privy / Infra | Record secret name | Record secret name | Server token verification |
-| `DATABASE_URL` | Secret | Supabase / Infra | Record project name | Record project name | Transaction pooler connection |
-| `DATABASE_DIRECT_URL` | Secret | Supabase / Infra | Record project name | Record project name | Migration connection |
-| `PINATA_JWT` | Secret | Pinata / Infra | Record key name | Record key name | Test pin succeeds |
-| `NEXT_PUBLIC_PINATA_GATEWAY_URL` | Public | Pinata / Infra | Record gateway host | Record gateway host | Pinned JSON loads |
-| `AWS_S3_BUCKET` | Server-only config | AWS / Infra | Record bucket name | Record bucket name | Private object write/read |
-| `AWS_REGION` | Server-only config | AWS / Infra | Record region | Record region | Matches bucket region |
-| `AWS_ACCESS_KEY_ID` | Secret | AWS / Infra | Record credential name | Record credential name | Least-privilege S3 access |
-| `AWS_SECRET_ACCESS_KEY` | Secret | AWS / Infra | Record credential name | Record credential name | Least-privilege S3 access |
-| `GIWA_RPC_URL` | Secret server config | GIWA RPC provider / Infra | Record endpoint name | Record endpoint name | Server RPC request succeeds |
+| `NEXT_PUBLIC_APP_ENV` | Public | Infra | `dev` | `demo` | Vercel target-specific value |
+| `NEXT_PUBLIC_PRIVY_APP_ID` | Public | Privy / Product owner | `EGOG` (`cmrhtodio00xj0dla4952yo13`) | Same app | Google login enabled |
+| `PRIVY_APP_SECRET` | Secret | Privy / Infra | Vercel encrypted value | Vercel encrypted value | Value stored without documentation exposure |
+| `DATABASE_URL` | Secret | Supabase / Infra | `EGOG Dev` | `EGOG Demo` | Transaction pooler URL stored |
+| `DATABASE_DIRECT_URL` | Secret | Supabase / Infra | `EGOG Dev` | `EGOG Demo` | Direct migration URL stored |
+| `PINATA_JWT` | Secret | Pinata / Infra | `EGOG Dev` key | `EGOG Demo` key | Both tokens return HTTP 200 |
+| `NEXT_PUBLIC_PINATA_GATEWAY_URL` | Public | Pinata / Infra | `gateway.pinata.cloud/ipfs` | Same gateway | Public gateway selected |
+| `AWS_S3_BUCKET` | Server-only config | AWS / Infra | `egog-mvp-dev-200151116034` | `egog-mvp-demo-200151116034` | Private object write/read/delete passed |
+| `AWS_REGION` | Server-only config | AWS / Infra | `ap-northeast-2` | `ap-northeast-2` | Matches both buckets |
+| `AWS_ACCESS_KEY_ID` | Secret | AWS / Infra | `egog-mvp-s3` access key | Same least-privilege key | Account-wide bucket listing denied |
+| `AWS_SECRET_ACCESS_KEY` | Secret | AWS / Infra | `egog-mvp-s3` access key | Same least-privilege key | Never written to Git or this document |
+| `GIWA_RPC_URL` | Secret server config | GIWA RPC provider / Infra | `sepolia-rpc.giwa.io` | `sepolia-rpc.giwa.io` | Chain ID request succeeds |
 | `GIWA_CHAIN_ID` | Server-only config | GIWA / Infra | `91342` | `91342` | Chain ID matches RPC |
-| `PARTICIPATION_CONTRACT_ADDRESS` | Server-only config | Contract owner / Contract engineer | Record deployment | Record deployment | Contract bytecode exists |
-| `GIWA_RELAYER_PRIVATE_KEY` | Secret | Wallet owner / Infra | Record wallet address only | Record wallet address only | Relayer is funded |
-| `CRON_SECRET` | Secret | Infra | Record secret name | Record secret name | Unauthorized cron call rejected |
-| `NEXT_PUBLIC_GIWA_RPC_URL` | Public | GIWA RPC provider / Infra | Record endpoint name | Record endpoint name | Browser RPC request succeeds |
-| `NEXT_PUBLIC_GIWA_EXPLORER_URL` | Public | GIWA / Infra | Record explorer URL | Record explorer URL | Transaction link opens |
+| `PARTICIPATION_CONTRACT_ADDRESS` | Server-only config | Contract owner / Contract engineer | `0x4f0D8b9A1624177cF21373Ab184d053443489FD5` | `0xE97Cf932E2b8C87bEBAb27b8EcA8EFEc71F29E46` | Bytecode, roles, and active project verified |
+| `GIWA_RELAYER_PRIVATE_KEY` | Secret | Wallet owner / Infra | `0xc0f8380B4629B3142728F9755C784dA6b9B70881` | `0x5256FD2BB9d34d9a02103cb2AEC2458356aCED1a` | Each wallet funded with 0.05 test ETH |
+| `CRON_SECRET` | Secret | Infra | `EGOG Dev` generated secret | `EGOG A04 Demo CRON_SECRET` | Stored locally and in Vercel; endpoint test awaits route implementation |
+| `NEXT_PUBLIC_GIWA_RPC_URL` | Public | GIWA RPC provider / Infra | `https://sepolia-rpc.giwa.io` | Same endpoint | Browser/server RPC available |
+| `NEXT_PUBLIC_GIWA_EXPLORER_URL` | Public | GIWA / Infra | `https://sepolia-explorer.giwa.io` | Same explorer | Explorer opens |
 | `NEXT_PUBLIC_GIWA_CHAIN_ID` | Public | GIWA / Infra | `91342` | `91342` | Matches server chain ID |
-| `NEXT_PUBLIC_PARTICIPATION_CONTRACT_ADDRESS` | Public | Contract owner / Contract engineer | Record deployment | Record deployment | Matches server contract address |
+| `NEXT_PUBLIC_PARTICIPATION_CONTRACT_ADDRESS` | Public | Contract owner / Contract engineer | Dev contract above | Demo contract above | Matches server contract address in every Vercel target |
 
 ## Supabase connection policy
 
@@ -44,14 +44,23 @@
 
 | Resource | Owner | Dev evidence | Demo evidence | Verified at |
 | --- | --- | --- | --- | --- |
-| Privy app, Google login, allowed domains | Product owner + Infra | [ ] | [ ] | |
-| Supabase project and both connection URLs | Infra | [ ] | [ ] | |
-| Pinata public IPFS key and gateway | Infra | [ ] | [ ] | |
-| S3 private raw/backup storage and least-privilege credentials | Infra | [ ] | [ ] | |
-| GIWA Admin wallet, Relayer wallet, and test ETH | Contract owner + Infra | [ ] | [ ] | |
-| GIWA participation contract deployment | Contract engineer | [ ] | [ ] | |
-| Vercel project and separated environment settings | Infra | [ ] | [ ] | |
-| Google Stitch project and MCP access | Product designer | [ ] | [ ] | |
+| Privy app, Google login, allowed domains | Product owner + Infra | [x] `EGOG`, Google + embedded wallet, localhost | [~] Production origin added; exact Preview origin awaits deployment | 2026-07-12 KST |
+| Supabase project and both connection URLs | Infra | [x] `EGOG Dev` | [x] `EGOG Demo` | 2026-07-12 KST |
+| Pinata public IPFS key and gateway | Infra | [x] `EGOG Dev`, auth HTTP 200 | [x] `EGOG Demo`, auth HTTP 200 | 2026-07-12 KST |
+| S3 private raw/backup storage and least-privilege credentials | Infra | [x] Dev bucket smoke passed | [x] Demo bucket smoke passed | 2026-07-12 KST |
+| GIWA Admin wallet, Relayer wallet, and test ETH | Contract owner + Infra | [x] Admin/Relayer split, each funded | [x] Admin/Relayer split, each funded | 2026-07-12 KST |
+| GIWA participation contract deployment | Contract engineer | [x] Dev contract + Vietnam Brick active | [x] Demo contract + Vietnam Brick active | 2026-07-12 KST |
+| Vercel project and separated environment settings | Infra | [x] `egog-app-web`, Development/Preview use Dev resources | [x] Production uses Demo resources; all 20 variables configured | 2026-07-12 KST |
+| Google Stitch project and MCP access | Product designer | [x] `EGOG Climate Participation Portal`; `get_project` and `list_screens` passed | [x] API key stored in Codex config without repository exposure | 2026-07-12 KST |
+
+## GIWA deployment evidence
+
+| Environment | Deployment transaction | Project activation transaction | Block |
+| --- | --- | --- | --- |
+| Development | `0x3e1a19827ba949daf43629f7fdcb6ca71639fe69a464582c1f0aaf706c9642bb` | `0x9d58661e12633575cdf8c4579e617302cc7685a19a9bbf63bbb71424685c94e6` | `30522043` / `30522101` |
+| Demo | `0x0566ca1562728070306b6038c4e1cf36a7797df9a76b58c41eefd248ab404e88` | `0x23aa5b3bb63bdb74bfd086610bfb1237134142b3e49b8705385d665efcac5778` | `30522146` / `30522196` |
+
+Both deployments are on GIWA Sepolia (`chainId=91342`). The deploy script verifies contract bytecode, `DEFAULT_ADMIN_ROLE`, `RELAYER_ROLE`, and the active `vietnam-brick` project after one-block confirmation.
 
 ## Product blocking confirmations
 
