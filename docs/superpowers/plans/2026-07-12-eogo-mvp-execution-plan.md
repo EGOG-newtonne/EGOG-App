@@ -70,7 +70,7 @@
 
 ### Task A01: 저장소와 pnpm monorepo 초기화
 
-**Priority/Status:** P0 / COMPLETED  
+**Priority/Status:** P0 / COMPLETED
 **Owner:** Full-stack  
 **Depends on:** 없음
 
@@ -105,19 +105,22 @@ git status --short
 
 ### Task A02: 품질 게이트와 CI 기본선
 
-**Priority/Status:** P0 / BLOCKED BY A01  
+**Priority/Status:** P0 / COMPLETED
 **Owner:** Full-stack
 
 **Files:**
 - Create: `.github/workflows/ci.yml`
 - Create: `eslint.config.mjs`
 - Create: `tsconfig.base.json`
-- Create: `vitest.workspace.ts`
+- Create: `vitest.config.ts` with `web`, `server`, and `shared` projects
 
-- [ ] TypeScript strict mode, ESLint, Vitest를 workspace 공통 설정으로 고정한다.
-- [ ] CI에 install, lint, typecheck, unit test, contract test, build 순서를 설정한다.
-- [ ] secret이 없어도 pure unit/contract tests가 실행되도록 test boundary를 분리한다.
-- [ ] 실패하는 lint fixture를 만들어 CI가 실제 차단되는지 확인 후 fixture를 제거한다.
+- [x] TypeScript strict mode, ESLint, Vitest를 workspace 공통 설정으로 고정한다.
+- [x] CI에 install, lint, typecheck, unit test, contract test, build 순서를 설정한다.
+- [x] secret이 없어도 pure unit/contract tests가 실행되도록 test boundary를 분리한다.
+- [x] 실패하는 lint fixture를 만들어 CI가 실제 차단되는지 확인 후 fixture를 제거한다.
+
+Vitest 4의 `projects` 설정으로 unit tests를 `web`(jsdom), `server`(node),
+`shared`(node)로 분리한다. Solidity tests는 Hardhat 명령으로 별도 실행한다.
 
 **Verify:**
 
