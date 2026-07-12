@@ -1,0 +1,15 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+.next/
+.turbo/
+.omx/
+.worktrees/
+coverage/
+dist/
+node_modules/
+*.key
+*.pem
+*.p12
+*.tsbuildinfo
