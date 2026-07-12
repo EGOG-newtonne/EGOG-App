@@ -17,7 +17,7 @@ export default defineConfig({
       {
         test: {
           environment: "node",
-          include: ["apps/web/src/server/**/*.test.ts"],
+          include: ["apps/web/src/server/**/*.test.ts", "scripts/**/*.test.ts"],
           name: "server",
         },
       },
@@ -31,4 +31,3 @@ export default defineConfig({
     ],
   },
 });
-

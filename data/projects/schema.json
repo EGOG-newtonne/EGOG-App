@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://egog.app/schemas/project-seed.json",
+  "title": "EGOG Project Seed",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "projectId",
+    "slug",
+    "name",
+    "location",
+    "summary",
+    "status",
+    "heroImage",
+    "demonstrationNotice",
+    "currentVersion",
+    "snapshots"
+  ],
+  "properties": {
+    "projectId": { "$ref": "#/$defs/slug" },
+    "slug": { "$ref": "#/$defs/slug" },
+    "name": { "type": "string", "minLength": 1 },
+    "location": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["active", "coming_soon"] },
+    "heroImage": { "type": "string", "minLength": 1 },
+    "demonstrationNotice": { "type": "string", "minLength": 1 },
+    "currentVersion": { "type": ["integer", "null"], "minimum": 1 },
+    "snapshots": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/publicSnapshot" }
+    }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "decimal": {
+      "type": "string",
+      "pattern": "^(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$"
+    },
+    "utcTimestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "forecast": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value", "unit", "asOf", "basis"],
+          "properties": {
+            "type": { "const": "single" },
+            "value": { "$ref": "#/$defs/decimal" },
+            "unit": { "const": "tCO2e" },
+            "asOf": { "$ref": "#/$defs/utcTimestamp" },
+            "basis": { "type": "string", "minLength": 1, "maxLength": 500 }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "min", "max", "unit", "asOf", "basis"],
+          "properties": {
+            "type": { "const": "range" },
+            "min": { "$ref": "#/$defs/decimal" },
+            "max": { "$ref": "#/$defs/decimal" },
+            "unit": { "const": "tCO2e" },
+            "asOf": { "$ref": "#/$defs/utcTimestamp" },
+            "basis": { "type": "string", "minLength": 1, "maxLength": 500 }
+          }
+        }
+      ]
+    },
+    "publicSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "projectId",
+        "dataType",
+        "version",
+        "monitoringPeriod",
+        "monitoredReduction",
+        "projectProgress",
+        "forecastCreditVolume",
+        "targetIssuanceWindow",
+        "methodology",
+        "registry",
+        "verificationStage",
+        "verificationSourceStatus",
+        "measuredAt",
+        "publishedAt",
+        "sourceName",
+        "sourceVersion",
+        "verificationNote"
+      ],
+      "properties": {
+        "projectId": { "$ref": "#/$defs/slug" },
+        "dataType": { "enum": ["demonstration", "actual"] },
+        "version": { "type": "integer", "minimum": 1 },
+        "monitoringPeriod": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["start", "end"],
+          "properties": {
+            "start": { "type": "string", "format": "date" },
+            "end": { "type": "string", "format": "date" }
+          }
+        },
+        "monitoredReduction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "unit"],
+          "properties": {
+            "value": { "$ref": "#/$defs/decimal" },
+            "unit": { "const": "tCO2e" }
+          }
+        },
+        "projectProgress": {
+          "oneOf": [{ "$ref": "#/$defs/decimal" }, { "type": "null" }]
+        },
+        "forecastCreditVolume": {
+          "oneOf": [{ "$ref": "#/$defs/forecast" }, { "type": "null" }]
+        },
+        "targetIssuanceWindow": { "type": ["string", "null"], "maxLength": 100 },
+        "methodology": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "registry": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "verificationStage": {
+          "enum": ["PLANNING", "MONITORING", "VALIDATION", "VERIFICATION", "ISSUANCE_READY", "ISSUED"]
+        },
+        "verificationSourceStatus": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "measuredAt": { "$ref": "#/$defs/utcTimestamp" },
+        "publishedAt": { "$ref": "#/$defs/utcTimestamp" },
+        "sourceName": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "sourceVersion": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "verificationNote": { "type": "string", "minLength": 1, "maxLength": 500 }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "projectId": "jeju-erw-001",
+  "slug": "jeju-erw",
+  "name": "Jeju ERW Project",
+  "location": "Jeju, Republic of Korea",
+  "summary": "A future enhanced rock weathering program intended to surface transparent measurement and verification milestones.",
+  "status": "coming_soon",
+  "heroImage": "/images/jeju-erw.svg",
+  "demonstrationNotice": "Coming soon. No monitored or forecast project data is currently published.",
+  "currentVersion": null,
+  "snapshots": []
+}

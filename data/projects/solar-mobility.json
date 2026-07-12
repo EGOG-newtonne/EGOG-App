@@ -1,0 +1,12 @@
+{
+  "projectId": "solar-mobility-001",
+  "slug": "solar-mobility",
+  "name": "Solar Mobility Project",
+  "location": "Southeast Asia",
+  "summary": "A future clean-mobility monitoring program combining solar charging and electric transport data.",
+  "status": "coming_soon",
+  "heroImage": "/images/solar-mobility.svg",
+  "demonstrationNotice": "Coming soon. No monitored or forecast project data is currently published.",
+  "currentVersion": null,
+  "snapshots": []
+}

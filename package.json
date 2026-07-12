@@ -16,17 +16,31 @@
     "test:web": "vitest run --project web",
     "test:server": "vitest run --project server",
     "test:shared": "vitest run --project shared",
-    "test:contracts": "pnpm --filter @egog/contracts test"
+    "test:contracts": "pnpm --filter @egog/contracts test",
+    "db:generate": "pnpm --dir apps/web exec drizzle-kit generate",
+    "db:migrate": "pnpm --dir apps/web exec drizzle-kit migrate",
+    "seed:projects": "tsx scripts/seed-projects.ts",
+    "sync:onchain": "NODE_OPTIONS='--conditions=react-server' tsx scripts/sync-onchain.ts",
+    "verify:demo": "NODE_OPTIONS='--conditions=react-server' tsx scripts/verify-demo.ts"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@types/jsdom": "28.0.3",
+    "drizzle-orm": "0.45.2",
     "eslint": "10.7.0",
     "globals": "17.7.0",
     "jsdom": "29.1.1",
     "turbo": "2.10.4",
+    "tsx": "4.23.0",
     "typescript-eslint": "8.63.0",
     "typescript": "5.9.3",
     "vitest": "4.1.10"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss@<8.5.10": "8.5.17",
+      "uuid@<11.1.1": "11.1.1",
+      "ws@>=8.0.0 <8.21.0": "8.21.0"
+    }
   }
 }

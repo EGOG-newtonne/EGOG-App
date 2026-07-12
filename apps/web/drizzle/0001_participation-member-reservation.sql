@@ -1,0 +1,2 @@
+ALTER TABLE "projects" ADD COLUMN "badge_image_uri" text;--> statement-breakpoint
+ALTER TABLE "participation_requests" ADD CONSTRAINT "participation_requests_project_member_unique" UNIQUE("project_id","expected_member_number");

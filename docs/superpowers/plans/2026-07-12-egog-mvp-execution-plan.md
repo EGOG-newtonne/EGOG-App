@@ -14,7 +14,7 @@
 
 - 기준 문서: `/Users/jewel/Downloads/EGOG_MVP_Final_Scope_v1.0_2026-07-12.md`
 - 작업 디렉터리: `/Users/jewel/Desktop/Developement/egog`
-- 현재 상태: 애플리케이션 코드와 Git 저장소가 없는 빈 작업 디렉터리. `.omx/` 런타임 파일만 존재한다.
+- 현재 상태(2026-07-13): 핵심 애플리케이션, 컨트랙트, Dev/Demo 데이터·스토리지·체인 구성, 운영 스크립트가 구현되었다. 로컬 lint/typecheck/Vitest/Hardhat/build와 Demo 무결성 검증은 통과했다. Production 배포는 Vercel Hobby가 10분 Cron을 거절하여 요금제 또는 Cron 범위 결정만 대기 중이며, 실제 Production Google→GIWA E2E·팀 계정 pre-mint·영상은 배포 후 수행한다.
 - 목표일: 2026-07-31. 정확한 제출 시각은 외부 확인 Task로 관리한다.
 - Scope Freeze: 새 기능은 본 계획에 추가하지 않는다.
 - 임시 수정, mock API 대체, S3-only 발행, 수동 Stitch export 같은 fallback은 구현하지 않는다.

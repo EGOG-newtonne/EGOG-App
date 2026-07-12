@@ -36,9 +36,9 @@
 ## Supabase connection policy
 
 - `DATABASE_URL` is the Supavisor transaction pooler URL on port `6543`. It is used by the Vercel runtime and must not use prepared statements.
-- `DATABASE_DIRECT_URL` is the direct Postgres URL on port `5432`. It is used only for migrations and one-off administrative commands.
+- `DATABASE_DIRECT_URL` is a port-`5432` direct Postgres or Supavisor session URL. It is used only for migrations and one-off administrative commands; the session URL is required where the direct IPv6 endpoint is unreachable.
 - Create separate Supabase projects for Dev and Demo. Do not point both environments at the same database.
-- If the execution environment cannot reach the direct IPv6 endpoint, resolve the network requirement before running migrations. Do not substitute the runtime pooler for migration work.
+- Never use the port-`6543` transaction pooler for migrations. When direct IPv6 is unavailable, use the project's port-`5432` Supavisor session connection.
 
 ## External resource checklist
 
