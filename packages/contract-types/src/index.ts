@@ -1,6 +1,6 @@
 import { parseAbi, type Address } from "viem";
 
-export const contractTypesPackageName = "@eogo/contract-types";
+export const contractTypesPackageName = "@egog/contract-types";
 
 export const participationBadgeAbi = parseAbi([
   "error AccessControlUnauthorizedAccount(address account, bytes32 neededRole)",

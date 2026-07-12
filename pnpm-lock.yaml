@@ -79,7 +79,7 @@ importers:
 
   packages/contracts:
     dependencies:
-      '@eogo/shared':
+      '@egog/shared':
         specifier: workspace:*
         version: link:../shared
     devDependencies:

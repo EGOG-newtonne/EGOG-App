@@ -1,4 +1,4 @@
-export const sharedPackageName = "@eogo/shared";
+export const sharedPackageName = "@egog/shared";
 
 export { giwaTestnet } from "./chain/giwa.js";
 export {

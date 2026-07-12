@@ -44,7 +44,7 @@
 
 | Resource | Owner | Dev evidence | Demo evidence | Verified at |
 | --- | --- | --- | --- | --- |
-| Privy app, Google login, allowed domains | Product owner + Infra | [x] `EGOG`, Google + embedded wallet, localhost | [~] Production origin added; exact Preview origin awaits deployment | 2026-07-12 KST |
+| Privy app, Google login, allowed domains | Product owner + Infra | [x] `EGOG`, Google + embedded wallet, localhost | [x] Stable production origin `https://egog-app-web.vercel.app` added | 2026-07-12 KST |
 | Supabase project and both connection URLs | Infra | [x] `EGOG Dev` | [x] `EGOG Demo` | 2026-07-12 KST |
 | Pinata public IPFS key and gateway | Infra | [x] `EGOG Dev`, auth HTTP 200 | [x] `EGOG Demo`, auth HTTP 200 | 2026-07-12 KST |
 | S3 private raw/backup storage and least-privilege credentials | Infra | [x] Dev bucket smoke passed | [x] Demo bucket smoke passed | 2026-07-12 KST |
@@ -52,6 +52,19 @@
 | GIWA participation contract deployment | Contract engineer | [x] Dev contract + Vietnam Brick active | [x] Demo contract + Vietnam Brick active | 2026-07-12 KST |
 | Vercel project and separated environment settings | Infra | [x] `egog-app-web`, Development/Preview use Dev resources | [x] Production uses Demo resources; all 20 variables configured | 2026-07-12 KST |
 | Google Stitch project and MCP access | Product designer | [x] `EGOG Climate Participation Portal`; `get_project` and `list_screens` passed | [x] API key stored in Codex config without repository exposure | 2026-07-12 KST |
+
+## Vercel deployment evidence
+
+| Item | Evidence |
+| --- | --- |
+| Project | `jewelcoredots-projects/egog-app-web` |
+| Production deployment | `dpl_3xbAYyqmrEwwAa9WFySy54SeCsN7` |
+| Stable public URL | `https://egog-app-web.vercel.app` |
+| Immutable deployment URL | `https://egog-app-avi4il8j8-jewelcoredots-projects.vercel.app` |
+| Build result | `READY`; Vercel Node.js `24.13.1`; Next.js production build passed |
+| Public smoke test | HTTP `200`, HTML title `EGOG`, visible `EGOG` wordmark |
+
+The immutable deployment URL is protected by Vercel authentication and returns an SSO redirect. The stable public alias is the user-facing origin and the Privy allowed-domain entry.
 
 ## GIWA deployment evidence
 

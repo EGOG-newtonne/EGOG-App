@@ -1,4 +1,4 @@
-# EOGO MVP Execution Plan
+# EGOG MVP Execution Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -12,7 +12,7 @@
 
 ## 0. 현재 상태와 실행 원칙
 
-- 기준 문서: `/Users/jewel/Downloads/EOGO_MVP_Final_Scope_v1.0_2026-07-12.md`
+- 기준 문서: `/Users/jewel/Downloads/EGOG_MVP_Final_Scope_v1.0_2026-07-12.md`
 - 작업 디렉터리: `/Users/jewel/Desktop/Developement/egog`
 - 현재 상태: 애플리케이션 코드와 Git 저장소가 없는 빈 작업 디렉터리. `.omx/` 런타임 파일만 존재한다.
 - 목표일: 2026-07-31. 정확한 제출 시각은 외부 확인 Task로 관리한다.
@@ -184,14 +184,14 @@ pnpm build
 - Create: `packages/shared/src/index.ts`
 
 - [ ] GIWA Testnet chain ID, native currency, RPC/explorer 환경 경계를 정의한다.
-- [ ] `EOGO Participation` domain과 Participation message 타입을 단일 export로 만든다.
+- [ ] `EGOG Participation` domain과 Participation message 타입을 단일 export로 만든다.
 - [ ] participant, projectId, snapshotHash, snapshotVersion, snapshotURI, memberNumber, tokenURI, nonce, deadline 필드 순서를 고정한다.
 - [ ] 동일 입력 digest 일치, 한 필드 변경 시 digest 변경, Dev/Demo contract domain 분리 테스트를 작성한다.
 
 **Verify:**
 
 ```bash
-pnpm --filter @eogo/shared test -- participation.test.ts
+pnpm --filter @egog/shared test -- participation.test.ts
 ```
 
 **Done:** frontend, server, Hardhat test가 같은 typed-data builder를 import 가능.
@@ -237,8 +237,8 @@ pnpm --filter @eogo/shared test -- participation.test.ts
 **Verify:**
 
 ```bash
-pnpm --filter @eogo/contracts test
-pnpm --filter @eogo/contracts coverage
+pnpm --filter @egog/contracts test
+pnpm --filter @egog/contracts coverage
 ```
 
 **Done:** Scope 7.6의 모든 시나리오 자동 테스트 통과.
@@ -292,7 +292,7 @@ pnpm --filter @eogo/contracts coverage
 - Create: `docs/stitch/screen-map.md`
 - Create: `docs/stitch/design-tokens.md`
 
-- [ ] Stitch에 EOGO wordmark와 Modern Climate Technology 방향을 설정한다.
+- [ ] Stitch에 EGOG wordmark와 Modern Climate Technology 방향을 설정한다.
 - [ ] Vietnam Brick Project Detail Desktop 대표 화면을 생성한다.
 - [ ] Stitch MCP로 project/screen 정보를 실제 조회한다.
 - [ ] color, typography, spacing, radius, shadow, breakpoint token을 문서화한다.
@@ -589,7 +589,7 @@ pnpm --filter @eogo/contracts coverage
 - Create: `apps/web/src/components/layout/`
 
 - [ ] Stitch MCP의 승인 token만 CSS variable/component variant로 변환한다.
-- [ ] EOGO wordmark, white/charcoal, green/blue accent, typography, spacing을 적용한다.
+- [ ] EGOG wordmark, white/charcoal, green/blue accent, typography, spacing을 적용한다.
 - [ ] 공용 card, badge, button, disclosure, timeline, status component를 만든다.
 - [ ] dark mode와 임의 shadcn 기본 테마를 추가하지 않는다.
 

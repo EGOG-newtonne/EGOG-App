@@ -6,7 +6,7 @@ import { parseServerEnvironment } from "../env/env.server.schema";
 const validServerEnvironment = {
   AWS_ACCESS_KEY_ID: "AKIAIOSFODNN7EXAMPLE",
   AWS_REGION: "ap-northeast-2",
-  AWS_S3_BUCKET: "eogo-dev-private-data",
+  AWS_S3_BUCKET: "egog-dev-private-data",
   AWS_SECRET_ACCESS_KEY: "example-secret-access-key-with-32-chars",
   CRON_SECRET: "example-cron-secret-with-at-least-32-characters",
   DATABASE_DIRECT_URL: "postgresql://postgres:password@db.example.com:5432/postgres",
@@ -25,7 +25,7 @@ const validClientEnvironment = {
   NEXT_PUBLIC_GIWA_EXPLORER_URL: "https://explorer.example.com",
   NEXT_PUBLIC_GIWA_RPC_URL: "https://rpc.example.com",
   NEXT_PUBLIC_PARTICIPATION_CONTRACT_ADDRESS: `0x${"2".repeat(40)}`,
-  NEXT_PUBLIC_PINATA_GATEWAY_URL: "https://eogo.mypinata.cloud",
+  NEXT_PUBLIC_PINATA_GATEWAY_URL: "https://egog.mypinata.cloud",
   NEXT_PUBLIC_PRIVY_APP_ID: "example-privy-app-id",
 };
 

@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
 import { anyValue } from "@nomicfoundation/hardhat-viem-assertions/predicates";
-import { buildParticipationTypedData } from "@eogo/shared";
+import { buildParticipationTypedData } from "@egog/shared";
 import { network } from "hardhat";
 import { getAddress, keccak256, stringToBytes, type Address, type Hex } from "viem";
 

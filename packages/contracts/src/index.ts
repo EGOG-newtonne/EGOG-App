@@ -1,2 +1,1 @@
-export const contractsPackageName = "@eogo/contracts";
-
+export const contractsPackageName = "@egog/contracts";

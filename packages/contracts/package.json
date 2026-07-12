@@ -1,5 +1,5 @@
 {
-  "name": "@eogo/contracts",
+  "name": "@egog/contracts",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -14,7 +14,7 @@
     "coverage": "hardhat test --coverage",
     "deploy:giwa": "hardhat --network giwaSepolia --build-profile production run scripts/deploy.ts",
     "lint": "eslint src test hardhat.config.ts --max-warnings 0",
-    "pretest": "pnpm --filter @eogo/shared build",
+    "pretest": "pnpm --filter @egog/shared build",
     "test": "hardhat test",
     "typecheck": "hardhat build && tsc -p tsconfig.json --noEmit"
   },
@@ -27,6 +27,6 @@
     "typescript": "5.9.3"
   },
   "dependencies": {
-    "@eogo/shared": "workspace:*"
+    "@egog/shared": "workspace:*"
   }
 }
