@@ -41,6 +41,41 @@ describe("demonstration project seed fixtures", () => {
     }
   });
 
+  it("keeps Vietnam snapshot chronology natural before the demo launch", () => {
+    const project = load("vietnam-brick");
+    const launchBoundary = Date.parse("2026-07-13T00:00:00.000Z");
+
+    expect(project.snapshots.map((snapshot) => snapshot.version)).toEqual([1, 2, 3]);
+
+    for (const [index, snapshot] of project.snapshots.entries()) {
+      const measuredAt = Date.parse(snapshot.measuredAt);
+      const publishedAt = Date.parse(snapshot.publishedAt);
+      const monitoringEnd = Date.parse(`${snapshot.monitoringPeriod.end}T00:00:00.000Z`);
+      expect(snapshot.forecastCreditVolume).not.toBeNull();
+      if (snapshot.forecastCreditVolume === null) {
+        throw new Error(`Vietnam Snapshot v${snapshot.version} needs a forecast date`);
+      }
+      const forecastAsOf = Date.parse(snapshot.forecastCreditVolume.asOf);
+
+      expect(monitoringEnd).toBeLessThanOrEqual(measuredAt);
+      expect(forecastAsOf).toBeLessThanOrEqual(publishedAt);
+      expect(measuredAt).toBeLessThanOrEqual(publishedAt);
+      expect(publishedAt).toBeLessThan(launchBoundary);
+
+      if (index > 0) {
+        const previous = project.snapshots[index - 1];
+        if (previous === undefined) throw new Error("Previous Snapshot is missing");
+        expect(Date.parse(previous.measuredAt)).toBeLessThan(measuredAt);
+        expect(Date.parse(previous.publishedAt)).toBeLessThan(publishedAt);
+      }
+    }
+
+    expect(project.snapshots[2]).toMatchObject({
+      measuredAt: "2026-07-12T00:00:00.000Z",
+      publishedAt: "2026-07-12T09:00:00.000Z",
+    });
+  });
+
   it("keeps Solar Mobility and Jeju ERW non-participating", () => {
     for (const slug of ["solar-mobility", "jeju-erw"]) {
       const project = load(slug);

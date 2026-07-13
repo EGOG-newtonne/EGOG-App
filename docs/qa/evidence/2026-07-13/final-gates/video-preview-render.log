@@ -1,0 +1,7 @@
+Command: pnpm --dir docs/demo-video/remotion render:preview
+Composition: EGOGDemo
+Frames: 3450
+Codec: h264
+Scale: 0.5
+Output: docs/demo-video/remotion/out/egog-demo-preview.mp4
+Result: PASS

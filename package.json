@@ -19,9 +19,15 @@
     "test:contracts": "pnpm --filter @egog/contracts test",
     "db:generate": "pnpm --dir apps/web exec drizzle-kit generate",
     "db:migrate": "pnpm --dir apps/web exec drizzle-kit migrate",
+    "db:baseline": "NODE_OPTIONS='--conditions=react-server' tsx scripts/baseline-drizzle-migrations.ts",
     "seed:projects": "tsx scripts/seed-projects.ts",
     "sync:onchain": "NODE_OPTIONS='--conditions=react-server' tsx scripts/sync-onchain.ts",
-    "verify:demo": "NODE_OPTIONS='--conditions=react-server' tsx scripts/verify-demo.ts"
+    "verify:demo": "NODE_OPTIONS='--conditions=react-server' tsx scripts/verify-demo.ts",
+    "verify:participation-event": "pnpm --dir apps/web exec tsx scripts/decode-participation-event.ts",
+    "video:assets": "pnpm --filter @egog/demo-video assets",
+    "video:preview": "pnpm --filter @egog/demo-video preview",
+    "video:render-preview": "pnpm --filter @egog/demo-video render:preview",
+    "video:render": "pnpm --filter @egog/demo-video render"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
@@ -38,6 +44,8 @@
   },
   "pnpm": {
     "overrides": {
+      "@actions/http-client@2.2.3>undici": "6.27.0",
+      "@nomicfoundation/ignition-core@3.1.8>lodash-es": "4.18.1",
       "postcss@<8.5.10": "8.5.17",
       "uuid@<11.1.1": "11.1.1",
       "ws@>=8.0.0 <8.21.0": "8.21.0"

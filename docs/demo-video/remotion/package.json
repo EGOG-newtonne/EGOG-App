@@ -1,0 +1,25 @@
+{
+  "name": "@egog/demo-video",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "assets": "node scripts/prepare-assets.mjs",
+    "preview": "pnpm assets && remotion studio src/index.ts",
+    "render:preview": "pnpm assets && remotion render src/index.ts EGOGDemo out/egog-demo-preview.mp4 --codec=h264 --pixel-format=yuv420p --scale=0.5 --crf=23",
+    "render": "pnpm assets && remotion render src/index.ts EGOGDemo out/egog-demo-1080p.mp4 --codec=h264 --pixel-format=yuv420p",
+    "still": "pnpm assets && remotion still src/index.ts EGOGDemo out/review-still.png --frame=2220",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.489",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "remotion": "4.0.489",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}

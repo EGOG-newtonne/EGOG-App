@@ -10,6 +10,8 @@ import {
   type Hex,
 } from "viem";
 
+import { resolveDeploymentTarget } from "../src/deployment-target.js";
+
 const CHAIN_ID = 91_342;
 const PROJECT_SLUG = "vietnam-brick";
 
@@ -44,10 +46,16 @@ const expectedAdmin = requireAddress("GIWA_ADMIN_ADDRESS");
 const relayerAddress = requireAddress("GIWA_RELAYER_ADDRESS");
 const existingContractAddress = process.env.PARTICIPATION_CONTRACT_ADDRESS;
 
-const { viem } = await network.create({
-  network: "giwaSepolia",
-  chainType: "op",
-});
+const deploymentTarget = resolveDeploymentTarget(
+  process.env.DEPLOYMENT_NETWORK,
+);
+
+const { viem } = deploymentTarget.dryRun
+  ? await network.create("hardhatMainnet")
+  : await network.create({
+      network: "giwaSepolia",
+      chainType: "op",
+    });
 const publicClient = await viem.getPublicClient();
 const [adminClient] = await viem.getWalletClients();
 
@@ -168,6 +176,8 @@ if (!Object.values(verification).every(Boolean)) {
 console.log(
   `DEPLOYMENT_RESULT=${JSON.stringify({
     environment: deploymentEnvironment,
+    network: deploymentTarget.network,
+    dryRun: deploymentTarget.dryRun,
     chainId,
     contractAddress,
     deploymentTransactionHash,

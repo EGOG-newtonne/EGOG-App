@@ -19,6 +19,9 @@ export async function POST(request: Request) {
     return NextResponse.json(result);
   } catch (error) {
     const code = error instanceof Error ? error.message : "PARTICIPATION_SUBMISSION_FAILED";
-    return NextResponse.json({ error: code }, { status: 400 });
+    return NextResponse.json(
+      { error: code },
+      { status: code.includes("RATE_LIMIT") ? 429 : 400 },
+    );
   }
 }

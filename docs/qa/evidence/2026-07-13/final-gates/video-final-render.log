@@ -1,0 +1,8 @@
+Command: pnpm --dir docs/demo-video/remotion render
+Composition: EGOGDemo
+Frames: 3450
+Codec: h264
+Pixel format requested: yuv420p
+Output: docs/demo-video/remotion/out/egog-demo-1080p.mp4
+Result: PASS
+Rendered size: 40.3 MB

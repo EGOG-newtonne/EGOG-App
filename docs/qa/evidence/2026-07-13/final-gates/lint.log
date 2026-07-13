@@ -1,0 +1,3 @@
+
+> egog-mvp@0.1.0 lint /Users/jewel/Desktop/Developement/egog
+> eslint . --max-warnings 0

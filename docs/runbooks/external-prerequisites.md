@@ -15,8 +15,8 @@
 | `NEXT_PUBLIC_APP_ENV` | Public | Infra | `dev` | `demo` | Vercel target-specific value |
 | `NEXT_PUBLIC_PRIVY_APP_ID` | Public | Privy / Product owner | `EGOG` (`cmrhtodio00xj0dla4952yo13`) | Same app | Google login enabled |
 | `PRIVY_APP_SECRET` | Secret | Privy / Infra | Vercel encrypted value | Vercel encrypted value | Value stored without documentation exposure |
-| `DATABASE_URL` | Secret | Supabase / Infra | `EGOG Dev` | `EGOG Demo` | Transaction pooler URL stored |
-| `DATABASE_DIRECT_URL` | Secret | Supabase / Infra | `EGOG Dev` | `EGOG Demo` | Direct migration URL stored |
+| `DATABASE_URL` | Secret | Supabase / Infra | `EGOG Dev` | `EGOG Demo` (`zxruwjprnubdgiqmsnzi`) | Transaction pooler URL stored |
+| `DATABASE_DIRECT_URL` | Secret | Supabase / Infra | `EGOG Dev` | `EGOG Demo` (`zxruwjprnubdgiqmsnzi`) | Direct migration URL stored |
 | `PINATA_JWT` | Secret | Pinata / Infra | `EGOG Dev` key | `EGOG Demo` key | Both tokens return HTTP 200 |
 | `NEXT_PUBLIC_PINATA_GATEWAY_URL` | Public | Pinata / Infra | `gateway.pinata.cloud/ipfs` | Same gateway | Public gateway selected |
 | `AWS_S3_BUCKET` | Server-only config | AWS / Infra | `egog-mvp-dev-200151116034` | `egog-mvp-demo-200151116034` | Private object write/read/delete passed |
@@ -25,7 +25,7 @@
 | `AWS_SECRET_ACCESS_KEY` | Secret | AWS / Infra | `egog-mvp-s3` access key | Same least-privilege key | Never written to Git or this document |
 | `GIWA_RPC_URL` | Secret server config | GIWA RPC provider / Infra | `sepolia-rpc.giwa.io` | `sepolia-rpc.giwa.io` | Chain ID request succeeds |
 | `GIWA_CHAIN_ID` | Server-only config | GIWA / Infra | `91342` | `91342` | Chain ID matches RPC |
-| `PARTICIPATION_CONTRACT_ADDRESS` | Server-only config | Contract owner / Contract engineer | `0x4f0D8b9A1624177cF21373Ab184d053443489FD5` | `0xE97Cf932E2b8C87bEBAb27b8EcA8EFEc71F29E46` | Bytecode, roles, and active project verified |
+| `PARTICIPATION_CONTRACT_ADDRESS` | Server-only config | Contract owner / Contract engineer | `0x4f0D8b9A1624177cF21373Ab184d053443489FD5` | `0xf06aDA399160D208D3629EBeEAAF628266BE23A6` | Bytecode, roles, and active project verified |
 | `GIWA_RELAYER_PRIVATE_KEY` | Secret | Wallet owner / Infra | `0xc0f8380B4629B3142728F9755C784dA6b9B70881` | `0x5256FD2BB9d34d9a02103cb2AEC2458356aCED1a` | Each wallet funded with 0.05 test ETH |
 | `ONCHAIN_SYNC_SECRET` | Secret | Infra | Vercel Development value | Same value in Vercel Production and Supabase Demo Vault | Missing/invalid Bearer is HTTP 401; valid Production and Supabase `pg_net` calls are HTTP 200 |
 | `NEXT_PUBLIC_GIWA_RPC_URL` | Public | GIWA RPC provider / Infra | `https://sepolia-rpc.giwa.io` | Same endpoint | Browser/server RPC available |

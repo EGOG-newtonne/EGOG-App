@@ -1,0 +1,46 @@
+
+> @egog/contracts@0.1.0 coverage /Users/jewel/Desktop/Developement/egog/packages/contracts
+> hardhat test --coverage
+
+
+Compiled 2 Solidity files with solc 0.8.28 (evm target: cancun)
+
+Running Solidity tests
+
+
+Running node:test tests
+
+  ParticipationBadge
+    ✔ runs contract tests with the GIWA Sepolia chain id
+    ✔ mints a locked badge and records every participation field
+    ✔ rejects a replayed nonce
+    ✔ rejects an expired signature
+    ✔ rejects a signature from a wallet other than participant
+    ✔ rejects tampering with signed snapshot and metadata fields
+    ✔ allows only the registered relayer to submit
+    ✔ allows only admin configuration and blocks joins while paused
+    ✔ rejects duplicate participation with a fresh nonce
+    ✔ enforces project-specific sequential member numbers
+    ✔ blocks all ERC-721 transfer and approval paths and exposes ERC-5192
+
+  deployment target
+    ✔ keeps GIWA Sepolia as the default deployment target
+    ✔ allows an explicit isolated Hardhat deployment dry-run
+    ✔ rejects unknown deployment targets
+
+
+14 passing (14 nodejs)
+
+Saved html report to /Users/jewel/Desktop/Developement/egog/packages/contracts/coverage/html
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                              Coverage Report                              ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ File Coverage                                                             ║
+╟──────────────────────────────────┬────────┬─────────────┬─────────────────╢
+║ File Path                        │ Line % │ Statement % │ Uncovered Lines ║
+╟──────────────────────────────────┼────────┼─────────────┼─────────────────╢
+║ contracts/ParticipationBadge.sol │ 93.94  │ 91.11       │ 65, 80, 95-96   ║
+╟──────────────────────────────────┼────────┼─────────────┼─────────────────╢
+║ Total                            │ 93.94  │ 91.11       │                 ║
+╚══════════════════════════════════╧════════╧═════════════╧═════════════════╝

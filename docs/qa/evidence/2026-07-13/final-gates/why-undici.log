@@ -1,0 +1,7 @@
+undici@7.28.0
+└─┬ jsdom@29.1.1
+  ├── egog-mvp@0.1.0 (devDependencies)
+  └─┬ vitest@4.1.10
+    └── egog-mvp@0.1.0 (devDependencies)
+
+Found 1 version of undici

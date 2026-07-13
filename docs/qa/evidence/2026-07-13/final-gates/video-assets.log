@@ -1,0 +1,7 @@
+
+> egog-mvp@0.1.0 video:assets /Users/jewel/Desktop/Developement/egog
+> pnpm --filter @egog/demo-video assets
+
+
+> @egog/demo-video@0.1.0 assets /Users/jewel/Desktop/Developement/egog/docs/demo-video/remotion
+> node scripts/prepare-assets.mjs

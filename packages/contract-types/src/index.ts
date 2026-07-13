@@ -24,5 +24,5 @@ export const participationBadgeAbi = parseAbi([
 
 export const participationBadgeAddresses = {
   development: "0x4f0D8b9A1624177cF21373Ab184d053443489FD5",
-  demo: "0xE97Cf932E2b8C87bEBAb27b8EcA8EFEc71F29E46",
+  demo: "0xf06aDA399160D208D3629EBeEAAF628266BE23A6",
 } as const satisfies Record<"development" | "demo", Address>;

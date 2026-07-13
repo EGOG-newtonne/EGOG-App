@@ -1,0 +1,8 @@
+
+> @egog/contracts@0.1.0 deploy:dry-run /Users/jewel/Desktop/Developement/egog/packages/contracts
+> DEPLOYMENT_ENV=development DEPLOYMENT_NETWORK=hardhatMainnet GIWA_ADMIN_ADDRESS=0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266 GIWA_RELAYER_ADDRESS=0x70997970c51812dc3a010c7d01b50e0d17dc79c8 PARTICIPATION_CONTRACT_ADDRESS= DEPLOYMENT_TRANSACTION_HASH= ACTIVATION_TRANSACTION_HASH= hardhat --network hardhatMainnet --build-profile production run scripts/deploy.ts
+
+
+
+
+DEPLOYMENT_RESULT={"environment":"development","network":"hardhatMainnet","dryRun":true,"chainId":91342,"contractAddress":"0x5FbDB2315678afecb367f032d93F642f64180aa3","deploymentTransactionHash":"0x45b53c8aeb3dcebd9373cf9879a5ab0326a345a6545b1f2934be6b97018f2274","deploymentBlockNumber":"1","projectId":"0x1e7fc9065358e5dc6efa1097f171dcee735339d3ac39c01184dd238549741fe1","activationTransactionHash":"0x954e34a7b77d0dbd8de0ab0420499bb750df6d90bd638831dffe42c04b5704e1","activationBlockNumber":"2","adminAddress":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","relayerAddress":"0x70997970C51812dc3A010C7d01b50e0d17dc79C8"}

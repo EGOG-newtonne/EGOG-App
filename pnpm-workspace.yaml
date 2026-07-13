@@ -1,6 +1,7 @@
 packages:
   - apps/*
   - packages/*
+  - docs/demo-video/remotion
 
 onlyBuiltDependencies:
   - sharp

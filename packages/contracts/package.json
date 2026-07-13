@@ -12,6 +12,7 @@
   "scripts": {
     "build": "hardhat build --build-profile production && tsc -p tsconfig.json",
     "coverage": "hardhat test --coverage",
+    "deploy:dry-run": "DEPLOYMENT_ENV=development DEPLOYMENT_NETWORK=hardhatMainnet GIWA_ADMIN_ADDRESS=0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266 GIWA_RELAYER_ADDRESS=0x70997970c51812dc3a010c7d01b50e0d17dc79c8 PARTICIPATION_CONTRACT_ADDRESS= DEPLOYMENT_TRANSACTION_HASH= ACTIVATION_TRANSACTION_HASH= hardhat --network hardhatMainnet --build-profile production run scripts/deploy.ts",
     "deploy:giwa": "hardhat --network giwaSepolia --build-profile production run scripts/deploy.ts",
     "lint": "eslint src test hardhat.config.ts --max-warnings 0",
     "pretest": "pnpm --filter @egog/shared build",

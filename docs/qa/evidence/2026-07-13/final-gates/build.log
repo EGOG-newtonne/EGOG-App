@@ -1,0 +1,79 @@
+
+> egog-mvp@0.1.0 build /Users/jewel/Desktop/Developement/egog
+> turbo run build
+
+• turbo 2.10.4
+
+   • Packages in scope: @egog/contract-types, @egog/contracts, @egog/demo-video, @egog/shared, @egog/web
+   • Running build in 5 packages
+   • Remote caching disabled
+
+@egog/contract-types:build: cache hit, replaying logs 592e5752dd88734e
+@egog/contract-types:build:  WARN  using --force I sure hope you know what you are doing
+@egog/contract-types:build:
+@egog/contract-types:build: > @egog/contract-types@0.1.0 build /Users/jewel/Desktop/Developement/egog/packages/contract-types
+@egog/contract-types:build: > tsc -p tsconfig.json
+@egog/contract-types:build:
+@egog/shared:build: cache hit, replaying logs b8c6055da6032da4
+@egog/shared:build:  WARN  using --force I sure hope you know what you are doing
+@egog/shared:build:
+@egog/shared:build: > @egog/shared@0.1.0 build /Users/jewel/Desktop/Developement/egog/packages/shared
+@egog/shared:build: > tsc -p tsconfig.json
+@egog/shared:build:
+@egog/web:build: cache miss, executing 73d743a02bd92823
+@egog/contracts:build: cache hit, replaying logs 5e237521004aeeb8
+@egog/contracts:build:  WARN  using --force I sure hope you know what you are doing
+@egog/contracts:build:
+@egog/contracts:build: > @egog/contracts@0.1.0 build /Users/jewel/Desktop/Developement/egog/packages/contracts
+@egog/contracts:build: > hardhat build --build-profile production && tsc -p tsconfig.json
+@egog/contracts:build:
+@egog/contracts:build:
+@egog/contracts:build:
+@egog/contracts:build: Compiled 2 Solidity files with solc 0.8.28 (evm target: cancun)
+@egog/web:build:
+@egog/web:build: > @egog/web@0.1.0 build /Users/jewel/Desktop/Developement/egog/apps/web
+@egog/web:build: > next build
+@egog/web:build:
+@egog/web:build: ▲ Next.js 16.2.10 (Turbopack)
+@egog/web:build: - Environments: .env.local
+@egog/web:build:
+@egog/web:build:   Creating an optimized production build ...
+@egog/web:build: ✓ Compiled successfully in 8.5s
+@egog/web:build:   Running TypeScript ...
+@egog/web:build:   Finished TypeScript in 7.8s ...
+@egog/web:build:   Collecting page data using 9 workers ...
+@egog/web:build:   Generating static pages using 9 workers (0/14) ...
+@egog/web:build:   Generating static pages using 9 workers (3/14)
+@egog/web:build:   Generating static pages using 9 workers (6/14)
+@egog/web:build:   Generating static pages using 9 workers (10/14)
+@egog/web:build: ✓ Generating static pages using 9 workers (14/14) in 399ms
+@egog/web:build:   Finalizing page optimization ...
+@egog/web:build:
+@egog/web:build: Route (app)
+@egog/web:build: ┌ ƒ /
+@egog/web:build: ├ ○ /_not-found
+@egog/web:build: ├ ƒ /api/cron/sync-onchain
+@egog/web:build: ├ ƒ /api/me
+@egog/web:build: ├ ƒ /api/me/participations
+@egog/web:build: ├ ƒ /api/me/preferences
+@egog/web:build: ├ ƒ /api/participations/[id]
+@egog/web:build: ├ ƒ /api/participations/challenge
+@egog/web:build: ├ ƒ /api/participations/submit
+@egog/web:build: ├ ƒ /api/projects
+@egog/web:build: ├ ƒ /api/projects/[slug]
+@egog/web:build: ├ ƒ /api/users/me
+@egog/web:build: ├ ƒ /api/users/session
+@egog/web:build: ├ ○ /me
+@egog/web:build: ├ ƒ /participate/[slug]
+@egog/web:build: ├ ○ /privacy
+@egog/web:build: ├ ƒ /projects/[slug]
+@egog/web:build: └ ○ /terms
+@egog/web:build:
+@egog/web:build:
+@egog/web:build: ○  (Static)   prerendered as static content
+@egog/web:build: ƒ  (Dynamic)  server-rendered on demand
+@egog/web:build:
+
+ Tasks:    4 successful, 4 total
+Cached:    3 cached, 4 total
+  Time:    19.378s

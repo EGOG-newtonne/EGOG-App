@@ -1,0 +1,12 @@
+
+> egog-mvp@0.1.0 test /Users/jewel/Desktop/Developement/egog
+> vitest run
+
+
+ RUN  v4.1.10 /Users/jewel/Desktop/Developement/egog
+
+
+ Test Files  27 passed (27)
+      Tests  93 passed (93)
+   Start at  16:47:27
+   Duration  2.89s (transform 1.08s, setup 0ms, import 6.95s, tests 862ms, environment 7.26s)

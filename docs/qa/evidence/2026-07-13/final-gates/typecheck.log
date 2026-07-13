@@ -1,0 +1,45 @@
+
+> egog-mvp@0.1.0 typecheck /Users/jewel/Desktop/Developement/egog
+> turbo run typecheck
+
+• turbo 2.10.4
+
+   • Packages in scope: @egog/contract-types, @egog/contracts, @egog/demo-video, @egog/shared, @egog/web
+   • Running typecheck in 5 packages
+   • Remote caching disabled
+
+@egog/shared:typecheck: cache hit, replaying logs 653b14ea96cb7181
+@egog/contract-types:typecheck: cache hit, replaying logs 75a5fe903f2dafa9
+@egog/demo-video:typecheck: cache hit, replaying logs ff2f1bd41761beeb
+@egog/shared:typecheck:  WARN  using --force I sure hope you know what you are doing
+@egog/shared:typecheck:
+@egog/shared:typecheck: > @egog/shared@0.1.0 typecheck /Users/jewel/Desktop/Developement/egog/packages/shared
+@egog/contract-types:typecheck:  WARN  using --force I sure hope you know what you are doing
+@egog/contract-types:typecheck:
+@egog/contract-types:typecheck: > @egog/contract-types@0.1.0 typecheck /Users/jewel/Desktop/Developement/egog/packages/contract-types
+@egog/shared:typecheck: > tsc -p tsconfig.json --noEmit
+@egog/shared:typecheck:
+@egog/contract-types:typecheck: > tsc -p tsconfig.json --noEmit
+@egog/contract-types:typecheck:
+@egog/demo-video:typecheck:  WARN  using --force I sure hope you know what you are doing
+@egog/demo-video:typecheck:
+@egog/demo-video:typecheck: > @egog/demo-video@0.1.0 typecheck /Users/jewel/Desktop/Developement/egog/docs/demo-video/remotion
+@egog/demo-video:typecheck: > tsc --noEmit
+@egog/demo-video:typecheck:
+@egog/contracts:typecheck: cache hit, replaying logs ce82aa21aa0b0e04
+@egog/contracts:typecheck:  WARN  using --force I sure hope you know what you are doing
+@egog/contracts:typecheck:
+@egog/contracts:typecheck: > @egog/contracts@0.1.0 typecheck /Users/jewel/Desktop/Developement/egog/packages/contracts
+@egog/contracts:typecheck: > hardhat build && tsc -p tsconfig.json --noEmit
+@egog/contracts:typecheck:
+@egog/contracts:typecheck:
+@egog/contracts:typecheck: Compiled 2 Solidity files with solc 0.8.28 (evm target: cancun)
+@egog/web:typecheck: cache hit, replaying logs fbcef18f0e7b1a69
+@egog/web:typecheck:
+@egog/web:typecheck: > @egog/web@0.1.0 typecheck /Users/jewel/Desktop/Developement/egog/apps/web
+@egog/web:typecheck: > tsc --noEmit
+@egog/web:typecheck:
+
+ Tasks:    5 successful, 5 total
+Cached:    5 cached, 5 total
+  Time:    20ms >>> FULL TURBO

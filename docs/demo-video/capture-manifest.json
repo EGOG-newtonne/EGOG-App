@@ -1,0 +1,20 @@
+{
+  "capturedAt": "2026-07-13T09:11:44Z",
+  "productionOrigin": "https://egog-app-web.vercel.app",
+  "deploymentId": "dpl_AHFHo5ScjkNMka78GU4fKJ5WaLkV",
+  "contractAddress": "0xf06aDA399160D208D3629EBeEAAF628266BE23A6",
+  "viewport": "2304x1089 at devicePixelRatio 2",
+  "privacyReviewed": true,
+  "captures": [
+    {"name":"project-discovery","source":"../qa/evidence/2026-07-13/final-video-v3/01-project-discovery-count-7.png","url":"https://egog-app-web.vercel.app/","privacyReviewed":true},
+    {"name":"project-detail","source":"../qa/evidence/2026-07-13/final-video-v3/11-project-detail-count-7.png","url":"https://egog-app-web.vercel.app/projects/vietnam-brick","privacyReviewed":true},
+    {"name":"consent","source":"../qa/evidence/2026-07-13/final-video-v3/03-consent-checked-7.png","url":"https://egog-app-web.vercel.app/participate/vietnam-brick","privacyReviewed":true},
+    {"name":"signature","source":"../qa/evidence/2026-07-13/final-video-v3/04-signature-state-7.png","url":"https://egog-app-web.vercel.app/participate/vietnam-brick","privacyReviewed":true},
+    {"name":"confirming","source":"../qa/evidence/2026-07-13/final-video-v3/05-confirming-7.png","url":"https://egog-app-web.vercel.app/participate/vietnam-brick","privacyReviewed":true},
+    {"name":"completion","source":"../qa/evidence/2026-07-13/final-video-v3/06-participation-complete-7.png","url":"https://egog-app-web.vercel.app/participate/vietnam-brick","privacyReviewed":true},
+    {"name":"giwa-transaction","source":"../qa/evidence/2026-07-13/final-video-v3/08-giwa-transaction-7.png","url":"https://sepolia-explorer.giwa.io/tx/0x305d60419871d9b7ab2e133a5bd5541cc90485b7b2fa6db202ead4434152457c","privacyReviewed":true},
+    {"name":"giwa-event-logs","source":"../qa/evidence/2026-07-13/final-video-v3/09-giwa-event-logs-7.png","url":"https://sepolia-explorer.giwa.io/tx/0x305d60419871d9b7ab2e133a5bd5541cc90485b7b2fa6db202ead4434152457c?tab=logs","privacyReviewed":true},
+    {"name":"snapshot-json","source":"../qa/evidence/2026-07-13/final-video-v3/10-ipfs-snapshot-v3.png","url":"https://gateway.pinata.cloud/ipfs/bafkreida2iinclg7drtcqkpu7e67w5leo747d5jsiguukbacg3b5mmygba","privacyReviewed":true},
+    {"name":"my-page","source":"../qa/evidence/2026-07-13/final-video-v3/07-my-participation-7.png","url":"https://egog-app-web.vercel.app/me","privacyReviewed":true}
+  ]
+}

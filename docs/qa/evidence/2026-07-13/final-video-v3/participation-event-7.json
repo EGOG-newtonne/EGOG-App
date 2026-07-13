@@ -1,0 +1,16 @@
+{
+  "participantWallet": "0x1AB0ab3A3A43956C501929F808dd5e220dd04721",
+  "projectId": "0x1e7fc9065358e5dc6efa1097f171dcee735339d3ac39c01184dd238549741fe1",
+  "tokenId": "7",
+  "memberNumber": "7",
+  "snapshotHash": "0xb984ab96e9f8a4e869f717b0a72b350ba0f933c41f4f2bb7ba6ca242c379bb66",
+  "snapshotVersion": "3",
+  "snapshotUri": "ipfs://bafkreida2iinclg7drtcqkpu7e67w5leo747d5jsiguukbacg3b5mmygba",
+  "tokenUri": "ipfs://bafkreichbn7c66wliymqiujvzrabbxdjfbztoqgr7dzg2bks2tflu4tbzm",
+  "joinedAt": "2026-07-13T09:11:44.000Z",
+  "transactionHash": "0x305d60419871d9b7ab2e133a5bd5541cc90485b7b2fa6db202ead4434152457c",
+  "blockNumber": 30588788,
+  "logIndex": 4,
+  "status": "ok",
+  "contractAddress": "0xf06aDA399160D208D3629EBeEAAF628266BE23A6"
+}

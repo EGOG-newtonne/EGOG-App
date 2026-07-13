@@ -1,0 +1,9 @@
+Vercel CLI 55.0.0 (Node.js 24.13.1)
+Retrieving project…
+Downloading `production` environment variables
+Loaded env from /Users/jewel/Desktop/Developement/egog/.env.local
+
+> egog-mvp@0.1.0 verify:demo /Users/jewel/Desktop/Developement/egog
+> NODE_OPTIONS='--conditions=react-server' tsx scripts/verify-demo.ts
+
+{"environment":"demo","projects":3,"snapshots":3,"currentSnapshotVersion":3,"contract":"0xf06aDA399160D208D3629EBeEAAF628266BE23A6","memberCount":"5","result":"PASS"}

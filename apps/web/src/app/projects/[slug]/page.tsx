@@ -9,7 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import type { PublicSnapshot } from "@egog/shared";
+import { pluralize, type PublicSnapshot } from "@egog/shared";
 
 import { AppHeader } from "../../../components/app-header";
 import { SiteFooter } from "../../../components/site-footer";
@@ -79,7 +79,7 @@ export default async function ProjectDetailPage({
             <section className="content-card">
               <div className="card-heading"><div><p className="eyebrow">Project lifecycle</p><h2>Verification timeline</h2></div></div>
               <ol className="stage-list">
-                {stages.map((stage, index) => <li className={index <= currentStage ? "reached" : ""} key={stage}><span>{index <= currentStage ? <CheckCircle2 size={20} /> : index + 1}</span><div><strong>{stage.replace("_", " ")}</strong><small>{index === currentStage ? "Current demonstration stage" : index < currentStage ? "Reached in demonstration history" : "Future stage"}</small></div></li>)}
+                {stages.map((stage, index) => <li className={index <= currentStage ? "reached" : ""} key={stage}><span aria-hidden="true">{index <= currentStage ? <CheckCircle2 size={20} /> : index + 1}</span><div><strong>{stage.replace("_", " ")}</strong><small>{index === currentStage ? "Current demonstration stage" : index < currentStage ? "Reached in demonstration history" : "Future stage"}</small></div></li>)}
               </ol>
             </section>
             <section className="content-card data-details">
@@ -102,7 +102,7 @@ export default async function ProjectDetailPage({
           <aside className="participation-panel">
             <p className="eyebrow">Early participation</p>
             <strong className="participant-count">{project.cachedMemberCount}</strong>
-            <span>participants on GIWA Testnet</span>
+            <span>{pluralize(project.cachedMemberCount, "participant")} on GIWA Testnet</span>
             <hr />
             <div className="snapshot-summary"><span>Current snapshot</span><strong>Version {current.version}</strong><small>{project.currentSnapshot.snapshotHash.slice(0, 12)}…{project.currentSnapshot.snapshotHash.slice(-8)}</small></div>
             <div className="benefit-list"><h3>What you receive now</h3><p><CheckCircle2 size={16} /> On-chain participation record</p><p><CheckCircle2 size={16} /> Non-transferable participant badge</p><p><CheckCircle2 size={16} /> Participation dashboard</p></div>
