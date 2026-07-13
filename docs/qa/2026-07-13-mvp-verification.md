@@ -9,8 +9,9 @@ complete; the remaining partial acceptance work is isolated to AC-14.
 | Item | Verified value |
 | --- | --- |
 | Production origin | `https://egog-app-web.vercel.app` |
-| Production deployment | `dpl_AHFHo5ScjkNMka78GU4fKJ5WaLkV` |
-| Immutable deployment URL | `https://egog-app-qwetaohcx-jewelcoredots-projects.vercel.app` |
+| Final Production deployment | `dpl_52fBwyJ9xzoe1ifwxbcjEDLriXe5`, application commit `a89843f` |
+| Final immutable deployment URL | `https://egog-app-n9nmv3ue0-jewelcoredots-projects.vercel.app` |
+| Evidence capture deployment | `dpl_AHFHo5ScjkNMka78GU4fKJ5WaLkV` |
 | Supabase Demo project | `EGOG Demo` (`zxruwjprnubdgiqmsnzi`) |
 | GIWA network | GIWA Sepolia, chain ID `91342` |
 | Demo contract | `0xf06aDA399160D208D3629EBeEAAF628266BE23A6` |
@@ -22,6 +23,10 @@ complete; the remaining partial acceptance work is isolated to AC-14.
 
 The prior Demo project, contract, Snapshot CIDs, and Badge #1 were not deleted.
 They are frozen separately in [legacy-demo-2026-07-13.md](./legacy-demo-2026-07-13.md).
+
+The final deployment is `READY`. Post-deploy smoke tests returned HTTP 200 for
+Project Discovery, Vietnam Brick Detail, Privacy, Terms, and `/api/projects`;
+the unauthenticated recovery-sync endpoint correctly returned HTTP 401.
 
 ## Acceptance Criteria
 

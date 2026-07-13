@@ -32,8 +32,9 @@ for the video.
 | Field | Verified value |
 | --- | --- |
 | Production origin | `https://egog-app-web.vercel.app` |
-| Deployment | `dpl_AHFHo5ScjkNMka78GU4fKJ5WaLkV` |
+| Capture deployment | `dpl_AHFHo5ScjkNMka78GU4fKJ5WaLkV` |
 | Capture workspace base commit | `174fbf37be646b95701b864440d45cee4d7a3aa0` |
+| Final Production redeploy | `dpl_52fBwyJ9xzoe1ifwxbcjEDLriXe5`, application commit `a89843f` |
 | Contract | `0xf06aDA399160D208D3629EBeEAAF628266BE23A6` |
 | Participant wallet | `0x1AB0ab3A3A43956C501929F808dd5e220dd04721` |
 | Member number | `7` |
@@ -57,6 +58,10 @@ and Project Detail member count all resolve to Badge #7.
 
 - Product evidence was captured from the live Production origin at
   `2304×1089`, device pixel ratio 2.
+- After final source control and artifact checks, the same application was
+  redeployed to Production as `dpl_52fBwyJ9xzoe1ifwxbcjEDLriXe5`. The stable
+  alias returned 200 for Discovery, Project Detail, Privacy, Terms, and Projects
+  API; the unauthenticated Cron endpoint returned 401.
 - The user completed Google OAuth interactively. Authenticated evidence was then
   captured with controlled Chrome; no Google credential, account chooser,
   email address, OAuth token, storage state, or Secret appears in the footage or

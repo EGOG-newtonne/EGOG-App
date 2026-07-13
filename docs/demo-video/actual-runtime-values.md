@@ -6,9 +6,12 @@ Status: final coherent Production capture completed with Badge #7.
 | --- | --- |
 | Verified at | 2026-07-13 KST |
 | Production URL | `https://egog-app-web.vercel.app` |
-| Production deployment | `dpl_AHFHo5ScjkNMka78GU4fKJ5WaLkV` |
-| Deployment URL | `https://egog-app-qwetaohcx-jewelcoredots-projects.vercel.app` |
+| Capture deployment | `dpl_AHFHo5ScjkNMka78GU4fKJ5WaLkV` |
+| Capture deployment URL | `https://egog-app-qwetaohcx-jewelcoredots-projects.vercel.app` |
 | Capture workspace base commit | `174fbf37be646b95701b864440d45cee4d7a3aa0` |
+| Final Production redeploy | `dpl_52fBwyJ9xzoe1ifwxbcjEDLriXe5` |
+| Final immutable deployment URL | `https://egog-app-n9nmv3ue0-jewelcoredots-projects.vercel.app` |
+| Deployed application commit | `a89843f` |
 | Contract address | `0xf06aDA399160D208D3629EBeEAAF628266BE23A6` |
 | Current on-chain member count | `7` |
 | Current Production UI count | `7` |
