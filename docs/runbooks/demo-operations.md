@@ -67,7 +67,25 @@ order by count(*) desc;
 
 Compare `projects.cached_member_count` with the contract member counter by running `pnpm verify:demo`; the chain value is authoritative. Check the Relayer balance on GIWA Explorer before every demo. A low balance, non-advancing `last_synced_block`, rising `FAILED_RETRYABLE` count, or storage publication error blocks new demo participation until resolved.
 
-The production Cron endpoint requires `Authorization: Bearer $CRON_SECRET`. The intended schedule is every 10 minutes and requires a Vercel plan that accepts `*/10 * * * *`; do not silently reduce the frequency.
+The production recovery endpoint requires `Authorization: Bearer $ONCHAIN_SYNC_SECRET`. Supabase Demo owns the `*/10 * * * *` schedule through `pg_cron` and calls the endpoint through `pg_net`. The endpoint URL and Bearer secret are stored as `egog_onchain_sync_url` and `egog_onchain_sync_secret` in Supabase Vault; the same Bearer secret is stored as the Vercel server environment variable `ONCHAIN_SYNC_SECRET`.
+
+This scheduled call is recovery-only. A normal participation still reconciles immediately after the GIWA receipt is confirmed. Keep the manual `pnpm sync:onchain` command for explicit operational recovery.
+
+Verify the schedule without exposing Vault values:
+
+```sql
+select jobid, jobname, schedule, active
+from cron.job
+where jobname = 'egog-onchain-sync-recovery';
+
+select status, return_message, start_time, end_time
+from cron.job_run_details
+where jobid = (
+  select jobid from cron.job where jobname = 'egog-onchain-sync-recovery'
+)
+order by start_time desc
+limit 10;
+```
 
 ## Demo reset policy
 
@@ -83,7 +101,8 @@ The Demo contract and its member numbers are immutable. Do not truncate Demo dat
 - One end-to-end participation confirms after one block.
 - Completion links open the GIWA transaction and public IPFS Snapshot.
 - My Page shows the same member/token values and joined/latest versions.
-- `/api/cron/sync-onchain` rejects missing or invalid `CRON_SECRET`.
+- `/api/cron/sync-onchain` rejects missing or invalid `ONCHAIN_SYNC_SECRET`.
+- Supabase Cron is active at `*/10 * * * *`, and its latest `pg_net` response is HTTP 200.
 - Privacy and Terms links work on desktop and mobile.
 
 ## Incident handling

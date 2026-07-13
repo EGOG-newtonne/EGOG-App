@@ -8,7 +8,7 @@ const validServerEnvironment = {
   AWS_REGION: "ap-northeast-2",
   AWS_S3_BUCKET: "egog-dev-private-data",
   AWS_SECRET_ACCESS_KEY: "example-secret-access-key-with-32-chars",
-  CRON_SECRET: "example-cron-secret-with-at-least-32-characters",
+  ONCHAIN_SYNC_SECRET: "example-onchain-sync-secret-with-at-least-32-characters",
   DATABASE_DIRECT_URL: "postgresql://postgres:password@db.example.com:5432/postgres",
   DATABASE_URL: "postgresql://postgres:password@pooler.example.com:6543/postgres",
   GIWA_CHAIN_ID: "91342",
@@ -40,7 +40,7 @@ describe("server environment contract", () => {
   it("names every missing variable without printing secret values", () => {
     const invalidEnvironment = {
       ...validServerEnvironment,
-      CRON_SECRET: "do-not-log-this-secret",
+      ONCHAIN_SYNC_SECRET: "do-not-log-this-secret",
       PRIVY_APP_SECRET: undefined,
     };
 

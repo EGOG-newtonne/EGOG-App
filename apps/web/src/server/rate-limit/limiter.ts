@@ -19,7 +19,7 @@ export async function enforceParticipationRateLimits(
   action = "participation_challenge",
 ) {
   for (const rule of rules) {
-    const keyHash = hashRateLimitKey(serverEnvironment.CRON_SECRET, rule.value);
+    const keyHash = hashRateLimitKey(serverEnvironment.ONCHAIN_SYNC_SECRET, rule.value);
     const blocked = await db.transaction(async (transaction) => {
       await transaction.execute(sql`select pg_advisory_xact_lock(${rateLimitLockId(keyHash)})`);
       const since = new Date(Date.now() - rule.windowMs);

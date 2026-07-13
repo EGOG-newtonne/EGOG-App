@@ -18,7 +18,7 @@ describe("environment module boundary", () => {
       .join("\n");
     const serverOnlyNames = [
       "AWS_SECRET_ACCESS_KEY",
-      "CRON_SECRET",
+      "ONCHAIN_SYNC_SECRET",
       "DATABASE_DIRECT_URL",
       "DATABASE_URL",
       "GIWA_RELAYER_PRIVATE_KEY",

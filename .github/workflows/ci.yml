@@ -49,7 +49,7 @@ jobs:
           AWS_REGION: ap-northeast-2
           AWS_S3_BUCKET: egog-ci-private-data
           AWS_SECRET_ACCESS_KEY: ci-format-only-secret-access-key-value
-          CRON_SECRET: ci-format-only-cron-secret-value-000000
+          ONCHAIN_SYNC_SECRET: ci-format-only-onchain-sync-secret-000000
           DATABASE_DIRECT_URL: postgresql://ci:ci@localhost:5432/ci
           DATABASE_URL: postgresql://ci:ci@localhost:6543/ci
           GIWA_CHAIN_ID: "91342"

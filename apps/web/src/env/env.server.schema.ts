@@ -50,7 +50,7 @@ export const serverEnvironmentSchema = z.object({
   GIWA_CHAIN_ID: giwaChainIdSchema,
   PARTICIPATION_CONTRACT_ADDRESS: ethereumAddressSchema,
   GIWA_RELAYER_PRIVATE_KEY: privateKeySchema,
-  CRON_SECRET: z.string().min(32),
+  ONCHAIN_SYNC_SECRET: z.string().min(32),
 });
 
 export function parseServerEnvironment(
