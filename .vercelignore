@@ -17,3 +17,5 @@ dist
 *.tsbuildinfo
 packages/contracts/artifacts
 packages/contracts/cache
+docs/demo-video
+docs/qa/evidence
