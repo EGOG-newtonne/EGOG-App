@@ -5,7 +5,6 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
-import { DeleteAccountDialog } from "../features/account/delete-account-dialog";
 import { findPrivyEmbeddedWallet, shortenAddress } from "../features/auth/wallet";
 
 const pageControlSelector = [
@@ -42,7 +41,6 @@ export function AppHeader() {
   const accountTriggerRef = useRef<HTMLButtonElement>(null);
   const tabFocusTargetRef = useRef<HTMLElement | null>(null);
   const [accountMenuOpen, setAccountMenuOpen] = useState(false);
-  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
   return (
     <header className="site-header">
@@ -123,22 +121,12 @@ export function AppHeader() {
                 <DropdownMenu.Separator className="account-menu-separator" />
                 <DropdownMenu.Item
                   className="account-menu-item account-menu-item-danger"
-                  onSelect={() => setDeleteDialogOpen(true)}
-                >
-                  Delete Account
-                </DropdownMenu.Item>
-                <DropdownMenu.Item
-                  className="account-menu-item account-menu-item-danger"
                   onSelect={() => void logout()}
                 >
                   Sign out
                 </DropdownMenu.Item>
               </DropdownMenu.Content>
             </DropdownMenu.Portal>
-            <DeleteAccountDialog
-              onOpenChange={setDeleteDialogOpen}
-              open={deleteDialogOpen}
-            />
           </DropdownMenu.Root>
         ) : (
           <button

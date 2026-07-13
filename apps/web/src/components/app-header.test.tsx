@@ -1,23 +1,17 @@
-import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { AppHeader } from "./app-header";
 
 const privyMocks = vi.hoisted(() => ({
-  getAccessToken: vi.fn(),
   login: vi.fn(),
   logout: vi.fn(),
-}));
-
-const routerMocks = vi.hoisted(() => ({
-  replace: vi.fn(),
 }));
 
 vi.mock("@privy-io/react-auth", () => ({
   usePrivy: () => ({
     authenticated: true,
-    getAccessToken: privyMocks.getAccessToken,
     login: privyMocks.login,
     logout: privyMocks.logout,
     ready: true,
@@ -30,10 +24,6 @@ vi.mock("@privy-io/react-auth", () => ({
       },
     ],
   }),
-}));
-
-vi.mock("next/navigation", () => ({
-  useRouter: () => ({ replace: routerMocks.replace }),
 }));
 
 describe("AppHeader account menu", () => {
@@ -74,38 +64,13 @@ describe("AppHeader account menu", () => {
     expect(screen.getByRole("menuitem", { name: "Terms" }).getAttribute("href")).toBe("/terms");
   });
 
-  it("opens a confirmation dialog before deleting the account", async () => {
-    const fetchMock = vi.fn();
-    vi.stubGlobal("fetch", fetchMock);
+  it("does not expose account deletion in the account menu", async () => {
     const user = userEvent.setup();
     render(<AppHeader />);
 
     await user.click(screen.getByRole("button", { name: /account menu/i }));
-    await user.click(screen.getByRole("menuitem", { name: "Delete Account" }));
 
-    expect(screen.getByRole("alertdialog", { name: "Delete your EGOG account?" })).toBeTruthy();
-    expect(fetchMock).not.toHaveBeenCalled();
-  });
-
-  it("deletes the off-chain account only after explicit confirmation", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({ ok: true });
-    vi.stubGlobal("fetch", fetchMock);
-    privyMocks.getAccessToken.mockResolvedValue("privy-access-token");
-    const user = userEvent.setup();
-    render(<AppHeader />);
-
-    await user.click(screen.getByRole("button", { name: /account menu/i }));
-    await user.click(screen.getByRole("menuitem", { name: "Delete Account" }));
-    await user.click(screen.getByRole("button", { name: "Delete account" }));
-
-    await waitFor(() => {
-      expect(fetchMock).toHaveBeenCalledWith("/api/me", {
-        headers: { authorization: "Bearer privy-access-token" },
-        method: "DELETE",
-      });
-      expect(privyMocks.logout).toHaveBeenCalledTimes(1);
-      expect(routerMocks.replace).toHaveBeenCalledWith("/");
-    });
+    expect(screen.queryByRole("menuitem", { name: "Delete Account" })).toBeNull();
   });
 
   it("closes on Escape and returns focus to the account trigger", async () => {
@@ -145,7 +110,7 @@ describe("AppHeader account menu", () => {
     const trigger = screen.getByRole("button", { name: /account menu/i });
     trigger.focus();
 
-    await user.keyboard("{ArrowDown}{ArrowDown}{ArrowDown}{ArrowDown}{ArrowDown}{Enter}");
+    await user.keyboard("{ArrowDown}{ArrowDown}{ArrowDown}{ArrowDown}{Enter}");
 
     expect(privyMocks.logout).toHaveBeenCalledTimes(1);
   });
@@ -195,19 +160,4 @@ describe("AppHeader account menu", () => {
     expect(privyMocks.logout).not.toHaveBeenCalled();
   });
 
-  it("keeps the deletion dialog open and reports an API failure", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({ ok: false });
-    vi.stubGlobal("fetch", fetchMock);
-    privyMocks.getAccessToken.mockResolvedValue("privy-access-token");
-    const user = userEvent.setup();
-    render(<AppHeader />);
-
-    await user.click(screen.getByRole("button", { name: /account menu/i }));
-    await user.click(screen.getByRole("menuitem", { name: "Delete Account" }));
-    await user.click(screen.getByRole("button", { name: "Delete account" }));
-
-    expect((await screen.findByRole("alert")).textContent).toBe("Account deletion failed");
-    expect(screen.getByRole("alertdialog", { name: "Delete your EGOG account?" })).toBeTruthy();
-    expect(privyMocks.logout).not.toHaveBeenCalled();
-  });
 });
