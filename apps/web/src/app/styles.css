@@ -263,6 +263,7 @@ button, input { font: inherit; }
   .project-grid { grid-template-columns: 1fr; }
   .project-title-row, .detail-layout { grid-template-columns: 1fr; }
   .participation-panel { bottom: 12px; position: sticky; top: auto; z-index: 20; }
+  .participation-panel-evidence { bottom: auto; position: static; }
   .participation-panel > .eyebrow, .participation-panel > .participant-count, .participation-panel > span, .participation-panel > hr, .participation-panel .snapshot-summary, .participation-panel .benefit-list, .participation-panel .future-list, .participation-panel .legal-note { display: none; }
   .primary-cta { margin: 0; }
   .kpi-grid { grid-template-columns: 1fr 1fr; }

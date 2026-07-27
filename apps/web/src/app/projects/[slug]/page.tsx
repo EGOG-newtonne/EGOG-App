@@ -163,7 +163,7 @@ export default async function ProjectDetailPage({
               <a href={project.currentSnapshot.gatewayUrl} target="_blank" rel="noreferrer">View public Snapshot JSON <ExternalLink size={15} /></a>
             </section> : null}
           </div>
-          <aside className="participation-panel">
+          <aside className={evidence ? "participation-panel participation-panel-evidence" : "participation-panel"}>
             <p className="eyebrow">Early participation</p>
             <strong className="participant-count">{project.cachedMemberCount}</strong>
             <span>{pluralize(project.cachedMemberCount, "participant")} on GIWA Testnet</span>
