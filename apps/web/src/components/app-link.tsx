@@ -1,13 +1,20 @@
 "use client";
 
-import Link, { useLinkStatus } from "next/link";
+import Link, {
+  useLinkStatus,
+  type LinkProps,
+} from "next/link";
 import {
   forwardRef,
-  type ComponentProps,
+  type AnchorHTMLAttributes,
+  type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
 
-type AppLinkProps = ComponentProps<typeof Link>;
+type AppLinkProps = LinkProps &
+  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps> & {
+    children: ReactNode;
+  };
 
 function NavigationPendingIndicator() {
   const { pending } = useLinkStatus();
