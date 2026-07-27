@@ -65,6 +65,79 @@ resubmitted. The script now verifies writes against the receipt block, and an
 idempotent rerun returned `activeBefore: true`, `activeAfter: true`, and no new
 transaction.
 
+## Production deployment
+
+| Field | Value |
+| --- | --- |
+| Git commit | `92cf5225497a9aaa872609210cb0626d01db90cd` |
+| Vercel deployment | `dpl_FDYHrfLn2jGM2iq7EB6t12Ez9og6` |
+| Production alias | `https://egog-app-web.vercel.app` |
+| Deployment state | `READY` |
+| Discovery response | HTTP `200` |
+| Jeju detail response | HTTP `200` |
+| Projects API response | HTTP `200` |
+| Jeju API response | HTTP `200` |
+
+The deploy source was a detached worktree at the recorded commit. The unrelated
+local GIWA Explorer verification changes were not included in the deployment.
+
+## Production participation E2E
+
+The Production flow was completed using an existing Privy embedded wallet. The
+required permanent-record consent was selected and the optional email consent
+was deliberately left off.
+
+| Field | Contract event / DB / UI result |
+| --- | --- |
+| Participant | `0x6596921577AAdF46e7Ec1403B7d56394FC529905` |
+| Project ID | `0x7d2984410c0b6281d6104f6970023a0e31b688beebeae0a43d24839d2c136ffe` |
+| Token ID | `9` |
+| Member number | `1` |
+| Snapshot hash | `0x18295ddcc848f1346aecd5aa3aedc2842e114a0b714b6d65c8d4ac4f549a3824` |
+| Snapshot version | `1` |
+| Snapshot URI | `ipfs://bafkreifk4rlfzx3zbpi362q44cdgl7jutip4guiptfowpvarqb2kap3pmi` |
+| Metadata URI | `ipfs://bafkreib54std2diooc4yhnevd3gxfneyjnwfio7nooxrpbw57w3nu4f6wy` |
+| Joined at | `2026-07-27T04:18:54.000Z` |
+| Transaction | `0xc850886584f71e25538a70d135325959e81b44a374b48decb46588b97e6833f6` |
+| Block | `31780818` |
+| Log index | `26` |
+| Receipt status | `ok` |
+| Required consent stored | `true` |
+| Email opt-in stored | `false` |
+| Email opt-in timestamp stored | `false` |
+| Participation request state | `CONFIRMED` |
+
+The decoded `ParticipationRecorded` event, database row, completion view, and My
+Participation view matched for every on-chain field. The database contained
+exactly one participation row and one indexed event row for the transaction.
+The project cache and the contract member counter were both `1`.
+
+After immediate reconciliation, the protected Production sync endpoint was
+called twice and returned HTTP `200` with zero duplicate events. The manual
+`pnpm sync:onchain` command also returned zero new events. The sync cursor
+advanced to block `31781083`, while the participation and indexed-event row
+counts remained `1`.
+
+## Responsive and accessibility evidence
+
+| Evidence | Result |
+| --- | --- |
+| Desktop Jeju detail | PASS |
+| Mobile Jeju detail at `390×844` | PASS; document width `390`, no horizontal overflow |
+| Field image dialog | PASS; Escape closes and focus returns to the source thumbnail |
+| Gallery semantics | PASS; eight uniquely named image buttons and accessible dialog |
+| Mobile completion | PASS |
+| Mobile My Participation | PASS; no horizontal overflow |
+| Account menu | PASS; open/close does not change authentication state |
+
+Captured evidence:
+
+- `evidence/jeju-erw/production-desktop.png`
+- `evidence/jeju-erw/production-mobile-390x844.png`
+- `evidence/jeju-erw/participation-complete-mobile.png`
+- `evidence/jeju-erw/my-participation-desktop.png`
+- `evidence/jeju-erw/my-participation-mobile.png`
+
 ## Verification commands
 
 ```bash
