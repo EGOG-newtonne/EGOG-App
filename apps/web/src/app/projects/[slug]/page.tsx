@@ -9,9 +9,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { pluralize, type PublicSnapshot } from "@egog/shared";
+import {
+  pluralize,
+  publicSnapshotSchema,
+  snapshotKind,
+  type ClimateMetricsSnapshot,
+  type FieldEvidenceSnapshot,
+} from "@egog/shared";
 
 import { AppHeader } from "../../../components/app-header";
+import { EvidenceGallery } from "../../../components/evidence-gallery";
 import { SiteFooter } from "../../../components/site-footer";
 import { ProjectParticipationCta } from "../../../features/participation/project-participation-cta";
 import { getProjectBySlug } from "../../../server/projects/queries";
@@ -24,7 +31,7 @@ function formatAmount(value: string) {
   return new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(Number(value));
 }
 
-function formatForecast(forecast: PublicSnapshot["forecastCreditVolume"]) {
+function formatForecast(forecast: ClimateMetricsSnapshot["forecastCreditVolume"]) {
   if (!forecast) return "Data pending";
   return forecast.type === "range"
     ? `${formatAmount(forecast.min)}–${formatAmount(forecast.max)}`
@@ -39,9 +46,15 @@ export default async function ProjectDetailPage({
   const { slug } = await params;
   const project = await getProjectBySlug(slug);
   if (!project?.currentSnapshot) notFound();
-  const current = project.currentSnapshot.publicData as PublicSnapshot;
+  const current = publicSnapshotSchema.parse(project.currentSnapshot.publicData);
+  const evidence = snapshotKind(current) === "field_evidence"
+    ? current as FieldEvidenceSnapshot
+    : null;
+  const climate = evidence ? null : current as ClimateMetricsSnapshot;
   const currentStage = stages.indexOf(current.verificationStage);
   const firstReference = project.cachedMemberCount > 0;
+  const fieldMedia = evidence?.media.filter((item) => item.category === "field") ?? [];
+  const sensorMedia = evidence?.media.filter((item) => item.category === "sensor") ?? [];
 
   return (
     <>
@@ -50,7 +63,9 @@ export default async function ProjectDetailPage({
         <div className="breadcrumbs"><Link href="/">Projects</Link><span>/</span><span>{project.name}</span></div>
         <section className="project-title-row">
           <div>
-            <span className="demo-pill">Demonstration data</span>
+            <span className={evidence ? "field-evidence-pill" : "demo-pill"}>
+              {evidence ? "Field evidence · Carbon data pending" : "Demonstration data"}
+            </span>
             <h1>{project.name}</h1>
             <p className="location"><MapPin size={16} /> {project.location}</p>
           </div>
@@ -58,24 +73,54 @@ export default async function ProjectDetailPage({
         </section>
         <div className="detail-layout">
           <div className="detail-main">
-            <div className="hero-image"><Image fill priority sizes="(max-width: 900px) 100vw, 65vw" src={project.heroImage} alt="Brick production facility in Vietnam" /></div>
-            <aside className="demo-notice"><Database size={21} /><div><strong>Demonstration data</strong><p>{project.demonstrationNotice}</p></div></aside>
+            <div className={evidence ? "hero-image hero-image-jeju" : "hero-image"}>
+              <Image
+                alt={evidence ? "Jeju ERW field monitoring site with planted rows and monitoring cabinets" : `${project.name} project site`}
+                fill
+                priority
+                sizes="(max-width: 900px) 100vw, 65vw"
+                src={project.heroImage}
+              />
+            </div>
+            <aside className={evidence ? "evidence-notice" : "demo-notice"}>
+              <Database size={21} />
+              <div>
+                <strong>{evidence ? "Field evidence" : "Demonstration data"}</strong>
+                <p>{project.demonstrationNotice}</p>
+              </div>
+            </aside>
             <section className="kpi-grid" aria-label="Latest project metrics">
-              <article><span>Monitored reduction</span><strong>{formatAmount(current.monitoredReduction.value)}</strong><small>tCO₂e · demonstration</small></article>
+              {climate ? <article><span>Monitored reduction</span><strong>{formatAmount(climate.monitoredReduction.value)}</strong><small>tCO₂e · demonstration</small></article> : null}
               <article><span>Project stage</span><strong className="text-value">{current.verificationStage}</strong><small>{current.verificationSourceStatus}</small></article>
-              <article><span>Forecast volume</span><strong className="text-value">{formatForecast(current.forecastCreditVolume)}</strong><small>tCO₂e · forecast</small></article>
-              <article><span>Latest snapshot</span><strong>v{current.version}</strong><small>Published {new Date(current.publishedAt).toLocaleDateString("en-GB")}</small></article>
+              {climate ? <article><span>Forecast volume</span><strong className="text-value">{formatForecast(climate.forecastCreditVolume)}</strong><small>tCO₂e · forecast</small></article> : null}
+              <article><span>{evidence ? "Evidence snapshot" : "Latest snapshot"}</span><strong>v{current.version}</strong><small>Published {new Date(current.publishedAt).toLocaleDateString("en-GB")}</small></article>
+              {evidence ? <article><span>Published evidence</span><strong>{evidence.media.length}</strong><small>4 field · 4 sensor images</small></article> : null}
+              {evidence ? <article><span>Carbon data</span><strong className="text-value">Data pending</strong><small>No removal or credit figures published</small></article> : null}
             </section>
-            <section className="content-card">
+            {climate ? <section className="content-card">
               <div className="card-heading"><div><p className="eyebrow">Snapshot history</p><h2>Monitored reduction trend</h2></div><span>tCO₂e</span></div>
               <div className="trend-chart">
                 {project.snapshots.map((snapshot) => {
-                  const data = snapshot.publicData as PublicSnapshot;
-                  const height = Math.max(12, (Number(data.monitoredReduction.value) / Number(current.monitoredReduction.value)) * 100);
+                  const data = publicSnapshotSchema.parse(snapshot.publicData) as ClimateMetricsSnapshot;
+                  const height = Math.max(12, (Number(data.monitoredReduction.value) / Number(climate.monitoredReduction.value)) * 100);
                   return <div className="bar-group" key={snapshot.id}><span>{formatAmount(data.monitoredReduction.value)}</span><div className="bar-track"><div className="bar" style={{ height: `${height}%` }} /></div><small>v{snapshot.version}</small></div>;
                 })}
               </div>
-            </section>
+            </section> : null}
+            {evidence ? (
+              <>
+                <EvidenceGallery
+                  description="Original site photography showing the field layout, installed soil probes, and weather monitoring hardware."
+                  media={fieldMedia}
+                  title="Field Gallery"
+                />
+                <EvidenceGallery
+                  description="Original Newtonne ZENTRA Cloud screens are published as visual evidence. Values are not transcribed or converted into carbon outcomes."
+                  media={sensorMedia}
+                  title="Sensor Monitoring Evidence"
+                />
+              </>
+            ) : null}
             <section className="content-card">
               <div className="card-heading"><div><p className="eyebrow">Project lifecycle</p><h2>Verification timeline</h2></div></div>
               <ol className="stage-list">
@@ -87,9 +132,11 @@ export default async function ProjectDetailPage({
               <dl>
                 <div><dt>Source</dt><dd>{current.sourceName}</dd></div>
                 <div><dt>Source version</dt><dd>{current.sourceVersion}</dd></div>
-                <div><dt>Measured at</dt><dd>{new Date(current.measuredAt).toLocaleString("en-GB", { timeZone: "UTC" })} UTC</dd></div>
-                <div><dt>Registry</dt><dd>{current.registry}</dd></div>
-                <div><dt>Methodology</dt><dd>{current.methodology}</dd></div>
+                <div><dt>{evidence ? "Evidence captured at" : "Measured at"}</dt><dd>{new Date(current.measuredAt).toLocaleString("en-GB", { timeZone: "UTC" })} UTC</dd></div>
+                {evidence ? <div><dt>Evidence files</dt><dd>{evidence.media.length} originals · SHA-256 recorded</dd></div> : null}
+                {evidence ? <div><dt>Carbon data status</dt><dd>Pending — no quantified removal or credit data published</dd></div> : null}
+                {climate ? <div><dt>Registry</dt><dd>{climate.registry}</dd></div> : null}
+                {climate ? <div><dt>Methodology</dt><dd>{climate.methodology}</dd></div> : null}
                 <div><dt>Verification note</dt><dd>{current.verificationNote}</dd></div>
               </dl>
             </section>

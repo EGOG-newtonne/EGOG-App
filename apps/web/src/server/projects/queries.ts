@@ -6,7 +6,21 @@ import { db } from "../db/client";
 import { participations, projects, projectSnapshots } from "../db/schema";
 
 export async function listProjects() {
-  return db.select().from(projects).orderBy(asc(projects.name));
+  const rows = await db
+    .select({ project: projects, currentSnapshotData: projectSnapshots.publicData })
+    .from(projects)
+    .leftJoin(projectSnapshots, eq(projects.currentSnapshotId, projectSnapshots.id))
+    .orderBy(asc(projects.name));
+  return rows.map(({ currentSnapshotData, project }) => ({
+    ...project,
+    snapshotKind:
+      currentSnapshotData &&
+      typeof currentSnapshotData === "object" &&
+      "snapshotKind" in currentSnapshotData &&
+      currentSnapshotData.snapshotKind === "field_evidence"
+        ? "field_evidence" as const
+        : "climate_metrics" as const,
+  }));
 }
 
 export async function getProjectBySlug(slug: string) {

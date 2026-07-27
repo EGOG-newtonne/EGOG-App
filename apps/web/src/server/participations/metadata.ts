@@ -1,4 +1,4 @@
-import type { PublicSnapshot } from "@egog/shared";
+import { snapshotKind, type PublicSnapshot } from "@egog/shared";
 
 type BadgeMetadataInput = {
   projectName: string;
@@ -23,7 +23,12 @@ export function createBadgeMetadata(input: BadgeMetadataInput) {
       { trait_type: "Snapshot Version", value: input.snapshot.version },
       {
         trait_type: "Data Type",
-        value: input.snapshot.dataType === "demonstration" ? "Demonstration" : "Actual",
+        value:
+          snapshotKind(input.snapshot) === "field_evidence"
+            ? "Field Evidence"
+            : input.snapshot.dataType === "demonstration"
+              ? "Demonstration"
+              : "Actual",
       },
       { trait_type: "Transferability", value: "Locked" },
     ],

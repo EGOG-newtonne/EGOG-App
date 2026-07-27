@@ -3,10 +3,133 @@
   "slug": "jeju-erw",
   "name": "Jeju ERW Project",
   "location": "Jeju, Republic of Korea",
-  "summary": "A future enhanced rock weathering program intended to surface transparent measurement and verification milestones.",
-  "status": "coming_soon",
-  "heroImage": "/images/jeju-erw.svg",
-  "demonstrationNotice": "Coming soon. No monitored or forecast project data is currently published.",
-  "currentVersion": null,
-  "snapshots": []
+  "summary": "Enhanced rock weathering field monitoring supported by real site photography and Newtonne ZENTRA Cloud sensor evidence.",
+  "status": "active",
+  "heroImage": "/images/jeju-erw/jeju-field-site.jpg",
+  "demonstrationNotice": "Field evidence from the Jeju monitoring site. Carbon removal, credit volume, registry status, and issuance are not yet published.",
+  "currentVersion": 1,
+  "snapshots": [
+    {
+      "snapshotKind": "field_evidence",
+      "projectId": "jeju-erw-001",
+      "dataType": "actual",
+      "version": 1,
+      "monitoringPeriod": {
+        "start": "2026-07-07",
+        "end": "2026-07-27"
+      },
+      "carbonDataStatus": "pending",
+      "verificationStage": "MONITORING",
+      "verificationSourceStatus": "Field monitoring evidence published; carbon quantification pending.",
+      "measuredAt": "2026-07-27T01:20:02.000Z",
+      "publishedAt": "2026-07-27T01:30:00.000Z",
+      "sourceName": "Newtonne Jeju ERW field evidence package",
+      "sourceVersion": "jeju-erw-field-evidence-2026-07-27",
+      "verificationNote": "Actual field and sensor-screen evidence. This Snapshot does not verify carbon removal, carbon credits, registry status, or issuance.",
+      "mediaSources": [
+        {
+          "id": "field-monitoring-crop-rows",
+          "category": "field",
+          "title": "Field monitoring across crop rows",
+          "description": "Monitoring cabinets and field activity visible across planted crop rows at the Jeju site.",
+          "sourcePath": "apps/web/public/images/jeju-erw/field-monitoring-crop-rows.jpg",
+          "contentType": "image/jpeg",
+          "sha256": "8b83aa38b9796b9276824301b244ccca3c8f1cd54aee41514e25bfcf75d063a8",
+          "capturedAt": "2026-07-27T01:19:41.000Z",
+          "timestampBasis": "exif",
+          "observationPeriod": null
+        },
+        {
+          "id": "subsurface-soil-probes",
+          "category": "field",
+          "title": "Subsurface soil probe installation",
+          "description": "A soil profile exposes installed probes and cabling beside the monitored crop rows.",
+          "sourcePath": "apps/web/public/images/jeju-erw/subsurface-soil-probes.jpg",
+          "contentType": "image/jpeg",
+          "sha256": "971cdb961c21d44e256a01e8d7f4fc671f7ec0a40b3a077b2522d5126baf9cdc",
+          "capturedAt": "2026-07-27T01:19:41.000Z",
+          "timestampBasis": "exif",
+          "observationPeriod": null
+        },
+        {
+          "id": "weather-monitoring-station",
+          "category": "field",
+          "title": "Weather monitoring station",
+          "description": "An outdoor weather station and logger record environmental conditions near the field boundary.",
+          "sourcePath": "apps/web/public/images/jeju-erw/weather-monitoring-station.jpg",
+          "contentType": "image/jpeg",
+          "sha256": "cd57f2b3f02fe151b89a3cfa642231c098d09faf4870785c1fa50d072b79f350",
+          "capturedAt": "2026-07-27T01:19:41.000Z",
+          "timestampBasis": "exif",
+          "observationPeriod": null
+        },
+        {
+          "id": "jeju-field-site",
+          "category": "field",
+          "title": "Jeju field monitoring site",
+          "description": "A wide view of the planted field and distributed monitoring cabinets under clear conditions.",
+          "sourcePath": "apps/web/public/images/jeju-erw/jeju-field-site.jpg",
+          "contentType": "image/jpeg",
+          "sha256": "e3612a966681d7f6fa212417320938ec93e6746c89cb8244f186c166258888c8",
+          "capturedAt": "2026-07-27T01:19:41.000Z",
+          "timestampBasis": "exif",
+          "observationPeriod": null
+        },
+        {
+          "id": "weekly-solar-air-dashboard",
+          "category": "sensor",
+          "title": "Weekly solar radiation and air-temperature dashboard",
+          "description": "Newtonne ZENTRA Cloud charts showing the supplied weekly solar-radiation and air-temperature monitoring views.",
+          "sourcePath": "apps/web/public/images/jeju-erw/weekly-solar-air-dashboard.jpg",
+          "contentType": "image/jpeg",
+          "sha256": "1a4f6fe2fe1229131b6836e4018b8d41808e01d41ff1927bd1d5da8f31b20f1c",
+          "capturedAt": "2026-07-27T01:20:02.000Z",
+          "timestampBasis": "filename",
+          "observationPeriod": {
+            "start": "2026-07-07",
+            "end": "2026-07-13"
+          }
+        },
+        {
+          "id": "treatment-area-sensor-map",
+          "category": "sensor",
+          "title": "Treatment-area sensor map",
+          "description": "Newtonne ZENTRA Cloud map and device panel for treatment-area monitoring nodes.",
+          "sourcePath": "apps/web/public/images/jeju-erw/treatment-area-sensor-map.jpg",
+          "contentType": "image/jpeg",
+          "sha256": "e29fada496ef365643a1ba9fb78509f7163f05c845f9c8f665061e4a16329f50",
+          "capturedAt": "2026-07-27T01:20:02.000Z",
+          "timestampBasis": "filename",
+          "observationPeriod": null
+        },
+        {
+          "id": "multi-port-telemetry",
+          "category": "sensor",
+          "title": "Multi-port soil and weather telemetry",
+          "description": "Newtonne ZENTRA Cloud device table showing multi-port soil and weather monitoring channels.",
+          "sourcePath": "apps/web/public/images/jeju-erw/multi-port-telemetry.jpg",
+          "contentType": "image/jpeg",
+          "sha256": "9d30ab968adf08538386b3cf56bfe49c64d246ed385131972002675ce96bb9b6",
+          "capturedAt": "2026-07-27T01:20:02.000Z",
+          "timestampBasis": "filename",
+          "observationPeriod": null
+        },
+        {
+          "id": "weekly-water-ec-trends",
+          "category": "sensor",
+          "title": "Weekly water-content signal and EC trends",
+          "description": "Newtonne ZENTRA Cloud charts showing supplied raw water-content sensor output and saturation-extract EC trends.",
+          "sourcePath": "apps/web/public/images/jeju-erw/weekly-water-ec-trends.jpg",
+          "contentType": "image/jpeg",
+          "sha256": "c2d5e7265cdf3b819255f2c61f6e6dc474628fae7e184355f8dcadbb2a5ed944",
+          "capturedAt": "2026-07-27T01:20:02.000Z",
+          "timestampBasis": "filename",
+          "observationPeriod": {
+            "start": "2026-07-07",
+            "end": "2026-07-13"
+          }
+        }
+      ]
+    }
+  ]
 }

@@ -12,6 +12,7 @@ type ProjectCardProps = {
   heroImage: string;
   status: "active" | "coming_soon";
   cachedMemberCount: number;
+  snapshotKind: "climate_metrics" | "field_evidence";
 };
 
 export function ProjectCard(project: ProjectCardProps) {
@@ -24,6 +25,9 @@ export function ProjectCard(project: ProjectCardProps) {
         </span>
       </div>
       <div className="project-card-body">
+        {project.snapshotKind === "field_evidence" ? (
+          <span className="field-card-label">Field evidence · Carbon data pending</span>
+        ) : null}
         <p className="location"><MapPin size={15} /> {project.location}</p>
         <h2>{project.name}</h2>
         <p>{project.summary}</p>
