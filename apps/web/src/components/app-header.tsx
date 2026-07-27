@@ -2,10 +2,10 @@
 
 import { usePrivy, useWallets } from "@privy-io/react-auth";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import Link from "next/link";
 import { useRef, useState } from "react";
 
 import { findPrivyEmbeddedWallet, shortenAddress } from "../features/auth/wallet";
+import { AppLink } from "./app-link";
 
 const pageControlSelector = [
   "a[href]",
@@ -45,12 +45,12 @@ export function AppHeader() {
   return (
     <header className="site-header">
       <div className="header-inner">
-        <Link className="wordmark" href="/" aria-label="EGOG home">
+        <AppLink className="wordmark" href="/" aria-label="EGOG home">
           EGOG
-        </Link>
+        </AppLink>
         <nav aria-label="Primary navigation">
-          <Link href="/">Projects</Link>
-          {authenticated ? <Link href="/me">My participation</Link> : null}
+          <AppLink href="/">Projects</AppLink>
+          {authenticated ? <AppLink href="/me">My participation</AppLink> : null}
         </nav>
         {authenticated && wallet ? (
           <DropdownMenu.Root
@@ -104,19 +104,19 @@ export function AppHeader() {
                 <code className="account-menu-wallet">{wallet.address}</code>
                 <DropdownMenu.Separator className="account-menu-separator" />
                 <DropdownMenu.Item asChild>
-                  <Link className="account-menu-item" href="/me">
+                  <AppLink className="account-menu-item" href="/me">
                     My Participation
-                  </Link>
+                  </AppLink>
                 </DropdownMenu.Item>
                 <DropdownMenu.Item asChild>
-                  <Link className="account-menu-item" href="/privacy">
+                  <AppLink className="account-menu-item" href="/privacy">
                     Privacy
-                  </Link>
+                  </AppLink>
                 </DropdownMenu.Item>
                 <DropdownMenu.Item asChild>
-                  <Link className="account-menu-item" href="/terms">
+                  <AppLink className="account-menu-item" href="/terms">
                     Terms
-                  </Link>
+                  </AppLink>
                 </DropdownMenu.Item>
                 <DropdownMenu.Separator className="account-menu-separator" />
                 <DropdownMenu.Item

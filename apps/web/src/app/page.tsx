@@ -1,4 +1,3 @@
-import { AppHeader } from "../components/app-header";
 import { ProjectCard } from "../components/project-card";
 import { SiteFooter } from "../components/site-footer";
 import { listProjects } from "../server/projects/queries";
@@ -9,7 +8,6 @@ export default async function HomePage() {
   const projects = await listProjects();
   return (
     <>
-      <AppHeader />
       <main className="discovery-page">
         <section className="hero-copy">
           <p className="eyebrow">Verified climate participation</p>

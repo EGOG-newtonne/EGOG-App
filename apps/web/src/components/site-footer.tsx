@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { AppLink } from "./app-link";
 
 export function SiteFooter() {
   return (
@@ -6,8 +6,8 @@ export function SiteFooter() {
       <div>
         <span>EGOG · Verified Climate Participation</span>
         <nav aria-label="Legal">
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/terms">Terms</Link>
+          <AppLink href="/privacy">Privacy</AppLink>
+          <AppLink href="/terms">Terms</AppLink>
         </nav>
       </div>
     </footer>

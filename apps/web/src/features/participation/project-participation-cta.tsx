@@ -2,8 +2,9 @@
 
 import { usePrivy } from "@privy-io/react-auth";
 import { ArrowRight, Check } from "lucide-react";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+
+import { AppLink } from "../../components/app-link";
 
 export function ProjectParticipationCta({ projectSlug }: { projectSlug: string }) {
   const { authenticated, getAccessToken, ready } = usePrivy();
@@ -23,7 +24,7 @@ export function ProjectParticipationCta({ projectSlug }: { projectSlug: string }
   }, [authenticated, getAccessToken, projectSlug, ready]);
 
   if (joined) {
-    return <Link className="primary-cta" href="/me"><Check size={18} /> Joined · View Badge</Link>;
+    return <AppLink className="primary-cta" href="/me"><Check size={18} /> Joined · View Badge</AppLink>;
   }
-  return <Link className="primary-cta" href={`/participate/${projectSlug}`}>Support &amp; Join Early Access <ArrowRight size={18} /></Link>;
+  return <AppLink className="primary-cta" href={`/participate/${projectSlug}`}>Support &amp; Join Early Access <ArrowRight size={18} /></AppLink>;
 }

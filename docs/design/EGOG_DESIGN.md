@@ -70,6 +70,7 @@ Mobile design system asset: `5394d7bdd41d4fccaa5d269d30e67850` (`Climate Institu
 | `9106f4e1a0a242ed9380d7342d56c1ea` — Participation Review & Consent | Desktop, 1280×1507 CSS px (2× screenshot) | `apps/web/src/app/participate/[slug]/page.tsx`, participation flow components |
 | `d343ee81e4bf4307bed36d02031dabaf` — Participation Complete | Desktop, 1280×1373 CSS px (2× screenshot) | Completion state in `apps/web/src/app/participate/[slug]/page.tsx` |
 | `e3f1d81081564fd4baec98b9507865e1` — My Participation | Desktop, 1280×1388 CSS px (2× screenshot) | `apps/web/src/app/me/page.tsx`, participation record and account panels |
+| `5843b17765064a18ba47a18558feeaf6` — Project Detail — Loading State | Desktop, 1280 reference canvas | `apps/web/src/app/projects/[slug]/loading.tsx`, `apps/web/src/components/route-skeleton.tsx` |
 | `696964715bb34170943ab429d912673a` — Climate Tech Institutional | Device agnostic | Global colors, typography, spacing, cards, buttons, data labels, Timeline, flow and My Page styles |
 | `3757f66c2bac40349523db30a350db6e` — Project Discovery — Mobile — Final | Mobile, 390×1454 CSS px (2× screenshot) | Responsive state of `apps/web/src/app/page.tsx` and project cards |
 | `06af01bfe73b4ce0be5c6697f32a506f` — Vietnam Brick Project Detail — Mobile — Final | Mobile, 390×2542 CSS px (2× screenshot) | Responsive Project Detail; safe-area bottom participation CTA |
@@ -78,6 +79,7 @@ Mobile design system asset: `5394d7bdd41d4fccaa5d269d30e67850` (`Climate Institu
 | `f8f48706ba50419bb01f3587b09736fc` — Participation Review & Consent — Mobile — Production Safe | Mobile, 390×1385 CSS px (2× screenshot) | Responsive participation review; actions in normal document flow |
 | `5b1cbc9a703f4589bc0d8331de2eab69` — Participation Complete — Mobile | Mobile, 390×1524 CSS px (2× screenshot) | Responsive completion state |
 | `1080089b3fc14b5f9ae4ab5511df9e53` — My Participation — Mobile | Mobile, 390×1694 CSS px (2× screenshot) | Responsive My Participation dashboard |
+| `4e451a4a4c104135a600ef2ce4b07b4d` — Project Detail — Loading State | Mobile, 390×844 target | Responsive Project Detail Skeleton; participation placeholder remains in document flow |
 | `5394d7bdd41d4fccaa5d269d30e67850` — Climate Institutional | Mobile design system | Mobile colors, typography, spacing, components, wrapping and safe-area behavior |
 
 The four new desktop screens were generated on 2026-07-13 with design system
@@ -119,6 +121,32 @@ captures are preserved under `docs/design/stitch/jeju-tabs/`.
 - URL navigation, query normalization, accessible-current state, image loading,
   and Dialog behavior remain code-owned interaction details. Material visual
   changes must still be made in these Stitch states first.
+
+### Route loading and Skeleton states
+
+The Project Detail loading references were generated on 2026-07-27 before the
+Next.js implementation. Generated HTML and screen captures are preserved under
+`docs/design/stitch/navigation-loading/`.
+
+- The global Header is real and persistent. It is never represented by a
+  Skeleton and remains available while a destination route streams.
+- A 3px route-progress indicator sits immediately below the 74px Header. Its
+  visual appearance is delayed by 80ms to avoid flashing during fast
+  transitions.
+- Skeleton surfaces use `#f2f7f4`, `#e7efea`, and `#dce6e0`, the existing
+  outline and soft-surface range. Shimmer is restrained and becomes a static
+  tonal block under `prefers-reduced-motion`.
+- Project Detail is the representative Skeleton composition: title context,
+  Hero, Notice, four KPI cards, content cards, and the participation panel
+  preserve their loaded proportions.
+- Discovery, Participation, My Participation, and Legal variants reuse the
+  same block tones, radius, spacing, and accessibility behavior in
+  `apps/web/src/components/route-skeleton.tsx`.
+- The Desktop Stitch draft generated a fictional wordmark. It is preserved
+  only as generation evidence and is intentionally not implemented. The real
+  `AppHeader` and `EGOG` wordmark remain the code and brand source of truth.
+- Skeletons contain no project name, member number, metric, hash, Snapshot
+  value, image, or other fictional runtime data.
 
 ## Source-of-truth procedure
 

@@ -8,11 +8,11 @@ import {
 } from "@privy-io/react-auth";
 import { buildSerializableParticipationTypedData } from "@egog/shared";
 import { Check, Circle, ExternalLink, LoaderCircle, ShieldCheck, Wallet } from "lucide-react";
-import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { Address, Hex } from "viem";
 
 import { clientEnvironment } from "../../env/env.client";
+import { AppLink } from "../../components/app-link";
 import {
   findPrivyEmbeddedWallet,
   requireWalletAddress,
@@ -263,7 +263,7 @@ export function ParticipationFlow({
               <div><dt>Joined at</dt><dd>{new Date(result.joinedAt).toLocaleString("en-GB")}</dd></div>
             </dl>
             <div className="flow-actions">
-              <Link className="primary-cta" href="/me">View my badge</Link>
+              <AppLink className="primary-cta" href="/me">View my badge</AppLink>
               {result.tokenUri ? <a className="secondary-action" href={result.tokenUri.replace("ipfs://", `${clientEnvironment.NEXT_PUBLIC_PINATA_GATEWAY_URL}/`)} target="_blank" rel="noreferrer">View Badge metadata <ExternalLink size={15} /></a> : null}
               <a className="secondary-action" href={`${clientEnvironment.NEXT_PUBLIC_GIWA_EXPLORER_URL}/tx/${result.transactionHash}`} target="_blank" rel="noreferrer">View transaction <ExternalLink size={15} /></a>
               <a className="secondary-action" href={snapshotUri.replace("ipfs://", `${clientEnvironment.NEXT_PUBLIC_PINATA_GATEWAY_URL}/`)} target="_blank" rel="noreferrer">View dMRV Snapshot <ExternalLink size={15} /></a>
@@ -278,7 +278,7 @@ export function ParticipationFlow({
             <div className="snapshot-review"><div><span>Project</span><strong>{projectName}</strong></div><div><span>Snapshot</span><strong>Version {snapshotVersion}</strong></div><div><span>Snapshot hash</span><strong>{snapshotHash.slice(0, 12)}…{snapshotHash.slice(-8)}</strong></div></div>
             <label className="consent-row"><input checked={requiredConsent} onChange={(event) => setRequiredConsent(event.target.checked)} type="checkbox" /><span><strong>Required</strong> I understand that the participation record and badge are permanently recorded on a public blockchain and cannot be deleted.</span></label>
             <label className="consent-row"><input checked={emailOptIn} onChange={(event) => setEmailOptIn(event.target.checked)} type="checkbox" /><span><strong>Optional</strong> Send me project updates and early-access information by email.</span></label>
-            <p className="consent-links">By continuing, you acknowledge the <Link href="/terms">Terms</Link> and <Link href="/privacy">Privacy Policy</Link>.</p>
+            <p className="consent-links">By continuing, you acknowledge the <AppLink href="/terms">Terms</AppLink> and <AppLink href="/privacy">Privacy Policy</AppLink>.</p>
             {error ? <p className="flow-error" role="alert">{error}</p> : null}
             <button className="primary-cta flow-button" disabled={!ready || (authenticated && (!walletsReady || !embeddedWallet || !requiredConsent)) || status === "signing"} onClick={participate} type="button">
               {status === "signing" ? <><LoaderCircle className="spinner" size={17} /> Preparing signature…</> : authenticated ? "Review & sign participation" : "Continue with Google"}

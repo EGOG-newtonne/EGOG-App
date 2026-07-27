@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { AppLink } from "./app-link";
 
 export type ProjectDetailTab = "overview" | "gallery";
 export type EvidenceGalleryType = "field" | "sensor";
@@ -34,37 +34,37 @@ export function ProjectDetailNavigation({
   return (
     <div className="project-detail-navigation">
       <nav aria-label="Project detail sections" className="project-detail-tabs">
-        <Link
+        <AppLink
           aria-current={tab === "overview" ? "page" : undefined}
           href={projectPath}
           prefetch={false}
         >
           Overview
-        </Link>
-        <Link
+        </AppLink>
+        <AppLink
           aria-current={tab === "gallery" ? "page" : undefined}
           href={`${projectPath}?tab=gallery&type=field`}
           prefetch={false}
         >
           Gallery
-        </Link>
+        </AppLink>
       </nav>
       {tab === "gallery" ? (
         <nav aria-label="Evidence gallery categories" className="evidence-type-tabs">
-          <Link
+          <AppLink
             aria-current={evidenceType === "field" ? "page" : undefined}
             href={`${projectPath}?tab=gallery&type=field`}
             prefetch={false}
           >
             Field
-          </Link>
-          <Link
+          </AppLink>
+          <AppLink
             aria-current={evidenceType === "sensor" ? "page" : undefined}
             href={`${projectPath}?tab=gallery&type=sensor`}
             prefetch={false}
           >
             Sensor
-          </Link>
+          </AppLink>
         </nav>
       ) : null}
     </div>

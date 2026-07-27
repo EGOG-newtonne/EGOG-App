@@ -6,7 +6,6 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import {
@@ -17,7 +16,7 @@ import {
   type FieldEvidenceSnapshot,
 } from "@egog/shared";
 
-import { AppHeader } from "../../../components/app-header";
+import { AppLink } from "../../../components/app-link";
 import { EvidenceGallery } from "../../../components/evidence-gallery";
 import {
   ProjectDetailNavigation,
@@ -67,9 +66,8 @@ export default async function ProjectDetailPage({
 
   return (
     <>
-      <AppHeader />
       <main className="project-detail-page">
-        <div className="breadcrumbs"><Link href="/">Projects</Link><span>/</span><span>{project.name}</span></div>
+        <div className="breadcrumbs"><AppLink href="/">Projects</AppLink><span>/</span><span>{project.name}</span></div>
         <section className="project-title-row">
           <div>
             <span className={evidence ? "field-evidence-pill" : "demo-pill"}>

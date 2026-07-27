@@ -1,8 +1,9 @@
 import { ArrowRight, MapPin } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 import { pluralize } from "@egog/shared";
+
+import { AppLink } from "./app-link";
 
 type ProjectCardProps = {
   slug: string;
@@ -34,7 +35,7 @@ export function ProjectCard(project: ProjectCardProps) {
         <div className="project-card-footer">
           <span>{pluralize(project.cachedMemberCount, "early participant")}</span>
           {project.status === "active" ? (
-            <Link href={`/projects/${project.slug}`}>View project <ArrowRight size={16} /></Link>
+            <AppLink href={`/projects/${project.slug}`}>View project <ArrowRight size={16} /></AppLink>
           ) : (
             <span>Details unavailable</span>
           )}

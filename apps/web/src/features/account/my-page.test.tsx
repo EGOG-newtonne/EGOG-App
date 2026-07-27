@@ -46,6 +46,15 @@ describe("MyPage account deletion", () => {
     vi.unstubAllGlobals();
   });
 
+  it("uses the account skeleton while Privy and account data are loading", () => {
+    vi.stubGlobal("fetch", vi.fn(() => new Promise(() => undefined)));
+
+    render(<MyPage />);
+
+    expect(screen.getByLabelText("Loading My Participation").getAttribute("aria-busy")).toBe("true");
+    expect(document.querySelector(".spinner-large")).toBeNull();
+  });
+
   it("uses the shared confirmation dialog instead of a native confirm", async () => {
     const fetchMock = vi.fn().mockImplementation((input: string) => {
       if (input === "/api/me/participations") {

@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { AppHeader } from "../../../components/app-header";
+import { AppLink } from "../../../components/app-link";
 import { ParticipationFlow } from "../../../features/participation/participation-flow";
 import { getProjectBySlug } from "../../../server/projects/queries";
 
@@ -13,9 +12,8 @@ export default async function ParticipatePage({ params }: { params: Promise<{ sl
   if (!project?.currentSnapshot || project.status !== "active") notFound();
   return (
     <>
-      <AppHeader />
       <main className="participate-page">
-        <Link className="back-link" href={`/projects/${slug}`}>← Back to project</Link>
+        <AppLink className="back-link" href={`/projects/${slug}`}>← Back to project</AppLink>
         <ParticipationFlow
           projectSlug={project.slug}
           projectName={project.name}

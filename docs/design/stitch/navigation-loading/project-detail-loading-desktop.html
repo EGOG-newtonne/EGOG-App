@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Project Detail - Loading</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f8f9fa",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-secondary-fixed-variant": "#004395",
+                        "surface-tint": "#006c49",
+                        "on-primary-fixed": "#002113",
+                        "on-tertiary-fixed-variant": "#3d4756",
+                        "primary-fixed-dim": "#4edea3",
+                        "primary": "#006c49",
+                        "on-surface-variant": "#3c4a42",
+                        "surface-container": "#edeeef",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "tertiary": "#555f6f",
+                        "surface": "#f8f9fa",
+                        "tertiary-fixed": "#d9e3f6",
+                        "on-secondary": "#ffffff",
+                        "outline": "#6c7a71",
+                        "on-primary-container": "#00422b",
+                        "surface-dim": "#d9dadb",
+                        "outline-variant": "#bbcabf",
+                        "on-tertiary-container": "#2f3948",
+                        "surface-variant": "#e1e3e4",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-surface": "#191c1d",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#2170e4",
+                        "surface-container-highest": "#e1e3e4",
+                        "surface-container-high": "#e7e8e9",
+                        "inverse-primary": "#4edea3",
+                        "surface-bright": "#f8f9fa",
+                        "on-secondary-container": "#fefcff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#6ffbbe",
+                        "primary-container": "#10b981",
+                        "on-secondary-fixed": "#001a42",
+                        "on-tertiary-fixed": "#121c2a",
+                        "on-primary-fixed-variant": "#005236",
+                        "secondary": "#0058be",
+                        "inverse-surface": "#2e3132",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#99a3b5",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "surface-container-low": "#f3f4f5",
+                        "tertiary-fixed-dim": "#bdc7d9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "unit": "8px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "label-xs": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-xs": ["10px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    },
+                    "animation": {
+                        "shimmer": "shimmer 2s linear infinite",
+                        "progress": "progress 2s ease-in-out infinite"
+                    },
+                    "keyframes": {
+                        "shimmer": {
+                            "0%": { "background-position": "-1000px 0" },
+                            "100%": { "background-position": "1000px 0" }
+                        },
+                        "progress": {
+                            "0%": { "transform": "translateX(-100%)", "width": "50%" },
+                            "100%": { "transform": "translateX(200%)", "width": "50%" }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* High-fidelity shimmer class for skeleton blocks */
+        .shimmer-block {
+            background-color: #edeeef; /* surface-container */
+            background-image: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.4) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        /* Overriding header border as per design rules */
+        .no-header-border {
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md text-body-md antialiased pt-16">
+<!-- TopNavBar (Rendered as per JSON with active state logic) -->
+<header class="bg-surface fixed w-full top-0 z-50 flex justify-between items-center px-margin-desktop max-w-container-max mx-auto h-16 left-0 right-0 no-header-border">
+<!-- Brand Logo -->
+<div class="font-headline-md text-headline-md font-bold text-primary flex items-center">
+            VerraTerra
+        </div>
+<!-- Navigation Links (Web) -->
+<nav class="hidden md:flex items-center space-x-8 h-full">
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors flex items-center h-full" href="#">
+                Dashboard
+            </a>
+<!-- Active State -->
+<a class="text-primary border-b-2 border-primary font-label-sm text-label-sm pb-1 flex items-center h-full mt-1" href="#">
+                Projects
+            </a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors flex items-center h-full" href="#">
+                Methodology
+            </a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors flex items-center h-full" href="#">
+                Impact
+            </a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center space-x-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Route Progress Indicator -->
+<div class="fixed top-16 left-0 w-full h-1 bg-surface-variant overflow-hidden z-40">
+<div class="h-full bg-primary animate-progress"></div>
+</div>
+<!-- Main Content Area -->
+<main class="max-w-container-max mx-auto px-margin-desktop py-8 grid grid-cols-12 gap-gutter">
+<!-- Breadcrumb Skeleton -->
+<div class="col-span-12 mb-2">
+<div class="h-4 w-48 rounded shimmer-block"></div>
+</div>
+<!-- Title & Summary Skeleton -->
+<div class="col-span-12 flex justify-between items-start mb-8">
+<div class="flex-1 max-w-3xl">
+<div class="h-10 w-3/4 rounded-lg shimmer-block mb-4"></div>
+<div class="h-6 w-full rounded shimmer-block mb-2"></div>
+<div class="h-6 w-2/3 rounded shimmer-block"></div>
+</div>
+<div class="ml-8 mt-2">
+<div class="h-8 w-28 rounded-full shimmer-block"></div>
+</div>
+</div>
+<!-- Left Column: Primary Content (8 cols) -->
+<div class="col-span-12 md:col-span-8 flex flex-col space-y-8">
+<!-- Hero Media Skeleton -->
+<div class="w-full aspect-video rounded-xl border border-outline-variant shimmer-block overflow-hidden relative">
+<!-- Optional: subtle inner shine or pattern could go here, keeping it flat for now -->
+</div>
+<!-- Evidence Notice Skeleton -->
+<div class="w-full p-4 rounded-lg border border-outline-variant bg-surface-container-low flex items-center space-x-4">
+<div class="w-6 h-6 rounded-full shimmer-block flex-shrink-0"></div>
+<div class="h-4 w-1/3 rounded shimmer-block"></div>
+</div>
+<!-- KPI Grid Skeleton -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Card 1 -->
+<div class="p-6 rounded-xl border border-outline-variant bg-surface-container-low flex flex-col space-y-4">
+<div class="h-3 w-16 rounded shimmer-block"></div>
+<div class="h-8 w-24 rounded shimmer-block"></div>
+</div>
+<!-- Card 2 -->
+<div class="p-6 rounded-xl border border-outline-variant bg-surface-container-low flex flex-col space-y-4">
+<div class="h-3 w-20 rounded shimmer-block"></div>
+<div class="h-8 w-32 rounded shimmer-block"></div>
+</div>
+<!-- Card 3 -->
+<div class="p-6 rounded-xl border border-outline-variant bg-surface-container-low flex flex-col space-y-4">
+<div class="h-3 w-14 rounded shimmer-block"></div>
+<div class="h-8 w-20 rounded shimmer-block"></div>
+</div>
+<!-- Card 4 -->
+<div class="p-6 rounded-xl border border-outline-variant bg-surface-container-low flex flex-col space-y-4">
+<div class="h-3 w-18 rounded shimmer-block"></div>
+<div class="h-8 w-28 rounded shimmer-block"></div>
+</div>
+</div>
+<!-- Content Cards Skeletons -->
+<div class="w-full h-72 rounded-xl border border-outline-variant bg-surface-container-low p-8 flex flex-col space-y-6">
+<div class="h-6 w-1/4 rounded shimmer-block mb-4"></div>
+<div class="h-4 w-full rounded shimmer-block"></div>
+<div class="h-4 w-full rounded shimmer-block"></div>
+<div class="h-4 w-5/6 rounded shimmer-block"></div>
+<div class="h-4 w-full rounded shimmer-block"></div>
+</div>
+<div class="w-full h-96 rounded-xl border border-outline-variant bg-surface-container-low p-8 flex flex-col space-y-6">
+<div class="h-6 w-1/3 rounded shimmer-block mb-4"></div>
+<div class="h-4 w-full rounded shimmer-block"></div>
+<div class="h-4 w-11/12 rounded shimmer-block"></div>
+<div class="h-4 w-full rounded shimmer-block"></div>
+<div class="h-4 w-4/5 rounded shimmer-block"></div>
+<div class="mt-8 grid grid-cols-2 gap-6">
+<div class="h-24 rounded shimmer-block"></div>
+<div class="h-24 rounded shimmer-block"></div>
+</div>
+</div>
+</div>
+<!-- Right Column: Sidebar (4 cols) -->
+<div class="col-span-12 md:col-span-4 relative">
+<!-- Sticky Sidebar Skeleton -->
+<div class="sticky top-24 w-full rounded-xl border border-outline-variant bg-surface-container-low p-6 flex flex-col">
+<div class="h-6 w-1/2 rounded shimmer-block mb-8"></div>
+<!-- Participant/Status Lines -->
+<div class="space-y-6 mb-12">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded-full shimmer-block"></div>
+<div class="flex-1 space-y-2">
+<div class="h-4 w-3/4 rounded shimmer-block"></div>
+<div class="h-3 w-1/2 rounded shimmer-block opacity-70"></div>
+</div>
+</div>
+<div class="h-px w-full bg-outline-variant opacity-50 my-4"></div>
+<div class="flex justify-between items-center">
+<div class="h-4 w-1/3 rounded shimmer-block"></div>
+<div class="h-4 w-1/4 rounded shimmer-block"></div>
+</div>
+<div class="flex justify-between items-center">
+<div class="h-4 w-2/5 rounded shimmer-block"></div>
+<div class="h-4 w-1/3 rounded shimmer-block"></div>
+</div>
+<div class="flex justify-between items-center">
+<div class="h-4 w-1/4 rounded shimmer-block"></div>
+<div class="h-4 w-1/5 rounded shimmer-block"></div>
+</div>
+</div>
+<!-- Primary Action Button Skeleton -->
+<div class="h-12 w-full rounded-lg shimmer-block mt-auto"></div>
+<!-- Secondary subtext skeleton -->
+<div class="h-3 w-2/3 mx-auto rounded shimmer-block mt-4 opacity-70"></div>
+</div>
+</div>
+</main>
+</body></html>
