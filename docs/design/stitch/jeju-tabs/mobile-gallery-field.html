@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jeju ERW Project — Gallery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadb",
+                        "secondary": "#085ac0",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#006c49",
+                        "inverse-surface": "#2e3132",
+                        "primary-fixed-dim": "#81d8ad",
+                        "tertiary": "#772f2c",
+                        "primary-container": "#006c49",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-tertiary-fixed": "#3e0406",
+                        "on-background": "#191c1d",
+                        "tertiary-container": "#954642",
+                        "surface-bright": "#f8f9fa",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f2f4f5",
+                        "secondary-container": "#5b94fd",
+                        "on-primary-container": "#93eabe",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#bec9c0",
+                        "on-primary-fixed": "#002113",
+                        "on-tertiary-fixed-variant": "#78302d",
+                        "primary-accent": "#10b981",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "subtle-card": "#f3f4f5",
+                        "on-tertiary-container": "#ffccc8",
+                        "outline": "#bbcabf",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed-variant": "#004395",
+                        "inverse-primary": "#81d8ad",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdad7",
+                        "surface": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "primary": "#005136",
+                        "on-secondary-container": "#002c66",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-surface-variant": "#3f4943",
+                        "card-bg": "#ffffff",
+                        "surface-container": "#eceeef",
+                        "on-primary-fixed-variant": "#005236",
+                        "on-secondary-fixed": "#001a42",
+                        "primary-fixed": "#9df4c8",
+                        "background": "#f8f9fa",
+                        "tertiary-fixed-dim": "#ffb3ae",
+                        "on-tertiary": "#ffffff",
+                        "muted-text": "#3c4a42",
+                        "inverse-on-surface": "#eff1f2",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e1e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "gap": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Inter"],
+                        "data-label": ["JetBrains Mono"],
+                        "data-value": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "data-label": ["13px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "data-value": ["16px", {"lineHeight": "20px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8f9fa;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<!-- Top AppBar (JSON Map) -->
+<header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant h-16 flex items-center justify-between px-margin-mobile">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">menu</span>
+<div class="flex flex-col">
+<span class="font-headline-md text-[18px] font-bold text-primary tracking-tight leading-tight">Jeju ERW Project</span>
+<span class="text-[11px] font-medium text-on-surface-variant uppercase tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Field evidence · Carbon data pending
+                </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary">account_circle</span>
+</header>
+<main class="pb-40">
+<!-- Hero Section -->
+<div class="w-full aspect-video overflow-hidden">
+<img alt="Hero image showing Jeju volcanic field with researchers" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLsVqH4DebF60thEKE03jGZEsd7aRcM8Udy0BgYy24GGlmHc2XAv5wbq9NE139D0x90u6EtjsmzCFOtFlJputI_N44EfSh3l74zY3F6ZEkKAsfsz-l0ULyVeQT8W8Jakml16IL6Rp9s1hxKTJ7GQzRXJUQtkoN8xaHp--iI86B8GsdpmvGrFt_zqmYXKrgXUmtxEAH4coHwjh8oBojRtmsxgweF9LTMOqduBuDRt7fbYjuXF12ZmbJou8e8"/>
+</div>
+<!-- Verification Notice -->
+<div class="px-margin-mobile py-4 bg-tertiary-container/10 border-b border-outline-variant">
+<div class="flex gap-3 items-start">
+<span class="material-symbols-outlined text-tertiary-container mt-0.5">info</span>
+<p class="font-body-sm text-on-surface-variant">
+                    Carbon removal data for this project is currently undergoing GIWA Testnet verification. Field evidence is updated weekly.
+                </p>
+</div>
+</div>
+<!-- KPI Grid -->
+<div class="px-margin-mobile grid grid-cols-3 gap-3 py-6">
+<div class="bg-card-bg border border-outline rounded-xl p-3 flex flex-col justify-between h-24">
+<span class="font-data-label text-data-label text-muted-text uppercase">Evidence</span>
+<span class="font-data-value text-data-value text-primary">v1-Snapshot</span>
+</div>
+<div class="bg-card-bg border border-outline rounded-xl p-3 flex flex-col justify-between h-24">
+<span class="font-data-label text-data-label text-muted-text uppercase">Status</span>
+<span class="font-data-value text-data-value text-primary">Active</span>
+</div>
+<div class="bg-card-bg border border-outline rounded-xl p-3 flex flex-col justify-between h-24">
+<span class="font-data-label text-data-label text-muted-text uppercase">Files</span>
+<span class="font-data-value text-data-value text-primary">8 Pub.</span>
+</div>
+</div>
+<!-- Primary Navigation (Tabs) -->
+<nav class="flex border-b border-outline-variant px-margin-mobile gap-6">
+<button class="py-3 font-body-md text-on-surface-variant relative">Overview</button>
+<button class="py-3 font-body-md font-bold text-primary relative">
+                Gallery
+                <div class="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></div>
+</button>
+</nav>
+<!-- Secondary Navigation -->
+<nav class="flex bg-surface-container-low px-margin-mobile py-2 gap-4 border-b border-outline-variant">
+<button class="px-4 py-1.5 rounded-full bg-primary text-on-primary font-body-sm">Field</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-body-sm">Sensor</button>
+</nav>
+<!-- Gallery Content -->
+<div class="px-margin-mobile py-6 space-y-6">
+<!-- Card 1 -->
+<article class="bg-card-bg border border-outline rounded-xl overflow-hidden">
+<div class="aspect-[4/3] bg-subtle-card overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A wide panoramic shot of a Jeju Island landscape with vibrant green crop rows and dark volcanic soil. In the background, a distinctive volcanic cone rises against a bright blue sky with soft white clouds, reflecting a professional scientific field study aesthetic with high-contrast, clean natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgv99vmbdARbA3rFgvg-quWFYZrYIrMhOsi6UC-a1ErTB4BJF2_zfJTb3B3Qhry6krj3aJQD9vQ-4Vs6GLHkiLRwanSUtNnOvro1x9u4t3nYOXoQRnIX5qk14Y-277NALdhUCRSZOJwtV3L7iQnIBuuXbVL5WFkmCPfHPC5vFrBtoRNJvEl2ABtQ7AUBkrJoCvANErBF6oMa77XoTYHQdVxKxTBN6_O8y4VtWtTX7vQQ894GAJ1DWM_-88cwIIM6Fk8hCZ_RHZSZA"/>
+</div>
+<div class="p-4 flex justify-between items-start">
+<div>
+<h3 class="font-body-md font-bold text-on-surface">Jeju field monitoring site</h3>
+<p class="font-body-sm text-on-surface-variant">Overview of the ERW application area.</p>
+</div>
+<span class="material-symbols-outlined text-primary cursor-pointer">open_in_full</span>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-card-bg border border-outline rounded-xl overflow-hidden">
+<div class="aspect-[4/3] bg-subtle-card overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up view of agricultural crop rows where crushed volcanic rock is visible integrated into the dark soil. The lighting is direct and bright, highlighting the texture of the mineral basalt against the green shoots. The shot is composed with professional, structural grid-like precision typical of soil science documentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLf61AUN-l1QUv0MY825qso9-ZcCCBIxoaAKfs1MFUcB8CmtAScq3P4LF0cSIUkJNUl6UOSwF8URz2KB1gkuTnKyn-rfMpZVSiDqyOphiPSAWha4c00L-BDE12t9FuPmHTx02dIaucKpx_g86GaenfX0tLhmYXVaf60vac28rDM_yy1DSlDbZkTnKYgbPb7ShjDkZ2nUVRv45U97R8nHbNCdjNfPVkYyV0FC3nkZgwIHELIjCTgso64H6uMZYaTS1ZzqMyPSLk-Eg"/>
+</div>
+<div class="p-4 flex justify-between items-start">
+<div>
+<h3 class="font-body-md font-bold text-on-surface">Field monitoring across crop rows</h3>
+<p class="font-body-sm text-on-surface-variant">Regular interval checks on volcanic rock integration.</p>
+</div>
+<span class="material-symbols-outlined text-primary cursor-pointer">open_in_full</span>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-card-bg border border-outline rounded-xl overflow-hidden">
+<div class="aspect-[4/3] bg-subtle-card overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Technicians in professional environmental field gear installing a vertical soil probe into the ground. The scene is shot from a low angle to emphasize the technical equipment, featuring stainless steel sensors and digital monitoring interfaces. The background shows a clean, organized field site with an institutional climate-tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWMeph_A-lese6VOr4r-s5SKvrbktY4CzUCAmCBHyyiRkpd5JaS7OiSpzhh1LY8mUiyA6UOX7THTAxpHqPdicAcmZKeRkcqjKFOIE97VC-n1ONqjjg3ECgpkE2oOPW_tQvzfCrciQI4q4VqSDdsAyFmp46BPCceBSzrx0TgsObmyrizSkJqvEUV4EcCCzd554JCBNB-3xhxUikE5i_ypbozkbHIoqWyQNggKI7_tLNpwp7ZHh87b3TGLGXf3f2PP5NhcKaqNSQb8o"/>
+</div>
+<div class="p-4 flex justify-between items-start">
+<div>
+<h3 class="font-body-md font-bold text-on-surface">Subsurface soil probe installation</h3>
+<p class="font-body-sm text-on-surface-variant">Deep-soil sensor placement for pH monitoring.</p>
+</div>
+<span class="material-symbols-outlined text-primary cursor-pointer">open_in_full</span>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="bg-card-bg border border-outline rounded-xl overflow-hidden">
+<div class="aspect-[4/3] bg-subtle-card overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sleek, modern weather monitoring station mounted on a tripod in the middle of a volcanic farm. The equipment includes an anemometer, solar panel, and digital transmitter box. The lighting is crisp and even, emphasizing the high-tech infrastructure against the natural, grounded landscape of Jeju Island." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcP2JGWY_OZe2Pb0JYcNPkWZjRqVKergqE5jV0aBj5dcdKDw-Eb2PpxMuHkLSDGNMaPln_WrOMiFEjMzjZ6sEP1MkEdxxHhEOZAkaRcWnGVWKETwqER6QzKAikLrdodmtxM1mRn0B4VKN8O0nLSuqgYA4g6PnhbPeCH2_-NW06yo5clRDcfofFR_TKg6apXldgFrMsFs7VGuhaZEAxzWdVOMGm9I0UMiToc3I-m9sdg1YIbL0ykWh2z5zSIQbW31lBt5Iwi_fBhbw"/>
+</div>
+<div class="p-4 flex justify-between items-start">
+<div>
+<h3 class="font-body-md font-bold text-on-surface">Weather monitoring station</h3>
+<p class="font-body-sm text-on-surface-variant">Real-time microclimate data collection.</p>
+</div>
+<span class="material-symbols-outlined text-primary cursor-pointer">open_in_full</span>
+</div>
+</article>
+</div>
+<!-- Footer -->
+<footer class="px-margin-mobile py-10 bg-surface-container-low border-t border-outline-variant space-y-4">
+<div class="flex flex-wrap gap-4 text-on-surface-variant underline underline-offset-4 font-body-sm">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+<a href="#">Disclaimer</a>
+</div>
+<p class="font-body-sm text-muted-text">© 2024 EGOG. Data Integrity First.</p>
+</footer>
+</main>
+<!-- Persistent Bottom CTA Panel -->
+<div class="fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant px-margin-mobile py-4 pb-8 z-50 flex flex-col gap-3 shadow-[0_-4px_24px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-center">
+<span class="font-data-label text-data-label text-muted-text uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+                Early Access Phase: Limited
+            </span>
+<span class="font-data-value text-primary font-bold">94% Capacity</span>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-headline-md text-[18px] hover:opacity-90 active:scale-[0.98] transition-all">
+            Support &amp; Join Early Access
+        </button>
+</div>
+<!-- Bottom Nav (Mobile Only) - Hidden for this specific Detail focus but structural in Shell -->
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center py-2 md:hidden bg-surface hidden">
+<!-- Suppressed for transactional focus -->
+</div>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('article').forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.classList.add('scale-[0.99]', 'transition-transform');
+            });
+            card.addEventListener('touchend', () => {
+                card.classList.remove('scale-[0.99]');
+            });
+        });
+    </script>
+</body></html>

@@ -87,6 +87,14 @@ button, input { font: inherit; }
 .kpi-grid span, .kpi-grid small { color: var(--muted); display: block; font-size: 12px; }
 .kpi-grid strong { display: block; font-size: 30px; letter-spacing: -.04em; margin: 18px 0 5px; }
 .kpi-grid .text-value { font-size: 17px; letter-spacing: -.01em; margin-top: 27px; }
+.project-detail-navigation { display: grid; gap: 10px; }
+.project-detail-tabs, .evidence-type-tabs { align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; display: flex; padding: 6px; width: fit-content; }
+.project-detail-tabs a, .evidence-type-tabs a { align-items: center; border-radius: 9px; color: var(--muted); display: inline-flex; font-size: 14px; font-weight: 700; justify-content: center; min-height: 42px; min-width: 122px; padding: 9px 18px; }
+.project-detail-tabs a:hover, .evidence-type-tabs a:hover { color: var(--ink); }
+.project-detail-tabs a:focus-visible, .evidence-type-tabs a:focus-visible { outline: 3px solid rgba(0, 108, 73, .32); outline-offset: 2px; }
+.project-detail-tabs a[aria-current="page"] { background: var(--primary); color: white; }
+.evidence-type-tabs { background: var(--soft); }
+.evidence-type-tabs a[aria-current="page"] { background: white; box-shadow: 0 1px 5px rgba(24, 50, 39, .12); color: var(--primary); }
 .content-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
 .card-heading { align-items: center; display: flex; justify-content: space-between; }
 .card-heading h2, .onchain-card h2 { font-size: 24px; letter-spacing: -.03em; margin: 0; }
@@ -267,6 +275,8 @@ button, input { font: inherit; }
   .hero-copy h1 { font-size: 46px; }
   .project-title-row h1 { font-size: 42px; }
   .kpi-grid { grid-template-columns: 1fr; }
+  .project-detail-tabs, .evidence-type-tabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .project-detail-tabs a, .evidence-type-tabs a { min-width: 0; padding-left: 10px; padding-right: 10px; width: 100%; }
   .trend-chart { gap: 12px; padding: 0 5px; }
   .data-details dl { grid-template-columns: 1fr; }
   .onchain-card { align-items: flex-start; flex-direction: column; }

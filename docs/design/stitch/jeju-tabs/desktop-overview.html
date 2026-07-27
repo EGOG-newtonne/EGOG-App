@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EGOG | Jeju ERW Project Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Hanken+Grotesk:wght@600;700;800&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3c4a42",
+                        "inverse-surface": "#2e3132",
+                        "surface-bright": "#f8f9fa",
+                        "surface-container-highest": "#e1e3e4",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1d",
+                        "on-tertiary-fixed": "#121c2a",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f4f5",
+                        "outline": "#6c7a71",
+                        "on-secondary-fixed-variant": "#004395",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#6ffbbe",
+                        "on-secondary-fixed": "#001a42",
+                        "outline-variant": "#bbcabf",
+                        "surface-variant": "#e1e3e4",
+                        "secondary": "#0058be",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-container": "#edeeef",
+                        "on-tertiary-container": "#2f3948",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-tertiary-fixed-variant": "#3d4756",
+                        "tertiary-fixed-dim": "#bdc7d9",
+                        "on-primary": "#ffffff",
+                        "primary": "#006c49",
+                        "surface": "#f8f9fa",
+                        "surface-container-high": "#e7e8e9",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#005236",
+                        "on-primary-container": "#00422b",
+                        "on-secondary-container": "#fefcff",
+                        "primary-container": "#10b981",
+                        "error": "#ba1a1a",
+                        "on-surface": "#191c1d",
+                        "tertiary-fixed": "#d9e3f6",
+                        "surface-dim": "#d9dadb",
+                        "inverse-primary": "#4edea3",
+                        "surface-tint": "#006c49",
+                        "primary-fixed-dim": "#4edea3",
+                        "tertiary": "#555f6f",
+                        "tertiary-container": "#99a3b5",
+                        "secondary-container": "#2170e4",
+                        "on-primary-fixed": "#002113",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f8f9fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "label-xs": ["JetBrains Mono"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "label-xs": ["10px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .verified-badge {
+            background-color: #f0fdf4;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+        .timeline-connector {
+            width: 2px;
+            height: 40px;
+            background-color: #e5e7eb;
+            margin-left: 11px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-surface flex justify-between items-center px-margin-desktop h-16 border-b border-outline-variant max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary">EGOG</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-label-sm text-label-sm text-primary border-b-2 border-primary pb-1 transition-colors duration-200" href="#">Projects</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">How it Works</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Governance</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Support</a>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-sm text-label-sm hover:opacity-90 transition-opacity">
+            Join Early Access
+        </button>
+</nav>
+<main class="mt-16 max-w-container-max mx-auto px-margin-desktop py-12">
+<!-- Header & Identity -->
+<header class="mb-10">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Jeju, South Korea</span>
+</div>
+<div class="flex justify-between items-end gap-4">
+<div>
+<h1 class="font-display-lg text-display-lg mb-2">Jeju ERW Project</h1>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Field evidence · Carbon data pending</span>
+</div>
+</div>
+<div class="hidden lg:block text-right">
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase">Project ID</p>
+<p class="font-label-sm text-label-sm font-bold">KR-JEJU-001</p>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="mb-12">
+<div class="w-full aspect-[21/9] rounded-xl overflow-hidden shadow-sm border border-outline-variant">
+<img alt="Landscape of Jeju project site" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLt8wogZSb6LvkWpq28AyNhHu8OQCberxe1DZMM69p9_or_rnfAtL3k0TWOBHa6gXMak_jdlXPcci2Elal606gavRIAWe0d_yHpfbELrcX9B52MihAL35AiWPZe26nMB5KsKwe7vxY4WoX4aSywfnO_wGOLDpj73bJw43xImh6oSu-NVigpPpRhXQ7pBSpot-Tis2-v-3vQ_AeSnV7yuh5LFZ28qu8QObCJfjfcio8RDOs6xlxEiE7PwF3M"/>
+</div>
+</section>
+<!-- KPI Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-12">
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase mb-1">Project Type</p>
+<p class="font-body-lg text-body-lg font-bold">Enhanced Rock Weathering</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase mb-1">Location</p>
+<p class="font-body-lg text-body-lg font-bold">Jeju, South Korea</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase mb-1">Project Stage</p>
+<p class="font-body-lg text-body-lg font-bold">Monitoring</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-xl">
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase mb-1">Latest Snapshot</p>
+<p class="font-body-lg text-body-lg font-bold">v1 (Field Evidence)</p>
+</div>
+</section>
+<!-- Notice Box -->
+<div class="bg-surface-container p-6 rounded-xl border border-outline-variant mb-12 flex gap-4 items-start">
+<span class="material-symbols-outlined text-secondary text-2xl">info</span>
+<div>
+<h4 class="font-label-sm text-label-sm font-bold mb-1 uppercase">Evidence Limitation</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">The data displayed represents raw field evidence submitted by operators. Carbon sequestration metrics are currently in the calculation phase and have not yet been finalized or validated by third-party auditors.</p>
+</div>
+</div>
+<!-- Sub-navigation -->
+<nav class="flex border-b border-outline-variant mb-8">
+<button class="px-8 py-4 font-label-sm text-label-sm font-bold border-b-2 border-primary text-primary">Overview</button>
+<button class="px-8 py-4 font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors">Gallery</button>
+</nav>
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Left Column: Main Content -->
+<div class="flex-1 space-y-12">
+<!-- Verification Timeline -->
+<section>
+<h3 class="font-headline-md text-headline-md mb-6">Verification Timeline</h3>
+<div class="space-y-0">
+<!-- Step 1: Active -->
+<div class="flex gap-6">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="timeline-connector"></div>
+</div>
+<div class="pb-8">
+<p class="font-label-sm text-label-sm font-bold text-primary">Monitoring</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Field sensors active. Initial data points being collected and anchored to the GIWA Testnet.</p>
+</div>
+</div>
+<!-- Step 2: Pending -->
+<div class="flex gap-6">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full border-2 border-outline flex items-center justify-center text-outline">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+</div>
+<div class="timeline-connector"></div>
+</div>
+<div class="pb-8 opacity-60">
+<p class="font-label-sm text-label-sm font-bold">Validation</p>
+<p class="font-body-md text-body-md">Scientific methodology review by designated verifiers.</p>
+</div>
+</div>
+<!-- Step 3: Pending -->
+<div class="flex gap-6">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full border-2 border-outline flex items-center justify-center text-outline"></div>
+<div class="timeline-connector"></div>
+</div>
+<div class="pb-8 opacity-60">
+<p class="font-label-sm text-label-sm font-bold">Verification</p>
+<p class="font-body-md text-body-md">Confirmation of sequestration data following weathering cycle.</p>
+</div>
+</div>
+<!-- Step 4: Final -->
+<div class="flex gap-6">
+<div class="flex flex-col items-center">
+<div class="w-6 h-6 rounded-full border-2 border-outline flex items-center justify-center text-outline"></div>
+</div>
+<div class="opacity-60">
+<p class="font-label-sm text-label-sm font-bold">Issuance</p>
+<p class="font-body-md text-body-md">On-chain minting of verified carbon credits.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Data Source Details -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">analytics</span>
+<h4 class="font-body-lg text-body-lg font-bold">Data Source Details</h4>
+</div>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+<div class="p-6 space-y-6">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Evidence Files</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high px-2 py-1 rounded">8 published</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Field Snapshot</span>
+<span class="font-label-sm text-label-sm font-bold">v1.0.42</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Carbon Status</span>
+<span class="font-label-sm text-label-sm text-error font-bold italic">Carbon data pending</span>
+</div>
+</div>
+</section>
+<!-- On-chain Snapshot -->
+<section class="bg-surface-container-highest/30 border border-outline-variant rounded-xl p-6">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">link</span>
+<h4 class="font-body-lg text-body-lg font-bold">On-chain Snapshot Status</h4>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-4 rounded-lg border border-outline-variant flex justify-between items-center">
+<div>
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase">Network</p>
+<p class="font-body-md text-body-md font-bold">GIWA Testnet</p>
+</div>
+<div class="text-right">
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase">Snapshot ID</p>
+<p class="font-label-sm text-label-sm font-mono">0x7a...4e92</p>
+</div>
+</div>
+<a class="flex items-center justify-center gap-2 text-primary font-label-sm text-label-sm border border-primary/20 bg-primary/5 py-3 rounded-lg hover:bg-primary/10 transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+                            Public IPFS Verification Link
+                        </a>
+</div>
+</section>
+</div>
+<!-- Right Column: Sticky Panel -->
+<aside class="w-full lg:w-[400px]">
+<div class="sticky top-24 space-y-gutter">
+<!-- Participation Card -->
+<div class="bg-white border-2 border-primary rounded-xl p-8 shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h4 class="font-headline-md text-headline-md mb-1">Current Snapshot</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Version: 1.0.0 (Pre-Alpha)</p>
+</div>
+<span class="px-3 py-1 bg-primary/10 text-primary font-label-xs text-label-xs rounded-full border border-primary/20">Active</span>
+</div>
+<div class="space-y-4 mb-8">
+<h5 class="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant">What you receive now:</h5>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">token</span>
+<span class="font-body-md text-body-md">On-chain participation record</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">workspace_premium</span>
+<span class="font-body-md text-body-md">Early Participant Badge</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">dashboard</span>
+<span class="font-body-md text-body-md">Project dashboard access</span>
+</li>
+</ul>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary rounded-lg font-headline-md text-headline-md hover:opacity-90 transition-opacity mb-4">
+                            Support & Join Early Access
+                        </button>
+<p class="font-label-xs text-label-xs text-on-surface-variant text-center px-4">
+                            By joining, you acknowledge that EGOG is a research platform. This is not an investment or a financial instrument.
+                        </p>
+</div>
+<!-- Participants List -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6">
+<h4 class="font-label-sm text-label-sm font-bold mb-4 uppercase">Early Participants</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high border border-outline-variant flex items-center justify-center font-label-xs text-label-xs">V</div>
+<div>
+<p class="font-body-md text-body-md font-bold leading-none">CarbonPath Labs</p>
+<p class="font-label-xs text-label-xs text-on-surface-variant">Verifier · GIWA Nodes</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-high border border-outline-variant flex items-center justify-center font-label-xs text-label-xs">O</div>
+<div>
+<p class="font-body-md text-body-md font-bold leading-none">Jeju Agri-Tech</p>
+<p class="font-label-xs text-label-xs text-on-surface-variant">Field Operator</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-margin-desktop bg-surface-container flex flex-col md:flex-row justify-between items-start gap-8 border-t border-outline-variant max-w-container-max mx-auto">
+<div class="max-w-xs">
+<span class="font-headline-md text-headline-md font-bold text-on-surface mb-4 block">EGOG</span>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Building the infrastructure for verifiable climate action on-chain.</p>
+<p class="font-label-xs text-label-xs text-on-surface-variant">© 2024 EGOG. Verified Climate Participation.</p>
+</div>
+<div class="grid grid-cols-2 gap-x-16 gap-y-4">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Climate Commitment</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-secondary transition-colors" href="#">Contact</a>
+</div>
+</footer>
+<script>
+        // Micro-interaction for Data Source Details expander
+        document.querySelector('.cursor-pointer').addEventListener('click', function() {
+            const container = this.parentElement;
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('.material-symbols-outlined:last-child');
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Initial state
+        document.querySelector('.cursor-pointer').nextElementSibling.classList.add('hidden');
+    </script>
+</body></html>

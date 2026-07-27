@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jeju ERW Project — Gallery | EGOG</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hanken+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-container": "#10b981",
+                "on-secondary-fixed-variant": "#004395",
+                "on-primary": "#ffffff",
+                "on-tertiary-container": "#2f3948",
+                "on-primary-fixed": "#002113",
+                "inverse-on-surface": "#f0f1f2",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed": "#d8e2ff",
+                "error-container": "#ffdad6",
+                "surface-tint": "#006c49",
+                "on-secondary-container": "#fefcff",
+                "on-surface": "#191c1d",
+                "tertiary-fixed": "#d9e3f6",
+                "secondary-container": "#2170e4",
+                "inverse-surface": "#2e3132",
+                "tertiary-fixed-dim": "#bdc7d9",
+                "tertiary-container": "#99a3b5",
+                "on-primary-fixed-variant": "#005236",
+                "primary": "#006c49",
+                "on-secondary-fixed": "#001a42",
+                "on-surface-variant": "#3c4a42",
+                "on-secondary": "#ffffff",
+                "outline": "#6c7a71",
+                "secondary": "#0058be",
+                "on-error": "#ffffff",
+                "error": "#ba1a1a",
+                "tertiary": "#555f6f",
+                "surface-container-high": "#e7e8e9",
+                "surface-bright": "#f8f9fa",
+                "outline-variant": "#bbcabf",
+                "secondary-fixed-dim": "#adc6ff",
+                "inverse-primary": "#4edea3",
+                "surface-dim": "#d9dadb",
+                "primary-fixed": "#6ffbbe",
+                "surface-variant": "#e1e3e4",
+                "on-background": "#191c1d",
+                "on-tertiary": "#ffffff",
+                "primary-fixed-dim": "#4edea3",
+                "on-primary-container": "#00422b",
+                "surface-container-highest": "#e1e3e4",
+                "on-tertiary-fixed-variant": "#3d4756",
+                "on-tertiary-fixed": "#121c2a",
+                "surface-container-low": "#f3f4f5",
+                "surface-container": "#edeeef",
+                "background": "#f8f9fa",
+                "surface": "#f8f9fa",
+                "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "margin-mobile": "20px",
+                "unit": "8px",
+                "container-max": "1280px",
+                "margin-desktop": "40px",
+                "gutter": "24px"
+            },
+            "fontFamily": {
+                "label-xs": ["JetBrains Mono"],
+                "display-lg": ["Hanken Grotesk"],
+                "headline-md": ["Hanken Grotesk"],
+                "headline-lg-mobile": ["Hanken Grotesk"],
+                "body-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "label-sm": ["JetBrains Mono"],
+                "headline-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                "label-xs": ["10px", {"lineHeight": "14px", "fontWeight": "500"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab-indicator {
+            position: relative;
+        }
+        .active-tab-indicator::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #006c49;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Shell -->
+<header class="bg-surface border-b border-outline-variant h-20 flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<span class="font-headline-md text-headline-md font-bold text-primary">EGOG</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-primary border-b-2 border-primary pb-1 font-body-md text-body-md hover:opacity-80 transition-opacity" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">How it Works</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Governance</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors">Support</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-body-md text-body-md font-semibold hover:opacity-90 active:scale-95 transition-all">Join Early Access</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop py-12">
+<!-- Header Section -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div>
+<div class="flex items-center gap-2 text-primary mb-2">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+<span class="font-label-sm text-label-sm tracking-wider">JEJU, SOUTH KOREA</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-4">Jeju ERW Project</h1>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full border border-outline-variant">
+<span class="w-2 h-2 bg-primary-container rounded-full animate-pulse"></span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Field evidence · Carbon data pending</span>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low rounded-xl border border-outline-variant max-w-sm">
+<p class="font-label-sm text-label-sm text-on-surface-variant italic">
+<span class="material-symbols-outlined text-[16px] align-middle mr-1">info</span>
+                        Evidence Limitation: This gallery contains raw field evidence for validation purposes.
+                    </p>
+</div>
+</div>
+<!-- Hero Image -->
+<div class="relative w-full h-[480px] rounded-xl overflow-hidden border border-outline-variant mb-12 group">
+<img alt="Jeju Field Site" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpiAAMIU6pRE98m_CPMnw7jCEZuPfiUT8osHP14eSJnwmL-w3CFX-I1yVEKFd6bvgR05xGVyE8nA1TGXjPsBqZe4VjKUDaZEkAs_gFBl0LAJXXL743IwPbSo_j_y7P0WanQl7ur0vj86r1aAdytPKue_szLqkMJYSsifQjPP0Zw3KEmg0urWrmjed1_V9ozE314pRnV2OrjM5h7hCQXsWAEU0redkFX0CnFRTuWpBceWKCYNJIwgKMzewJn7SKWaW1MO86v2q_oqY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-8 left-8 text-white">
+<p class="font-label-sm text-label-sm opacity-80 mb-2">PRIMARY SITE SNAPSHOT</p>
+<p class="font-headline-md text-headline-md">Jeju Island Basalt Field Monitoring</p>
+</div>
+</div>
+<!-- KPI Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mb-12">
+<div class="bg-surface p-6 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase mb-2">Project Type</p>
+<p class="font-headline-md text-headline-md text-primary truncate">Enhanced Rock Weathering (ERW)</p>
+</div>
+<div class="bg-surface p-6 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase mb-2">Location</p>
+<p class="font-headline-md text-headline-md text-on-surface">Jeju, South Korea</p>
+</div>
+<div class="bg-surface p-6 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase mb-2">Project Stage</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">architecture</span>
+<p class="font-headline-md text-headline-md text-on-surface">Design</p>
+</div>
+</div>
+<div class="bg-surface p-6 rounded-xl border border-outline-variant shadow-sm hover:shadow-md transition-shadow">
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase mb-2">Latest Snapshot</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">verified</span>
+<p class="font-headline-md text-headline-md text-on-surface">Feasibility</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Navigation Tabs -->
+<nav class="border-b border-outline-variant mb-8">
+<div class="flex gap-8 mb-4">
+<button class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors py-2">Overview</button>
+<button class="font-body-md text-body-md text-primary font-bold py-2 active-tab-indicator">Gallery</button>
+</div>
+<div class="flex gap-4 mb-4">
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-full font-label-sm text-label-sm">Field</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm hover:bg-outline-variant transition-colors">Sensor</button>
+</div>
+</nav>
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Main Content: Left Column -->
+<div class="flex-grow">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-surface rounded-xl border border-outline-variant overflow-hidden group shadow-sm hover:shadow-md transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Jeju field monitoring site" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpiAAMIU6pRE98m_CPMnw7jCEZuPfiUT8osHP14eSJnwmL-w3CFX-I1yVEKFd6bvgR05xGVyE8nA1TGXjPsBqZe4VjKUDaZEkAs_gFBl0LAJXXL743IwPbSo_j_y7P0WanQl7ur0vj86r1aAdytPKue_szLqkMJYSsifQjPP0Zw3KEmg0urWrmjed1_V9ozE314pRnV2OrjM5h7hCQXsWAEU0redkFX0CnFRTuWpBceWKCYNJIwgKMzewJn7SKWaW1MO86v2q_oqY"/>
+<button class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-full shadow hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">zoom_in</span>
+</button>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-on-surface mb-2">Jeju field monitoring site</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Initial deployment of monitoring infrastructure in agricultural fields.</p>
+<div class="mt-4 pt-4 border-t border-outline-variant flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant italic">ID: JEJU-EV-001</span>
+<span class="text-primary flex items-center gap-1 font-label-xs text-label-xs uppercase tracking-widest">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                    Verified
+                                </span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface rounded-xl border border-outline-variant overflow-hidden group shadow-sm hover:shadow-md transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Field monitoring across crop rows" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcAgUSApNDBqtVV0oAkDcim7K7f5gm_yGlw_zLskHTF9YDeUpFbigp1YQSGPCk03HnfHSzxDR7K8kslTMfTVYShVbvSWPeNKxitOHjxySlHzW0FknA-vwb9xqWNHHMWMZrCSSxrtWdOtZc2smm-cp6FJC_HcsHb-nEhRAMWwT7OxQDT_35sXXmYl1Kjx_OeJXCFK9LFXaEP7EhEFF37mjNFTexwcBXJmEVD6Bn1Z5MNgKjuTEpq4MiTVcRJChtwG5csJWy4-uRjJ0"/>
+<button class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-full shadow hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">zoom_in</span>
+</button>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-on-surface mb-2">Field monitoring across crop rows</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Active data collection during the growing season to measure soil health.</p>
+<div class="mt-4 pt-4 border-t border-outline-variant flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant italic">ID: JEJU-EV-002</span>
+<span class="text-primary flex items-center gap-1 font-label-xs text-label-xs uppercase tracking-widest">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                    Verified
+                                </span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface rounded-xl border border-outline-variant overflow-hidden group shadow-sm hover:shadow-md transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Subsurface soil probe installation" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDot234MV2ldckyLr5sVoUtjS2hdFc55wmJTf78Jymo1UoaZVFPnwe-Jvc9ah_88NSRXdusdz0ieCRuii1ZwffBUc2cyxqk49-uSvcfHH2EULFB7XO4V__LDNktYsww8ubbVzKGuIIdl6eIzPD0f_p2Fwhxb4yJikmr-pUzzxkRfCSRZwIeUDIFeU-Yvli3WNIu61ctau7XqJ-n08ELAetlcYzqxH-ThF1jLLX5TJjqqagRepMfobO53eltRh7rLrO3Vhy79Ktfinw"/>
+<button class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-full shadow hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">zoom_in</span>
+</button>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-on-surface mb-2">Subsurface soil probe installation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">High-precision equipment placed to monitor carbon sequestration at depth.</p>
+<div class="mt-4 pt-4 border-t border-outline-variant flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant italic">ID: JEJU-EV-003</span>
+<span class="text-primary flex items-center gap-1 font-label-xs text-label-xs uppercase tracking-widest">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                    Verified
+                                </span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface rounded-xl border border-outline-variant overflow-hidden group shadow-sm hover:shadow-md transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Weather monitoring station" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0vwuVHlDUCE1AAzCvNdb6E5YlSlrxPaywpjL-NfclAIze8a3KPJRWQsUobkjgwGzSVdn85v5IX8pfvriyqe3V6lUWIEvQPYGrTdxkEqBb7mrbUJESSGZOJtsp3LCQM4oM7Y3Y_6gUCQrkdxQF_ZGYxR6dNCq5GcKymaW_KScq7nvkU6OjWqCFlo1gkbSJgMkkQHZ2RAzEw42HwngxY0IRt5wKK4QjsWBsbNW11Sj-1bFf0CvFYwpd3tZ0kK64TwzcP8XLDPCJ1hE"/>
+<button class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2 rounded-full shadow hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">zoom_in</span>
+</button>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-on-surface mb-2">Weather monitoring station</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Meteorological station providing local environmental context for data validation.</p>
+<div class="mt-4 pt-4 border-t border-outline-variant flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant italic">ID: JEJU-EV-004</span>
+<span class="text-primary flex items-center gap-1 font-label-xs text-label-xs uppercase tracking-widest">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                    Verified
+                                </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Panel: Right Column -->
+<aside class="lg:w-[380px] flex-shrink-0">
+<div class="sticky top-28 space-y-6">
+<!-- GIWA Testnet Panel -->
+<div class="bg-white border border-outline-variant rounded-xl p-8 shadow-sm">
+<h2 class="font-headline-md text-on-surface mb-6">Early Participants on GIWA Testnet</h2>
+<div class="space-y-6 mb-8">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+<div>
+<p class="font-body-md text-on-surface font-semibold">Climate Capital Trust</p>
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase">Verifier · Seoul</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<div>
+<p class="font-body-md text-on-surface font-semibold">Jeju AgTech Cooperative</p>
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase">Operator · Jeju</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+</div>
+<div>
+<p class="font-body-md text-on-surface font-semibold">Global Carbon Fund</p>
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase">Sponsor · Zurich</p>
+</div>
+</div>
+</div>
+<div class="bg-primary-container/10 p-4 rounded-lg border border-primary-container/30 mb-8">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-primary font-bold">FEASIBILITY PROGRESS</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">82%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[82%]"></div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-body-md text-body-md font-bold hover:shadow-lg active:scale-95 transition-all mb-4">
+                            Support & Join Early Access
+                        </button>
+<p class="text-center font-label-xs text-label-xs text-on-surface-variant">
+                            By joining, you agree to our <a class="underline" href="#">Validation Protocol</a>
+</p>
+</div>
+<!-- Newsletter/Action Card -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-6 text-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">mail</span>
+<h4 class="font-headline-md text-on-surface mb-2">Weekly Field Updates</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Receive direct data snapshots and verification alerts from the Jeju site.</p>
+<input class="w-full bg-white border-outline rounded-lg px-4 py-2 mb-3 focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Enter your email" type="email"/>
+<button class="w-full border border-primary text-primary py-2 rounded-lg font-label-sm text-label-sm font-bold hover:bg-primary hover:text-white transition-all">Subscribe</button>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-surface-container-low border-t border-outline-variant w-full py-12 px-margin-desktop max-w-container-max mx-auto mt-auto flex flex-col md:flex-row justify-between items-center gap-gutter">
+<div class="mb-8 md:mb-0">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">EGOG</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-2 max-w-xs text-center md:text-left">
+                © 2024 EGOG. Verifiable progress for environmental optimism.
+            </p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-label-sm text-label-sm text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Climate Commitment</a>
+<a class="font-label-sm text-label-sm text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Scientific Methodology</a>
+</div>
+</footer>
+<script>
+        // Micro-interaction for expand button hover effect
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.classList.add('scale-95');
+            });
+            button.addEventListener('mouseup', () => {
+                button.classList.remove('scale-95');
+            });
+            button.addEventListener('mouseleave', () => {
+                button.classList.remove('scale-95');
+            });
+        });
+    </script>
+</body></html>

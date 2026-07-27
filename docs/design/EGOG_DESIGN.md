@@ -64,6 +64,8 @@ Mobile design system asset: `5394d7bdd41d4fccaa5d269d30e67850` (`Climate Institu
 | Stitch asset | Device / size | Next.js implementation |
 | --- | --- | --- |
 | `dcbc53f92c1e4e84aec1860d2062f787` — Vietnam Brick Project Detail | Desktop, 1280×2320 | `apps/web/src/app/projects/[slug]/page.tsx`, `apps/web/src/app/styles.css` |
+| `6fa41611f268406d86624a7a74f4f64f` — Jeju ERW Project — Overview | Desktop, 1280×2236 CSS px (2× screenshot) | Jeju-only Overview state in `apps/web/src/app/projects/[slug]/page.tsx` |
+| `fddddd7c4a0841ef8c47bc0bd83df77e` — Jeju ERW Project — Gallery | Desktop, 1280×2188 CSS px (2× screenshot) | Jeju-only Field Gallery state and URL navigation |
 | `09b67d24e2334314a168fb3d39a2ddd8` — Project Discovery | Desktop, 1280×1254 CSS px (2× screenshot) | `apps/web/src/app/page.tsx`, `apps/web/src/components/project-card.tsx` |
 | `9106f4e1a0a242ed9380d7342d56c1ea` — Participation Review & Consent | Desktop, 1280×1507 CSS px (2× screenshot) | `apps/web/src/app/participate/[slug]/page.tsx`, participation flow components |
 | `d343ee81e4bf4307bed36d02031dabaf` — Participation Complete | Desktop, 1280×1373 CSS px (2× screenshot) | Completion state in `apps/web/src/app/participate/[slug]/page.tsx` |
@@ -71,6 +73,8 @@ Mobile design system asset: `5394d7bdd41d4fccaa5d269d30e67850` (`Climate Institu
 | `696964715bb34170943ab429d912673a` — Climate Tech Institutional | Device agnostic | Global colors, typography, spacing, cards, buttons, data labels, Timeline, flow and My Page styles |
 | `3757f66c2bac40349523db30a350db6e` — Project Discovery — Mobile — Final | Mobile, 390×1454 CSS px (2× screenshot) | Responsive state of `apps/web/src/app/page.tsx` and project cards |
 | `06af01bfe73b4ce0be5c6697f32a506f` — Vietnam Brick Project Detail — Mobile — Final | Mobile, 390×2542 CSS px (2× screenshot) | Responsive Project Detail; safe-area bottom participation CTA |
+| `a4e98cd696d54d389a0082ccba9f320d` — Jeju ERW Project — Overview | Mobile, 390×1871 CSS px (2× screenshot) | Responsive Jeju Overview and stacked top-level navigation |
+| `fe040b5335134f74b2e568a7b534a7e2` — Jeju ERW Project — Gallery | Mobile, 390×2527 CSS px (2× screenshot) | Responsive Field Gallery, stacked category navigation and bottom CTA |
 | `f8f48706ba50419bb01f3587b09736fc` — Participation Review & Consent — Mobile — Production Safe | Mobile, 390×1385 CSS px (2× screenshot) | Responsive participation review; actions in normal document flow |
 | `5b1cbc9a703f4589bc0d8331de2eab69` — Participation Complete — Mobile | Mobile, 390×1524 CSS px (2× screenshot) | Responsive completion state |
 | `1080089b3fc14b5f9ae4ab5511df9e53` — My Participation — Mobile | Mobile, 390×1694 CSS px (2× screenshot) | Responsive My Participation dashboard |
@@ -92,6 +96,29 @@ final Review displays the complete approved v3 hash and IPFS URI without clippin
 Mobile visual evidence is stored under
 `docs/qa/evidence/2026-07-13/stitch-mobile/` using the same numbering as the
 mobile rows above.
+
+### Jeju ERW Overview and Gallery states
+
+The Jeju-specific tab composition was generated on 2026-07-27 using the
+existing Desktop and Mobile design systems. The generated HTML and screen
+captures are preserved under `docs/design/stitch/jeju-tabs/`.
+
+- `/projects/jeju-erw` maps to the approved Overview screens. It keeps the
+  shared project context and participation action, then shows Timeline, Source
+  Details, and On-chain Snapshot Status without gallery previews.
+- `/projects/jeju-erw?tab=gallery&type=field` maps to the approved Gallery
+  screens. The Gallery screen is the representative layout and renders the
+  four Field evidence files.
+- `/projects/jeju-erw?tab=gallery&type=sensor` uses the same approved Gallery
+  layout and replaces only the title, description, and four media records with
+  the Sensor category. A separate fictional Sensor screen is intentionally not
+  maintained.
+- Stitch-generated fictional copy, generated imagery, participant identities,
+  counts, and hashes are not implementation data. The Next.js UI uses the
+  current Production Field Evidence Snapshot v1 and its eight published files.
+- URL navigation, query normalization, accessible-current state, image loading,
+  and Dialog behavior remain code-owned interaction details. Material visual
+  changes must still be made in these Stitch states first.
 
 ## Source-of-truth procedure
 

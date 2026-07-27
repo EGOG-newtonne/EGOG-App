@@ -19,6 +19,11 @@ import {
 
 import { AppHeader } from "../../../components/app-header";
 import { EvidenceGallery } from "../../../components/evidence-gallery";
+import {
+  ProjectDetailNavigation,
+  resolveProjectDetailView,
+  type ProjectDetailSearchParams,
+} from "../../../components/project-detail-navigation";
 import { SiteFooter } from "../../../components/site-footer";
 import { ProjectParticipationCta } from "../../../features/participation/project-participation-cta";
 import { getProjectBySlug } from "../../../server/projects/queries";
@@ -40,10 +45,13 @@ function formatForecast(forecast: ClimateMetricsSnapshot["forecastCreditVolume"]
 
 export default async function ProjectDetailPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<ProjectDetailSearchParams>;
 }) {
   const { slug } = await params;
+  const resolvedSearchParams = await searchParams;
   const project = await getProjectBySlug(slug);
   if (!project?.currentSnapshot) notFound();
   const current = publicSnapshotSchema.parse(project.currentSnapshot.publicData);
@@ -55,6 +63,7 @@ export default async function ProjectDetailPage({
   const firstReference = project.cachedMemberCount > 0;
   const fieldMedia = evidence?.media.filter((item) => item.category === "field") ?? [];
   const sensorMedia = evidence?.media.filter((item) => item.category === "sensor") ?? [];
+  const projectDetailView = resolveProjectDetailView(resolvedSearchParams);
 
   return (
     <>
@@ -97,6 +106,13 @@ export default async function ProjectDetailPage({
               {evidence ? <article><span>Published evidence</span><strong>{evidence.media.length}</strong><small>4 field · 4 sensor images</small></article> : null}
               {evidence ? <article><span>Carbon data</span><strong className="text-value">Data pending</strong><small>No removal or credit figures published</small></article> : null}
             </section>
+            {evidence ? (
+              <ProjectDetailNavigation
+                evidenceType={projectDetailView.evidenceType}
+                projectSlug={project.slug}
+                tab={projectDetailView.tab}
+              />
+            ) : null}
             {climate ? <section className="content-card">
               <div className="card-heading"><div><p className="eyebrow">Snapshot history</p><h2>Monitored reduction trend</h2></div><span>tCO₂e</span></div>
               <div className="trend-chart">
@@ -107,27 +123,28 @@ export default async function ProjectDetailPage({
                 })}
               </div>
             </section> : null}
-            {evidence ? (
-              <>
+            {evidence && projectDetailView.tab === "gallery" ? (
+              projectDetailView.evidenceType === "field" ? (
                 <EvidenceGallery
                   description="Original site photography showing the field layout, installed soil probes, and weather monitoring hardware."
                   media={fieldMedia}
                   title="Field Gallery"
                 />
+              ) : (
                 <EvidenceGallery
                   description="Original Newtonne ZENTRA Cloud screens are published as visual evidence. Values are not transcribed or converted into carbon outcomes."
                   media={sensorMedia}
                   title="Sensor Monitoring Evidence"
                 />
-              </>
+              )
             ) : null}
-            <section className="content-card">
+            {!evidence || projectDetailView.tab === "overview" ? <section className="content-card">
               <div className="card-heading"><div><p className="eyebrow">Project lifecycle</p><h2>Verification timeline</h2></div></div>
               <ol className="stage-list">
                 {stages.map((stage, index) => <li className={index <= currentStage ? "reached" : ""} key={stage}><span aria-hidden="true">{index <= currentStage ? <CheckCircle2 size={20} /> : index + 1}</span><div><strong>{stage.replace("_", " ")}</strong><small>{index === currentStage ? "Current demonstration stage" : index < currentStage ? "Reached in demonstration history" : "Future stage"}</small></div></li>)}
               </ol>
-            </section>
-            <section className="content-card data-details">
+            </section> : null}
+            {!evidence || projectDetailView.tab === "overview" ? <section className="content-card data-details">
               <div className="card-heading"><div><p className="eyebrow">Data provenance</p><h2>Source details</h2></div><ShieldCheck size={25} /></div>
               <dl>
                 <div><dt>Source</dt><dd>{current.sourceName}</dd></div>
@@ -139,12 +156,12 @@ export default async function ProjectDetailPage({
                 {climate ? <div><dt>Methodology</dt><dd>{climate.methodology}</dd></div> : null}
                 <div><dt>Verification note</dt><dd>{current.verificationNote}</dd></div>
               </dl>
-            </section>
-            <section className="content-card onchain-card">
+            </section> : null}
+            {!evidence || projectDetailView.tab === "overview" ? <section className="content-card onchain-card">
               <div><Database size={24} /><div><p className="eyebrow">On-chain snapshot status</p><h2>{firstReference ? "Referenced on GIWA Testnet" : "Not yet referenced on-chain"}</h2><p>The snapshot becomes referenced when a participant signs and mints a badge.</p></div></div>
               {firstReference ? <dl className="reference-facts"><div><dt>First referenced</dt><dd>{project.firstReferencedAt ? new Date(project.firstReferencedAt).toLocaleString("en-GB", { timeZone: "UTC" }) : "Pending sync"} UTC</dd></div><div><dt>Participation records</dt><dd>{project.cachedMemberCount}</dd></div></dl> : null}
               <a href={project.currentSnapshot.gatewayUrl} target="_blank" rel="noreferrer">View public Snapshot JSON <ExternalLink size={15} /></a>
-            </section>
+            </section> : null}
           </div>
           <aside className="participation-panel">
             <p className="eyebrow">Early participation</p>
