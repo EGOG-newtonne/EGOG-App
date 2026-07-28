@@ -18,12 +18,18 @@ import {
 
 import { AppLink } from "../../../components/app-link";
 import { EvidenceGallery } from "../../../components/evidence-gallery";
+import { ProjectPhotoGallery } from "../../../components/project-photo-gallery";
+import { ProjectPhotoNavigation } from "../../../components/project-photo-navigation";
 import {
   ProjectDetailNavigation,
   resolveProjectDetailView,
   type ProjectDetailSearchParams,
 } from "../../../components/project-detail-navigation";
 import { SiteFooter } from "../../../components/site-footer";
+import {
+  projectHeroImage,
+  projectPhotoGallery,
+} from "../../../content/project-media";
 import { ProjectParticipationCta } from "../../../features/participation/project-participation-cta";
 import { getProjectBySlug } from "../../../server/projects/queries";
 
@@ -63,6 +69,10 @@ export default async function ProjectDetailPage({
   const fieldMedia = evidence?.media.filter((item) => item.category === "field") ?? [];
   const sensorMedia = evidence?.media.filter((item) => item.category === "sensor") ?? [];
   const projectDetailView = resolveProjectDetailView(resolvedSearchParams);
+  const projectPhotos = projectPhotoGallery(project.slug);
+  const hasProjectPhotos = projectPhotos.length > 0;
+  const showOverview = projectDetailView.tab === "overview";
+  const heroImage = projectHeroImage(project.slug, project.heroImage);
 
   return (
     <>
@@ -86,7 +96,7 @@ export default async function ProjectDetailPage({
                 fill
                 priority
                 sizes="(max-width: 900px) 100vw, 65vw"
-                src={project.heroImage}
+                src={heroImage}
               />
             </div>
             <aside className={evidence ? "evidence-notice" : "demo-notice"}>
@@ -110,8 +120,13 @@ export default async function ProjectDetailPage({
                 projectSlug={project.slug}
                 tab={projectDetailView.tab}
               />
+            ) : hasProjectPhotos ? (
+              <ProjectPhotoNavigation
+                projectSlug={project.slug}
+                tab={projectDetailView.tab}
+              />
             ) : null}
-            {climate ? <section className="content-card">
+            {climate && showOverview ? <section className="content-card">
               <div className="card-heading"><div><p className="eyebrow">Snapshot history</p><h2>Monitored reduction trend</h2></div><span>tCO₂e</span></div>
               <div className="trend-chart">
                 {project.snapshots.map((snapshot) => {
@@ -136,13 +151,19 @@ export default async function ProjectDetailPage({
                 />
               )
             ) : null}
-            {!evidence || projectDetailView.tab === "overview" ? <section className="content-card">
+            {!evidence && hasProjectPhotos && projectDetailView.tab === "gallery" ? (
+              <ProjectPhotoGallery
+                photos={projectPhotos}
+                title={`${project.name} Gallery`}
+              />
+            ) : null}
+            {showOverview ? <section className="content-card">
               <div className="card-heading"><div><p className="eyebrow">Project lifecycle</p><h2>Verification timeline</h2></div></div>
               <ol className="stage-list">
                 {stages.map((stage, index) => <li className={index <= currentStage ? "reached" : ""} key={stage}><span aria-hidden="true">{index <= currentStage ? <CheckCircle2 size={20} /> : index + 1}</span><div><strong>{stage.replace("_", " ")}</strong><small>{index === currentStage ? "Current demonstration stage" : index < currentStage ? "Reached in demonstration history" : "Future stage"}</small></div></li>)}
               </ol>
             </section> : null}
-            {!evidence || projectDetailView.tab === "overview" ? <section className="content-card data-details">
+            {showOverview ? <section className="content-card data-details">
               <div className="card-heading"><div><p className="eyebrow">Data provenance</p><h2>Source details</h2></div><ShieldCheck size={25} /></div>
               <dl>
                 <div><dt>Source</dt><dd>{current.sourceName}</dd></div>
@@ -155,7 +176,7 @@ export default async function ProjectDetailPage({
                 <div><dt>Verification note</dt><dd>{current.verificationNote}</dd></div>
               </dl>
             </section> : null}
-            {!evidence || projectDetailView.tab === "overview" ? <section className="content-card onchain-card">
+            {showOverview ? <section className="content-card onchain-card">
               <div><Database size={24} /><div><p className="eyebrow">On-chain snapshot status</p><h2>{firstReference ? "Referenced on GIWA Testnet" : "Not yet referenced on-chain"}</h2><p>The snapshot becomes referenced when a participant signs and mints a badge.</p></div></div>
               {firstReference ? <dl className="reference-facts"><div><dt>First referenced</dt><dd>{project.firstReferencedAt ? new Date(project.firstReferencedAt).toLocaleString("en-GB", { timeZone: "UTC" }) : "Pending sync"} UTC</dd></div><div><dt>Participation records</dt><dd>{project.cachedMemberCount}</dd></div></dl> : null}
               <a href={project.currentSnapshot.gatewayUrl} target="_blank" rel="noreferrer">View public Snapshot JSON <ExternalLink size={15} /></a>

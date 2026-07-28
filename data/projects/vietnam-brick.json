@@ -5,7 +5,7 @@
   "location": "Vietnam",
   "summary": "A demonstration of how monitored brick-production efficiency data can be versioned and connected to an on-chain participation record.",
   "status": "active",
-  "heroImage": "/images/vietnam-brick.jpg",
+  "heroImage": "/images/vietnam-brick/production-line.jpg",
   "demonstrationNotice": "Demonstration data only. These figures are fictional examples and are not verified or issued carbon credits.",
   "currentVersion": 3,
   "snapshots": [

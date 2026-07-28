@@ -6,6 +6,14 @@ export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const projects = await listProjects();
+  const sortedProjects = [...projects].sort((a, b) => {
+    if (a.status !== b.status) {
+      return a.status === "active" ? -1 : 1;
+    }
+
+    return b.cachedMemberCount - a.cachedMemberCount;
+  });
+
   return (
     <>
       <main className="discovery-page">
@@ -26,7 +34,7 @@ export default async function HomePage() {
             <span>{projects.length} projects</span>
           </div>
           <div className="project-grid">
-            {projects.map((project) => <ProjectCard key={project.id} {...project} />)}
+            {sortedProjects.map((project) => <ProjectCard key={project.id} {...project} />)}
           </div>
         </section>
       </main>

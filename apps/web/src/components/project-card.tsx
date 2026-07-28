@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import { pluralize } from "@egog/shared";
 
+import { projectHeroImage } from "../content/project-media";
 import { AppLink } from "./app-link";
 
 type ProjectCardProps = {
@@ -17,25 +18,27 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard(project: ProjectCardProps) {
-  return (
+  const card = (
     <article className="project-card">
       <div className="project-image-wrap">
-        <Image fill sizes="(max-width: 800px) 100vw, 33vw" src={project.heroImage} alt="" />
+        <Image
+          fill
+          sizes="(max-width: 800px) 100vw, 33vw"
+          src={projectHeroImage(project.slug, project.heroImage)}
+          alt=""
+        />
         <span className={project.status === "active" ? "status active" : "status"}>
           {project.status === "active" ? "Open for participation" : "Coming soon"}
         </span>
       </div>
       <div className="project-card-body">
-        {project.snapshotKind === "field_evidence" ? (
-          <span className="field-card-label">Field evidence · Carbon data pending</span>
-        ) : null}
         <p className="location"><MapPin size={15} /> {project.location}</p>
         <h2>{project.name}</h2>
         <p>{project.summary}</p>
         <div className="project-card-footer">
           <span>{pluralize(project.cachedMemberCount, "early participant")}</span>
           {project.status === "active" ? (
-            <AppLink href={`/projects/${project.slug}`}>View project <ArrowRight size={16} /></AppLink>
+            <span className="view-project">View project <ArrowRight size={16} /></span>
           ) : (
             <span>Details unavailable</span>
           )}
@@ -43,4 +46,18 @@ export function ProjectCard(project: ProjectCardProps) {
       </div>
     </article>
   );
+
+  if (project.status === "active") {
+    return (
+      <AppLink
+        aria-label={`View ${project.name}`}
+        className="project-card-link"
+        href={`/projects/${project.slug}`}
+      >
+        {card}
+      </AppLink>
+    );
+  }
+
+  return card;
 }
