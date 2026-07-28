@@ -80,6 +80,10 @@ Mobile design system asset: `5394d7bdd41d4fccaa5d269d30e67850` (`Climate Institu
 | `5b1cbc9a703f4589bc0d8331de2eab69` — Participation Complete — Mobile | Mobile, 390×1524 CSS px (2× screenshot) | Responsive completion state |
 | `1080089b3fc14b5f9ae4ab5511df9e53` — My Participation — Mobile | Mobile, 390×1694 CSS px (2× screenshot) | Responsive My Participation dashboard |
 | `4e451a4a4c104135a600ef2ce4b07b4d` — Project Detail — Loading State | Mobile, 390×844 target | Responsive Project Detail Skeleton; participation placeholder remains in document flow |
+| `80d969468628480bb2195e61c516474e` — EGOG Climate RWA DeFi Preview — Vietnam Brick | Desktop, 1280×1431 CSS px (2× Stitch canvas) | `apps/web/src/app/rwa-pools/[slug]/page.tsx`, `apps/web/src/features/rwa-pool/rwa-pool-preview.tsx` |
+| `8f0852c35390464ba8f7df1ef449079d` — EGOG Climate RWA DeFi Preview — Mobile | Mobile, 390×1838 CSS px (2× Stitch canvas) | Responsive RWA Preview at 390px; stacked selector, 2×2 KPI grid, projection and participation card |
+| `3ab3ef95e0a84cfea9ccb956d746c7cd` — EGOG Project Preview — Refined Data View | Desktop, 1280×1341 CSS px (2× Stitch canvas) | Approved refined Preview: simplified header, concise labels, Y axis and point tooltip |
+| `b0a108f8ca6349e9a4393dc18b30edf2` — Vietnam Brick Project — Refined Preview | Mobile, 390×1820 CSS px (2× Stitch canvas) | Approved refined mobile Preview with the same chart and disclosure hierarchy |
 | `5394d7bdd41d4fccaa5d269d30e67850` — Climate Institutional | Mobile design system | Mobile colors, typography, spacing, components, wrapping and safe-area behavior |
 
 The four new desktop screens were generated on 2026-07-13 with design system
@@ -147,6 +151,38 @@ Next.js implementation. Generated HTML and screen captures are preserved under
   `AppHeader` and `EGOG` wordmark remain the code and brand source of truth.
 - Skeletons contain no project name, member number, metric, hash, Snapshot
   value, image, or other fictional runtime data.
+
+### Climate RWA DeFi Preview
+
+The representative Desktop and Mobile Preview screens were generated on
+2026-07-28 using the existing EGOG design systems. Generated HTML is preserved
+under `.stitch/designs/rwa-pool-preview/`, and screen captures are preserved
+under `docs/design/stitch/rwa-pool-preview/`.
+
+- The route is `/rwa-pools/[slug]` and sits between Project Detail and the
+  existing Participation Flow.
+- Desktop keeps the approved 8-column data area and 4-column sticky
+  project/participation panel. Mobile uses a single content column with a
+  stacked project selector and a two-column KPI grid.
+- The Stitch screens are structural references only. Runtime project names,
+  participation status, Member Number, Token ID, route state, and all
+  illustrative calculations are code-owned.
+- The Preview is strictly read-only. It contains no amount input, asset
+  balance, deposit, withdrawal, swap, purchase, or live-market interaction.
+- Every scenario figure is labeled illustrative and is isolated in
+  `apps/web/src/features/rwa-pool/scenarios.ts`; it is not written to project
+  Snapshots, the database, IPFS, S3, or the Participation contract.
+- Proposed wrapped LP symbols are also illustrative UI configuration:
+  `wVB-USDC`, `wJE-USDC`, and `wSM-USDC`. No token issuance is implied, and
+  each Preview displays that limitation explicitly.
+- The SVG chart, keyboard tab behavior, participation lookup, disabled Solar
+  minting state, and route loading Skeleton are implementation details mapped
+  to the two approved screen IDs above.
+- The refined Desktop and Mobile screen IDs supersede the initial Preview
+  compositions. They remove the top badge cluster and large disclosure card,
+  keep a single compact compliance note near the bottom, and define the
+  visible Y axis plus selected-point tooltip state. The initial screens remain
+  archived as design history.
 
 ## Source-of-truth procedure
 

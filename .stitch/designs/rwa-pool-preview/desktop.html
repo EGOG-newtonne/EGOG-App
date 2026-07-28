@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EGOG Climate RWA DeFi Preview — Vietnam Brick</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#4edea3",
+                      "surface": "#f8f9fa",
+                      "error": "#ba1a1a",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-fixed-dim": "#bdc7d9",
+                      "outline": "#6c7a71",
+                      "surface-variant": "#e1e3e4",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#bbcabf",
+                      "tertiary": "#555f6f",
+                      "secondary-fixed-dim": "#adc6ff",
+                      "on-primary": "#ffffff",
+                      "on-primary-container": "#00422b",
+                      "inverse-surface": "#2e3132",
+                      "secondary-container": "#2170e4",
+                      "primary-fixed-dim": "#4edea3",
+                      "on-surface": "#191c1d",
+                      "on-background": "#191c1d",
+                      "primary-fixed": "#6ffbbe",
+                      "on-secondary-fixed": "#001a42",
+                      "on-tertiary-fixed": "#121c2a",
+                      "surface-tint": "#006c49",
+                      "on-secondary-container": "#fefcff",
+                      "on-primary-fixed-variant": "#005236",
+                      "background": "#f8f9fa",
+                      "on-tertiary-fixed-variant": "#3d4756",
+                      "on-error": "#ffffff",
+                      "primary-container": "#10b981",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#e7e8e9",
+                      "on-secondary": "#ffffff",
+                      "primary": "#006c49",
+                      "on-surface-variant": "#3c4a42",
+                      "surface-container-low": "#f3f4f5",
+                      "surface-bright": "#f8f9fa",
+                      "tertiary-fixed": "#d9e3f6",
+                      "surface-container-highest": "#e1e3e4",
+                      "secondary-fixed": "#d8e2ff",
+                      "secondary": "#0058be",
+                      "on-tertiary-container": "#2f3948",
+                      "on-secondary-fixed-variant": "#004395",
+                      "tertiary-container": "#99a3b5",
+                      "on-primary-fixed": "#002113",
+                      "surface-container": "#edeeef",
+                      "inverse-on-surface": "#f0f1f2",
+                      "error-container": "#ffdad6",
+                      "surface-dim": "#d9dadb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "container-max": "1280px",
+                      "margin-mobile": "20px",
+                      "gutter": "24px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-xs": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-lg-mobile": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-xs": [
+                              "10px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-16 sticky top-0 z-50">
+<div class="flex items-center space-x-8">
+<div class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary tracking-tight">
+                VerifAI Climate
+            </div>
+<nav class="hidden md:flex space-x-6">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors px-3 py-2 rounded-md font-body-md" href="#">Portfolio</a>
+<a class="text-primary dark:text-inverse-primary border-b-2 border-primary dark:border-inverse-primary pb-1 px-3 py-2 font-body-md font-medium" href="#">Marketplace</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors px-3 py-2 rounded-md font-body-md" href="#">Analytics</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors px-3 py-2 rounded-md font-body-md" href="#">Governance</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-on-surface-variant hover:text-primary p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A close up, professional headshot of a person looking directly at the camera. The lighting is studio quality, bright and evenly distributed, creating a high-key, modern corporate aesthetic. The background is a clean, neutral white, emphasizing the subject. The overall mood is confident and approachable, fitting a trustworthy climate tech platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0Ai_HQ_UNvo-HPttUNKcSgbhvZzZaQahQ58XqhoU_WJEiJxl-IVmy-PMnGkit11rYxoX20MFvgjbC45wfpTUL-tQLC_OQ5KhuRCroVxWHE1q6cvkZBaEYQQzFtWFAz2edP9zjUHwLwfGrVxg6MDwqLEdhTrbbpV9gFNDnUUc1mP43pF247pempcuTbw60SE7yP1WlsKIK9YKpsTh_06c3qLKVhz7cz-7m5oX7npPnB26J9xC1eGh7pe-_i_2UXwnpep13fgHDqAo"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-desktop py-8 grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Left 8 Columns -->
+<div class="col-span-1 md:col-span-8 flex flex-col space-y-6">
+<!-- Header Section -->
+<div class="flex flex-col space-y-2 mb-4">
+<div class="flex items-center space-x-2 text-on-surface-variant text-label-sm font-label-sm">
+<a class="hover:text-primary flex items-center group transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px] mr-1 group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                        Back to Vietnam Brick Project
+                    </a>
+</div>
+<div class="text-label-sm font-label-sm text-primary uppercase tracking-widest mt-2">Climate RWA Pool Preview</div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface flex items-center gap-3">
+                    Vietnam Brick Project
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-label-xs font-label-xs bg-surface-variant text-on-surface-variant border border-outline-variant">
+<span class="material-symbols-outlined text-[12px] mr-1">location_on</span>
+                        Vietnam
+                    </span>
+</h1>
+<div class="flex items-center space-x-2 mt-2">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-label-xs font-label-xs bg-surface-container-high text-on-surface-variant border border-outline-variant">
+                        Illustrative scenario
+                    </span>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-label-xs font-label-xs bg-secondary-container text-on-secondary-container">
+                        GIWA Testnet
+                    </span>
+</div>
+</div>
+<!-- Alert Notice -->
+<div class="bg-surface-container-low border-l-4 border-primary p-4 rounded-r-lg flex items-start">
+<span class="material-symbols-outlined text-primary mr-3 mt-0.5" style="font-variation-settings: 'FILL' 1;">info</span>
+<p class="text-body-md text-on-surface font-body-md">
+<strong>Illustrative scenario — not live market data.</strong> This is a simulation environment.
+                </p>
+</div>
+<!-- KPI Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col justify-center">
+<div class="text-label-sm font-label-sm text-on-surface-variant mb-1 uppercase">Illustrative TVL</div>
+<div class="text-headline-md font-headline-md text-on-surface">1.48M USDC</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col justify-center">
+<div class="text-label-sm font-label-sm text-on-surface-variant mb-1 uppercase">Illustrative APY</div>
+<div class="text-headline-md font-headline-md text-primary">8.4%</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col justify-center">
+<div class="text-label-sm font-label-sm text-on-surface-variant mb-1 uppercase">Scenario reference price</div>
+<div class="text-headline-md font-headline-md text-on-surface">14.80 <span class="text-body-md text-on-surface-variant">USDC / tCO₂e</span></div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex flex-col justify-center">
+<div class="text-label-sm font-label-sm text-on-surface-variant mb-1 uppercase">Projected available volume</div>
+<div class="text-headline-md font-headline-md text-on-surface">100,000 <span class="text-body-md text-on-surface-variant">tCO₂e</span></div>
+</div>
+</div>
+<!-- Projection Chart Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col h-[400px]">
+<div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h3 class="font-headline-md text-body-lg text-on-surface">Illustrative 12-month projection</h3>
+<div class="flex space-x-2">
+<button class="px-3 py-1 text-label-sm font-label-sm rounded-md bg-surface border border-outline-variant text-on-surface font-medium hover:bg-surface-variant transition-colors">Reference price</button>
+<button class="px-3 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:bg-surface-container-high transition-colors">APY</button>
+<button class="px-3 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:bg-surface-container-high transition-colors">Pool volume</button>
+</div>
+</div>
+<div class="p-6 flex-grow flex items-end justify-between relative bg-surface-container-lowest">
+<!-- Faux Chart Structure (Visual Representation) -->
+<div class="w-3/4 h-full relative flex items-end">
+<!-- Grid lines -->
+<div class="absolute inset-0 flex flex-col justify-between border-l border-b border-outline-variant pb-6 pl-2">
+<div class="w-full border-b border-surface-variant border-dashed"></div>
+<div class="w-full border-b border-surface-variant border-dashed"></div>
+<div class="w-full border-b border-surface-variant border-dashed"></div>
+<div class="w-full border-b border-surface-variant border-dashed"></div>
+<div class="w-full border-b border-surface-variant border-dashed"></div>
+</div>
+<!-- Chart Line (SVG Path approximation) -->
+<svg class="absolute inset-0 w-full h-[calc(100%-24px)]" preserveaspectratio="none" viewbox="0 0 100 100">
+<path class="opacity-80" d="M 0 80 Q 20 75 40 60 T 70 40 T 100 20" fill="none" stroke="#006c49" stroke-width="2"></path>
+<!-- Gradient Fill under line -->
+<path class="opacity-20" d="M 0 80 Q 20 75 40 60 T 70 40 T 100 20 L 100 100 L 0 100 Z" fill="url(#chartGradient)"></path>
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#006c49" stop-opacity="0.5"></stop>
+<stop offset="100%" stop-color="#006c49" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+<!-- X-Axis Labels -->
+<div class="absolute bottom-0 w-full flex justify-between text-label-xs font-label-xs text-on-surface-variant px-2 transform translate-y-full pt-2">
+<span>M1</span>
+<span>M3</span>
+<span>M6</span>
+<span>M9</span>
+<span>M12</span>
+</div>
+</div>
+<!-- Summary Box -->
+<div class="w-1/4 h-full flex flex-col justify-start items-end">
+<div class="bg-surface border border-outline-variant p-4 rounded-lg shadow-sm">
+<div class="text-label-xs font-label-xs text-on-surface-variant uppercase mb-1">Latest Value</div>
+<div class="text-headline-md font-headline-md text-on-surface">14.80</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">USDC</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Allocation Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6">
+<h3 class="font-headline-md text-body-lg text-on-surface mb-4">Scenario allocation</h3>
+<!-- Horizontal Bar -->
+<div class="w-full h-8 flex rounded-md overflow-hidden mb-4 border border-outline-variant">
+<div class="bg-primary h-full flex items-center justify-center text-on-primary text-label-xs font-label-xs font-medium" style="width: 70%;" title="Project-linked climate assets: 70%">70%</div>
+<div class="bg-secondary-container h-full flex items-center justify-center text-on-secondary-container text-label-xs font-label-xs font-medium" style="width: 25%;" title="Stable liquidity reserve: 25%">25%</div>
+<div class="bg-surface-dim h-full flex items-center justify-center text-on-surface-variant text-label-xs font-label-xs font-medium" style="width: 5%;" title="EGOG incentive reserve: 5%">5%</div>
+</div>
+<!-- Legend -->
+<div class="flex flex-wrap gap-4 text-label-sm font-label-sm">
+<div class="flex items-center">
+<div class="w-3 h-3 bg-primary rounded-sm mr-2 border border-outline-variant"></div>
+<span class="text-on-surface">Project-linked climate assets (70%)</span>
+</div>
+<div class="flex items-center">
+<div class="w-3 h-3 bg-secondary-container rounded-sm mr-2 border border-outline-variant"></div>
+<span class="text-on-surface">Stable liquidity reserve (25%)</span>
+</div>
+<div class="flex items-center">
+<div class="w-3 h-3 bg-surface-dim rounded-sm mr-2 border border-outline-variant"></div>
+<span class="text-on-surface">EGOG incentive reserve (5%)</span>
+</div>
+</div>
+</div>
+<!-- Explanatory Disclaimer Card -->
+<div class="bg-surface border border-outline-variant rounded-xl p-6 mb-8 text-on-surface-variant text-body-md font-body-md flex items-start space-x-3">
+<span class="material-symbols-outlined text-outline mt-0.5">policy</span>
+<p>
+<strong>Notice:</strong> This preview does not accept deposits, execute trades, promise returns, or grant carbon-credit ownership. It is for demonstration purposes on the GIWA Testnet.
+                 </p>
+</div>
+</div>
+<!-- Right 4 Columns - Sticky Sidebar -->
+<div class="col-span-1 md:col-span-4">
+<div class="sticky top-24 space-y-6">
+<!-- Action Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="p-6 border-b border-outline-variant bg-surface-container-low">
+<div class="text-label-sm font-label-sm text-on-surface-variant uppercase mb-2">Project Selector</div>
+<select class="w-full bg-surface border border-outline-variant text-on-surface font-body-md text-body-md rounded-md focus:ring-primary focus:border-primary px-3 py-2">
+<option selected="">Vietnam Brick Project</option>
+<option>Jeju ERW Project</option>
+<option>Solar Mobility Project</option>
+</select>
+</div>
+<div class="p-6 flex flex-col space-y-4 items-center text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-[32px] text-tertiary">lock</span>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant px-3 py-1 bg-surface-container-high rounded-full border border-outline-variant inline-block">
+                            State: Early access not registered
+                        </div>
+<button class="w-full bg-primary hover:bg-surface-tint text-on-primary font-body-md font-medium py-3 px-4 rounded-lg transition-colors border border-transparent flex items-center justify-center">
+<span>Mint Early Participation NFT</span>
+<span class="material-symbols-outlined ml-2 text-[18px]">arrow_forward</span>
+</button>
+<p class="text-label-xs font-label-xs text-on-surface-variant mt-2 max-w-[200px] text-center mx-auto">
+                            Review and sign on the next step. No assets are deposited.
+                        </p>
+</div>
+<div class="bg-surface px-6 py-4 border-t border-outline-variant">
+<ul class="space-y-3">
+<li class="flex items-start">
+<span class="material-symbols-outlined text-primary text-[16px] mr-2 mt-0.5">check_circle</span>
+<span class="text-label-sm font-label-sm text-on-surface">On-chain participation record</span>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined text-primary text-[16px] mr-2 mt-0.5">check_circle</span>
+<span class="text-label-sm font-label-sm text-on-surface">Non-transferable badge</span>
+</li>
+<li class="flex items-start">
+<span class="material-symbols-outlined text-primary text-[16px] mr-2 mt-0.5">check_circle</span>
+<span class="text-label-sm font-label-sm text-on-surface">Participation dashboard</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Secondary Info Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 flex items-center">
+<div class="w-10 h-10 rounded bg-secondary-container flex items-center justify-center mr-4 shrink-0">
+<span class="material-symbols-outlined text-on-secondary-container">school</span>
+</div>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface font-medium">Learn about RWA Pools</div>
+<div class="text-label-xs font-label-xs text-on-surface-variant mt-1">Read the documentation on how GIWA structured real-world assets work.</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 px-margin-desktop flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto border-t border-outline-variant dark:border-outline bg-surface dark:bg-inverse-surface mt-auto">
+<div class="font-label-sm text-label-sm font-bold text-primary mb-4 md:mb-0">
+            © 2024 VerifAI Climate. Verified Scientific Rigor.
+        </div>
+<div class="flex space-x-6 text-on-surface-variant dark:text-surface-variant font-body-md text-body-md">
+<a class="hover:text-primary dark:hover:text-primary-fixed-dim transition-colors text-label-xs font-label-xs" href="#">Privacy Policy</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed-dim transition-colors text-label-xs font-label-xs" href="#">Terms of Service</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed-dim transition-colors text-label-xs font-label-xs" href="#">Registry Data</a>
+</div>
+</footer>
+</body></html>

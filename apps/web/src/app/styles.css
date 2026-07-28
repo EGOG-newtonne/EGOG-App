@@ -289,6 +289,91 @@ button, input { font: inherit; }
 .legal-page h2:first-child { margin-top: 0; }
 .legal-page div p { color: var(--muted); line-height: 1.65; }
 
+.rwa-preview-page { margin: 0 auto; max-width: 1240px; padding: 55px 28px 100px; }
+.rwa-breadcrumbs { margin-bottom: 34px; }
+.rwa-breadcrumbs a { align-items: center; color: var(--muted); display: inline-flex; font-size: 14px; font-weight: 650; gap: 7px; }
+.rwa-breadcrumbs a:hover { color: var(--primary); }
+.rwa-hero { align-items: end; display: flex; gap: 30px; justify-content: space-between; margin-bottom: 28px; }
+.rwa-hero h1 { font-size: clamp(44px, 5vw, 66px); letter-spacing: -.055em; line-height: 1; margin: 8px 0 13px; }
+.rwa-layout { align-items: start; display: grid; gap: 28px; grid-template-columns: minmax(0, 8fr) minmax(300px, 4fr); }
+.rwa-main { display: grid; gap: 22px; min-width: 0; }
+.rwa-metric-grid { display: grid; gap: 12px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.rwa-metric-card { background: white; border: 1px solid var(--line); border-radius: 14px; min-height: 150px; padding: 18px; }
+.rwa-metric-label { align-items: center; color: var(--muted); display: flex; font-size: 12px; gap: 7px; line-height: 1.35; min-height: 34px; }
+.rwa-metric-label svg { color: var(--primary); flex: none; }
+.rwa-metric-card strong { display: block; font-family: "JetBrains Mono", monospace; font-size: clamp(20px, 2.1vw, 28px); letter-spacing: -.045em; margin: 16px 0 6px; overflow-wrap: anywhere; }
+.rwa-metric-card small { color: var(--muted); display: block; font-size: 11px; line-height: 1.4; }
+.rwa-chart-card, .rwa-allocation-card { background: white; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+.rwa-card-heading { align-items: flex-start; display: flex; gap: 20px; justify-content: space-between; }
+.rwa-card-heading h2 { font-size: 25px; letter-spacing: -.035em; margin: 0; }
+.rwa-card-heading > span { color: var(--muted); font-size: 11px; line-height: 1.4; text-align: right; }
+.rwa-chart-tabs { background: var(--soft); border: 1px solid var(--line); border-radius: 12px; display: grid; gap: 4px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 24px; padding: 5px; }
+.rwa-chart-tabs button { background: transparent; border: 0; border-radius: 8px; color: var(--muted); cursor: pointer; font-size: 12px; font-weight: 700; min-height: 39px; padding: 8px 10px; }
+.rwa-chart-tabs button:hover { color: var(--ink); }
+.rwa-chart-tabs button[aria-selected="true"] { background: white; box-shadow: 0 1px 5px rgba(24, 50, 39, .1); color: var(--primary); }
+.rwa-chart-tabs button:focus-visible { outline: 3px solid rgba(0, 108, 73, .28); outline-offset: 2px; }
+.rwa-chart-visual { margin-top: 20px; }
+.rwa-chart-visual svg { display: block; height: auto; overflow: visible; width: 100%; }
+.rwa-chart-gridline { stroke: #e4ece7; stroke-width: 1; }
+.rwa-chart-line { stroke: var(--primary); stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; }
+.rwa-chart-point { fill: white; stroke: var(--primary); stroke-width: 2; }
+.rwa-chart-point-current { fill: var(--accent); }
+.rwa-chart-point-group { cursor: pointer; outline: none; }
+.rwa-chart-point-target { fill: transparent; }
+.rwa-chart-point-group:focus .rwa-chart-point,
+.rwa-chart-point-group.is-active .rwa-chart-point { fill: var(--accent); stroke-width: 3; }
+.rwa-chart-axis-label, .rwa-chart-axis-unit { fill: var(--muted); font-family: "JetBrains Mono", monospace; font-size: 9px; }
+.rwa-chart-axis-unit { font-size: 8px; }
+.rwa-chart-tooltip rect { fill: var(--ink); }
+.rwa-chart-tooltip text { fill: white; font-family: "Inter", sans-serif; font-size: 10px; }
+.rwa-chart-tooltip .rwa-chart-tooltip-value { font-family: "JetBrains Mono", monospace; font-size: 9px; }
+.rwa-chart-month { fill: var(--muted); font-family: "JetBrains Mono", monospace; font-size: 10px; }
+.rwa-chart-range { border-top: 1px solid var(--line); display: flex; justify-content: space-between; margin-top: 8px; padding-top: 14px; }
+.rwa-chart-range span { color: var(--muted); font-size: 11px; line-height: 1.5; }
+.rwa-chart-range span:last-child { text-align: right; }
+.rwa-chart-range strong { color: var(--ink); font-family: "JetBrains Mono", monospace; font-size: 12px; }
+.rwa-allocation-bar { border-radius: 999px; display: flex; height: 14px; margin: 27px 0 22px; overflow: hidden; }
+.rwa-allocation-bar span { display: block; }
+.rwa-allocation-project { background: var(--primary); }
+.rwa-allocation-stable { background: #3b82f6; }
+.rwa-allocation-incentive { background: #9aa69f; }
+.rwa-allocation-list { display: grid; gap: 10px; margin: 0; }
+.rwa-allocation-list > div { align-items: center; border-top: 1px solid var(--line); display: flex; justify-content: space-between; padding-top: 10px; }
+.rwa-allocation-list dt { align-items: center; color: var(--muted); display: flex; font-size: 13px; gap: 9px; }
+.rwa-allocation-list dd { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 700; margin: 0; }
+.rwa-dot { border-radius: 50%; display: inline-block; height: 9px; width: 9px; }
+.rwa-dot-project { background: var(--primary); }
+.rwa-dot-stable { background: #3b82f6; }
+.rwa-dot-incentive { background: #9aa69f; }
+.rwa-limitations { background: #f3f5f4; border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.rwa-limitations strong { display: block; font-size: 14px; }
+.rwa-limitations p { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 6px 0 0; }
+.rwa-participation-panel { background: white; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 20px 45px rgba(24, 50, 39, .08); padding: 27px; position: sticky; top: 98px; }
+.rwa-participation-panel h2 { font-size: 23px; letter-spacing: -.03em; margin: 0 0 18px; }
+.rwa-project-selector { display: grid; gap: 8px; }
+.rwa-project-selector a { align-items: center; border: 1px solid var(--line); border-radius: 11px; display: flex; font-size: 13px; font-weight: 700; gap: 8px; justify-content: space-between; min-height: 56px; padding: 10px 12px; }
+.rwa-project-selector a:hover { border-color: #91b5a6; }
+.rwa-project-selector a[aria-current="page"] { background: #edf7f1; border-color: #81b69f; color: var(--primary); }
+.rwa-project-selector a > span { display: grid; gap: 3px; min-width: 0; }
+.rwa-project-selector a > span strong { overflow-wrap: anywhere; }
+.rwa-project-selector small { color: var(--muted); font-family: "JetBrains Mono", monospace; font-size: 10px; font-style: normal; font-weight: 600; }
+.rwa-project-selector em { background: #edf0ee; border-radius: 999px; color: var(--muted); flex: none; font-size: 9px; font-style: normal; padding: 4px 6px; white-space: nowrap; }
+.rwa-token-note { color: var(--muted); font-size: 10px; line-height: 1.5; margin: 12px 2px 0; }
+.rwa-participation-state { border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); display: grid; gap: 5px; margin-top: 22px; padding: 19px 0; }
+.rwa-participation-state span { align-items: center; color: var(--muted); display: flex; font-size: 11px; gap: 6px; }
+.rwa-participation-state span svg { color: var(--primary); }
+.rwa-participation-state strong { font-size: 16px; line-height: 1.35; }
+.rwa-participation-state small { color: var(--muted); font-family: "JetBrains Mono", monospace; font-size: 11px; }
+.rwa-participation-panel .primary-cta { border: 0; cursor: pointer; font-size: 14px; margin-top: 22px; width: 100%; }
+.rwa-disabled-cta { opacity: .45; }
+.rwa-action-note { color: var(--muted); font-size: 11px; line-height: 1.5; margin: 12px 0 0; }
+.rwa-preview-benefits { border-top: 1px solid var(--line); display: grid; gap: 10px; margin-top: 20px; padding-top: 18px; }
+.rwa-preview-benefits p { align-items: center; display: flex; font-size: 12px; gap: 8px; margin: 0; }
+.rwa-preview-benefits svg { color: var(--primary); flex: none; }
+.skeleton-rwa-layout { margin-top: 24px; }
+.skeleton-rwa-chart { min-height: 390px; }
+.skeleton-rwa-selector { height: 165px; margin-top: 22px; }
+
 .route-skeleton { min-height: 70vh; }
 .skeleton-block {
   animation: skeleton-shimmer 1.8s ease-in-out infinite;
@@ -451,10 +536,13 @@ button, input { font: inherit; }
   .skeleton-kpi-grid { grid-template-columns: 1fr 1fr; }
   .skeleton-participation-panel { min-height: auto; position: static; }
   .skeleton-account-heading { align-items: stretch; grid-template-columns: 1fr; }
+  .rwa-layout { grid-template-columns: 1fr; }
+  .rwa-participation-panel { position: static; }
+  .rwa-metric-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 560px) {
-  .header-inner, .discovery-page, .project-detail-page { padding-left: 18px; padding-right: 18px; }
+  .header-inner, .discovery-page, .project-detail-page, .rwa-preview-page { padding-left: 18px; padding-right: 18px; }
   .header-account { font-size: 12px; padding: 9px 12px; }
   .hero-copy { padding: 15px 0 58px; }
   .hero-copy h1 { font-size: 46px; }
@@ -491,6 +579,17 @@ button, input { font: inherit; }
   .skeleton-record-art { min-height: 210px; }
   .skeleton-account-setting { align-items: stretch; flex-direction: column; gap: 20px; }
   .skeleton-action-small { width: 100%; }
+  .rwa-preview-page { padding-top: 38px; }
+  .rwa-hero { align-items: flex-start; flex-direction: column; gap: 18px; }
+  .rwa-hero h1 { font-size: 42px; }
+  .rwa-metric-grid { grid-template-columns: 1fr 1fr; }
+  .rwa-metric-card { min-height: 140px; padding: 15px; }
+  .rwa-metric-card strong { font-size: 19px; }
+  .rwa-chart-card, .rwa-allocation-card, .rwa-participation-panel { padding: 20px; }
+  .rwa-card-heading { align-items: flex-start; flex-direction: column; gap: 7px; }
+  .rwa-card-heading > span { text-align: left; }
+  .rwa-chart-tabs button { font-size: 10px; line-height: 1.25; padding: 7px 5px; }
+  .rwa-allocation-list dt { font-size: 11px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

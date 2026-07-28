@@ -1,6 +1,7 @@
 type RouteSkeletonVariant =
   | "discovery"
   | "project"
+  | "rwa-pool"
   | "participation"
   | "account"
   | "legal";
@@ -8,6 +9,7 @@ type RouteSkeletonVariant =
 const loadingLabels: Record<RouteSkeletonVariant, string> = {
   discovery: "Loading project discovery",
   project: "Loading project details",
+  "rwa-pool": "Loading Climate RWA Pool Preview",
   participation: "Loading participation",
   account: "Loading My Participation",
   legal: "Loading legal document",
@@ -181,6 +183,68 @@ function ParticipationSkeleton() {
   );
 }
 
+function RwaPoolSkeleton() {
+  return (
+    <main
+      aria-busy="true"
+      aria-label={loadingLabels["rwa-pool"]}
+      className="rwa-preview-page route-skeleton"
+    >
+      <LoadingStatus variant="rwa-pool" />
+      <div aria-hidden="true">
+        <Block className="skeleton-line skeleton-line-xs skeleton-width-20 skeleton-breadcrumb" />
+        <section className="skeleton-project-title">
+          <div>
+            <Block className="skeleton-line skeleton-line-xs skeleton-width-35" />
+            <Block className="skeleton-heading skeleton-heading-display skeleton-width-75" />
+            <Block className="skeleton-line skeleton-width-35" />
+          </div>
+          <Block className="skeleton-pill" />
+        </section>
+        <div className="skeleton-card skeleton-notice">
+          <Block className="skeleton-icon" />
+          <div>
+            <Block className="skeleton-line skeleton-width-45" />
+            <Block className="skeleton-line skeleton-width-80" />
+          </div>
+        </div>
+        <div className="skeleton-detail-layout skeleton-rwa-layout">
+          <div className="skeleton-detail-main">
+            <div className="skeleton-kpi-grid">
+              {Array.from({ length: 4 }, (_, index) => (
+                <article className="skeleton-card skeleton-kpi" key={index}>
+                  <Block className="skeleton-line skeleton-line-xs skeleton-width-70" />
+                  <Block className="skeleton-heading skeleton-heading-md skeleton-width-55" />
+                  <Block className="skeleton-line skeleton-line-xs skeleton-width-80" />
+                </article>
+              ))}
+            </div>
+            <section className="skeleton-card skeleton-content-card skeleton-rwa-chart">
+              <Block className="skeleton-line skeleton-line-xs skeleton-width-25" />
+              <Block className="skeleton-heading skeleton-heading-lg skeleton-width-65" />
+              <Block className="skeleton-content-visual" />
+            </section>
+            <section className="skeleton-card skeleton-content-card">
+              <Block className="skeleton-heading skeleton-heading-lg skeleton-width-45" />
+              <Block className="skeleton-line" />
+              <Block className="skeleton-line skeleton-width-85" />
+            </section>
+          </div>
+          <aside className="skeleton-card skeleton-participation-panel">
+            <Block className="skeleton-line skeleton-line-xs skeleton-width-45" />
+            <Block className="skeleton-heading skeleton-heading-lg skeleton-width-75" />
+            <Block className="skeleton-content-visual skeleton-rwa-selector" />
+            <div className="skeleton-divider" />
+            <Block className="skeleton-line skeleton-width-55" />
+            <Block className="skeleton-heading skeleton-heading-md skeleton-width-85" />
+            <Block className="skeleton-action" />
+          </aside>
+        </div>
+      </div>
+    </main>
+  );
+}
+
 export function AccountSkeleton() {
   return (
     <div
@@ -271,6 +335,8 @@ export function RouteSkeleton({
       return <DiscoverySkeleton />;
     case "project":
       return <ProjectSkeleton />;
+    case "rwa-pool":
+      return <RwaPoolSkeleton />;
     case "participation":
       return <ParticipationSkeleton />;
     case "account":

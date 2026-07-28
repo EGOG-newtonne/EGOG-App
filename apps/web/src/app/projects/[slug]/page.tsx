@@ -170,7 +170,7 @@ export default async function ProjectDetailPage({
             <div className="benefit-list"><h3>What you receive now</h3><p><CheckCircle2 size={16} /> On-chain participation record</p><p><CheckCircle2 size={16} /> Non-transferable participant badge</p><p><CheckCircle2 size={16} /> Participation dashboard</p></div>
             <div className="future-list"><h3>Potential future opportunities</h3><p>Project updates · Beta invitations · Community access</p></div>
             <ProjectParticipationCta projectSlug={project.slug} />
-            <small className="legal-note">Future opportunities are not guaranteed and do not represent an investment, financial return, or ownership of carbon credits.</small>
+            <small className="legal-note">Explore the upcoming pool connected to this real-world climate project.</small>
           </aside>
         </div>
       </main>
