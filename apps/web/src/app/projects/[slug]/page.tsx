@@ -26,6 +26,7 @@ import {
   type ProjectDetailSearchParams,
 } from "../../../components/project-detail-navigation";
 import { SiteFooter } from "../../../components/site-footer";
+import { projectMethodology } from "../../../content/project-methodologies";
 import {
   projectHeroImage,
   projectPhotoGallery,
@@ -73,6 +74,7 @@ export default async function ProjectDetailPage({
   const hasProjectPhotos = projectPhotos.length > 0;
   const showOverview = projectDetailView.tab === "overview";
   const heroImage = projectHeroImage(project.slug, project.heroImage);
+  const methodology = projectMethodology(project.slug);
 
   return (
     <>
@@ -80,13 +82,9 @@ export default async function ProjectDetailPage({
         <div className="breadcrumbs"><AppLink href="/">Projects</AppLink><span>/</span><span>{project.name}</span></div>
         <section className="project-title-row">
           <div>
-            <span className={evidence ? "field-evidence-pill" : "demo-pill"}>
-              {evidence ? "Field evidence · Carbon data pending" : "Demonstration data"}
-            </span>
             <h1>{project.name}</h1>
             <p className="location"><MapPin size={16} /> {project.location}</p>
           </div>
-          <p>{project.summary}</p>
         </section>
         <div className="detail-layout">
           <div className="detail-main">
@@ -99,13 +97,6 @@ export default async function ProjectDetailPage({
                 src={heroImage}
               />
             </div>
-            <aside className={evidence ? "evidence-notice" : "demo-notice"}>
-              <Database size={21} />
-              <div>
-                <strong>{evidence ? "Field evidence" : "Demonstration data"}</strong>
-                <p>{project.demonstrationNotice}</p>
-              </div>
-            </aside>
             <section className="kpi-grid" aria-label="Latest project metrics">
               {climate ? <article><span>Monitored reduction</span><strong>{formatAmount(climate.monitoredReduction.value)}</strong><small>tCO₂e · demonstration</small></article> : null}
               <article><span>Project stage</span><strong className="text-value">{current.verificationStage}</strong><small>{current.verificationSourceStatus}</small></article>
@@ -172,14 +163,57 @@ export default async function ProjectDetailPage({
                 {evidence ? <div><dt>Evidence files</dt><dd>{evidence.media.length} originals · SHA-256 recorded</dd></div> : null}
                 {evidence ? <div><dt>Carbon data status</dt><dd>Pending — no quantified removal or credit data published</dd></div> : null}
                 {climate ? <div><dt>Registry</dt><dd>{climate.registry}</dd></div> : null}
-                {climate ? <div><dt>Methodology</dt><dd>{climate.methodology}</dd></div> : null}
+                {methodology ? (
+                  <div>
+                    <dt>Reference methodology</dt>
+                    <dd>
+                      <a
+                        aria-label={`Open ${methodology.name} in a new tab`}
+                        href={methodology.url}
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        {methodology.label} <ExternalLink aria-hidden="true" size={13} />
+                      </a>
+                    </dd>
+                  </div>
+                ) : climate ? (
+                  <div><dt>Methodology</dt><dd>{climate.methodology}</dd></div>
+                ) : null}
                 <div><dt>Verification note</dt><dd>{current.verificationNote}</dd></div>
               </dl>
             </section> : null}
             {showOverview ? <section className="content-card onchain-card">
-              <div><Database size={24} /><div><p className="eyebrow">On-chain snapshot status</p><h2>{firstReference ? "Referenced on GIWA Testnet" : "Not yet referenced on-chain"}</h2><p>The snapshot becomes referenced when a participant signs and mints a badge.</p></div></div>
-              {firstReference ? <dl className="reference-facts"><div><dt>First referenced</dt><dd>{project.firstReferencedAt ? new Date(project.firstReferencedAt).toLocaleString("en-GB", { timeZone: "UTC" }) : "Pending sync"} UTC</dd></div><div><dt>Participation records</dt><dd>{project.cachedMemberCount}</dd></div></dl> : null}
-              <a href={project.currentSnapshot.gatewayUrl} target="_blank" rel="noreferrer">View public Snapshot JSON <ExternalLink size={15} /></a>
+              <header className="onchain-card-header">
+                <div className="onchain-card-heading">
+                  <Database aria-hidden="true" size={24} />
+                  <div>
+                    <p className="eyebrow">On-chain snapshot status</p>
+                    <h2>{firstReference ? "Referenced on-chain" : "Not yet referenced on-chain"}</h2>
+                    <p>{firstReference ? "Linked to confirmed participation records." : "This snapshot will be linked when the first participant mints a badge."}</p>
+                  </div>
+                </div>
+                <span className="network-badge">GIWA Testnet</span>
+              </header>
+              <dl className="onchain-facts">
+                <div>
+                  <dt>First referenced</dt>
+                  <dd>{firstReference ? (
+                    project.firstReferencedAt
+                      ? <><span>{new Date(project.firstReferencedAt).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric", timeZone: "UTC" })}</span><small>{new Date(project.firstReferencedAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "UTC" })} UTC</small></>
+                      : "Pending sync"
+                  ) : "Not yet referenced"}</dd>
+                </div>
+                <div>
+                  <dt>Participation records</dt>
+                  <dd>{project.cachedMemberCount}</dd>
+                </div>
+                <div>
+                  <dt>Snapshot</dt>
+                  <dd>v{current.version}</dd>
+                  <a href={project.currentSnapshot.gatewayUrl} target="_blank" rel="noreferrer">Open JSON <ExternalLink aria-hidden="true" size={14} /></a>
+                </div>
+              </dl>
             </section> : null}
           </div>
           <aside className={evidence ? "participation-panel participation-panel-evidence" : "participation-panel"}>

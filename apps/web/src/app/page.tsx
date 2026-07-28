@@ -18,11 +18,11 @@ export default async function HomePage() {
     <>
       <main className="discovery-page">
         <section className="hero-copy">
-          <p className="eyebrow">Verified climate participation</p>
-          <h1>Follow real project data.<br />Record your support on-chain.</h1>
+          <p className="eyebrow">Real-world climate assets</p>
+          <h1>Discover real-world climate assets.<br />Get early access on-chain.</h1>
           <p>
-            Explore climate projects through versioned dMRV snapshots, then create a
-            permanent participation record on GIWA Testnet—without buying an asset.
+            Explore verified carbon projects backed by dMRV data and join early before
+            their DeFi pools go live.
           </p>
         </section>
         <section aria-labelledby="projects-title">

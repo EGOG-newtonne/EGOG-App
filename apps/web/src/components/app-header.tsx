@@ -2,6 +2,7 @@
 
 import { usePrivy, useWallets } from "@privy-io/react-auth";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import Image from "next/image";
 import { useRef, useState } from "react";
 
 import { findPrivyEmbeddedWallet, shortenAddress } from "../features/auth/wallet";
@@ -46,7 +47,15 @@ export function AppHeader() {
     <header className="site-header">
       <div className="header-inner">
         <AppLink className="wordmark" href="/" aria-label="EGOG home">
-          EGOG
+          <Image
+            alt=""
+            height={25}
+            priority
+            src="/images/egog-logo.png"
+            width={102}
+          />
+          <span aria-hidden="true" className="wordmark-divider" />
+          <span className="wordmark-tagline">2050 Net Zero</span>
         </AppLink>
         <nav aria-label="Primary navigation">
           <AppLink href="/">Projects</AppLink>
