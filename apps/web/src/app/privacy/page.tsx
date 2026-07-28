@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
+
 import { LegalPage } from "../../components/legal-page";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/privacy",
+  },
+  title: "Privacy Policy | EGOG",
+};
 
 export default function PrivacyPage() {
   return <LegalPage title="Privacy Policy" updated="July 12, 2026">

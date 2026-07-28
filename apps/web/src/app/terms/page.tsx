@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
+
 import { LegalPage } from "../../components/legal-page";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/terms",
+  },
+  title: "Terms of Participation | EGOG",
+};
 
 export default function TermsPage() {
   return <LegalPage title="Terms of Participation" updated="July 12, 2026">

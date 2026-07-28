@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
+
 import { ProjectCard } from "../components/project-card";
 import { SiteFooter } from "../components/site-footer";
 import { listProjects } from "../server/projects/queries";
 
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default async function HomePage() {
   const projects = await listProjects();

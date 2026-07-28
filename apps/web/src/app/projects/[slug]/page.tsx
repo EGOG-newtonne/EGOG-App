@@ -5,6 +5,7 @@ import {
   MapPin,
   ShieldCheck,
 } from "lucide-react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -47,6 +48,30 @@ function formatForecast(forecast: ClimateMetricsSnapshot["forecastCreditVolume"]
   return forecast.type === "range"
     ? `${formatAmount(forecast.min)}–${formatAmount(forecast.max)}`
     : formatAmount(forecast.value);
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
+
+  if (!project) return {};
+
+  return {
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
+    description: project.summary,
+    openGraph: {
+      description: project.summary,
+      title: `${project.name} | EGOG`,
+      url: `/projects/${slug}`,
+    },
+    title: `${project.name} | EGOG`,
+  };
 }
 
 export default async function ProjectDetailPage({
