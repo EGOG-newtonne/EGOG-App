@@ -41,16 +41,33 @@ describe("RWA pool preview", () => {
   it("shows illustrative data and routes active minting to participation", async () => {
     render(<RwaPoolPreview scenario={getRwaPoolScenario("vietnam-brick")!} />);
 
-    expect(screen.getByText("Preview scenario — not live market data")).toBeTruthy();
+    expect(screen.getAllByText("Illustrative scenario data")).toHaveLength(1);
+    expect(screen.getByText(/Modeled preview values — not live market data or promised returns/)).toBeTruthy();
+    expect(screen.getByText(/No deposits or trades are executed/)).toBeTruthy();
+    expect(screen.queryByText("Preview scenario — not live market data")).toBeNull();
     expect(screen.queryByText("Illustrative scenario")).toBeNull();
     expect(screen.queryByText("GIWA Testnet")).toBeNull();
     expect(screen.getByText("wVB-USDC")).toBeTruthy();
     expect(screen.getByText("1.48M USDC")).toBeTruthy();
     expect(screen.getByText("8.4%")).toBeTruthy();
+    expect(screen.getByText("Modeled liquidity")).toBeTruthy();
+    expect(screen.getByText("Modeled rate · no return promise")).toBeTruthy();
+    expect(screen.getByText("Modeled USDC per tonne")).toBeTruthy();
+    expect(screen.getByText("Modeled tCO₂e volume")).toBeTruthy();
     expect(screen.getByRole("link", { name: /Mint Early Participation NFT/ }).getAttribute("href"))
       .toBe("/participate/vietnam-brick");
     expect(screen.queryByRole("button", { name: /Deposit|Withdraw|Connect Wallet/i })).toBeNull();
   });
+
+  it.each(["vietnam-brick", "jeju-erw", "solar-mobility"] as const)(
+    "labels %s scenario metrics as illustrative exactly once",
+    (slug) => {
+      render(<RwaPoolPreview scenario={getRwaPoolScenario(slug)!} />);
+
+      expect(screen.getAllByText("Illustrative scenario data")).toHaveLength(1);
+      expect(screen.getByLabelText("Illustrative pool metrics")).toBeTruthy();
+    },
+  );
 
   it("changes chart metrics with pointer and arrow-key tab navigation", async () => {
     const user = userEvent.setup();

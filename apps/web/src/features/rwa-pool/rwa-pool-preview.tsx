@@ -7,6 +7,7 @@ import {
   CheckCircle2,
   CircleGauge,
   Coins,
+  Info,
   Leaf,
   MapPin,
 } from "lucide-react";
@@ -255,31 +256,43 @@ export function RwaPoolPreview({
 
       <div className="rwa-layout">
         <div className="rwa-main">
-          <section className="rwa-metric-grid" aria-label="Illustrative pool metrics">
-            <ScenarioMetric
-              detail="Scenario liquidity"
-              icon={<Coins size={18} />}
-              label="TVL"
-              value={formatCompactUsdc(scenario.illustrativeTvl)}
-            />
-            <ScenarioMetric
-              detail="Scenario only · not a return promise"
-              icon={<CircleGauge size={18} />}
-              label="APY"
-              value={`${scenario.illustrativeApy.toFixed(1)}%`}
-            />
-            <ScenarioMetric
-              detail="USDC per tonne"
-              icon={<Leaf size={18} />}
-              label="Reference price"
-              value={`${scenario.referencePrice.toFixed(2)}`}
-            />
-            <ScenarioMetric
-              detail="tCO₂e · projected scenario"
-              icon={<CircleGauge size={18} />}
-              label="Projected available volume"
-              value={new Intl.NumberFormat("en-US").format(scenario.availableVolume)}
-            />
+          <section className="rwa-scenario-panel" aria-labelledby="rwa-scenario-heading">
+            <div className="rwa-scenario-heading">
+              <Info aria-hidden="true" size={18} />
+              <div>
+                <h2 id="rwa-scenario-heading">Illustrative scenario data</h2>
+                <p>
+                  Modeled preview values — not live market data or promised returns.
+                  No deposits or trades are executed, and no carbon-credit ownership is granted.
+                </p>
+              </div>
+            </div>
+            <div className="rwa-metric-grid" aria-label="Illustrative pool metrics">
+              <ScenarioMetric
+                detail="Modeled liquidity"
+                icon={<Coins size={18} />}
+                label="TVL"
+                value={formatCompactUsdc(scenario.illustrativeTvl)}
+              />
+              <ScenarioMetric
+                detail="Modeled rate · no return promise"
+                icon={<CircleGauge size={18} />}
+                label="APY"
+                value={`${scenario.illustrativeApy.toFixed(1)}%`}
+              />
+              <ScenarioMetric
+                detail="Modeled USDC per tonne"
+                icon={<Leaf size={18} />}
+                label="Reference price"
+                value={`${scenario.referencePrice.toFixed(2)}`}
+              />
+              <ScenarioMetric
+                detail="Modeled tCO₂e volume"
+                icon={<CircleGauge size={18} />}
+                label="Projected available volume"
+                value={new Intl.NumberFormat("en-US").format(scenario.availableVolume)}
+              />
+            </div>
           </section>
 
           <section className="rwa-chart-card">
@@ -348,10 +361,6 @@ export function RwaPoolPreview({
             </dl>
           </section>
 
-          <aside className="rwa-limitations">
-            <strong>Preview scenario — not live market data</strong>
-            <p>Figures demonstrate a possible future pool structure. This page does not accept deposits, execute trades, promise returns, or grant ownership of carbon credits. Jeju field evidence remains separate from these scenario figures.</p>
-          </aside>
         </div>
 
         <aside className="rwa-participation-panel">

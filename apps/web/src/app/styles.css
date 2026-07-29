@@ -314,6 +314,11 @@ button, input { font: inherit; }
 .rwa-hero h1 { font-size: clamp(44px, 5vw, 66px); letter-spacing: -.055em; line-height: 1; margin: 8px 0 13px; }
 .rwa-layout { align-items: start; display: grid; gap: 28px; grid-template-columns: minmax(0, 8fr) minmax(300px, 4fr); }
 .rwa-main { display: grid; gap: 22px; min-width: 0; }
+.rwa-scenario-panel { background: #fff8df; border: 1px solid #e8c862; border-radius: var(--radius); padding: 18px; }
+.rwa-scenario-heading { align-items: flex-start; display: flex; gap: 11px; margin-bottom: 16px; }
+.rwa-scenario-heading > svg { color: #8a6500; flex: none; margin-top: 2px; }
+.rwa-scenario-heading h2 { color: #5f4900; font-size: 15px; letter-spacing: -.01em; margin: 0; }
+.rwa-scenario-heading p { color: #75642b; font-size: 12px; line-height: 1.5; margin: 3px 0 0; }
 .rwa-metric-grid { display: grid; gap: 12px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .rwa-metric-card { background: white; border: 1px solid var(--line); border-radius: 14px; min-height: 150px; padding: 18px; }
 .rwa-metric-label { align-items: center; color: var(--muted); display: flex; font-size: 12px; gap: 7px; line-height: 1.35; min-height: 34px; }
@@ -362,9 +367,6 @@ button, input { font: inherit; }
 .rwa-dot-project { background: var(--primary); }
 .rwa-dot-stable { background: #3b82f6; }
 .rwa-dot-incentive { background: #9aa69f; }
-.rwa-limitations { background: #f3f5f4; border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
-.rwa-limitations strong { display: block; font-size: 14px; }
-.rwa-limitations p { color: var(--muted); font-size: 13px; line-height: 1.55; margin: 6px 0 0; }
 .rwa-participation-panel { background: white; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 20px 45px rgba(24, 50, 39, .08); padding: 27px; position: sticky; top: 98px; }
 .rwa-participation-panel h2 { font-size: 23px; letter-spacing: -.03em; margin: 0 0 18px; }
 .rwa-project-selector { display: grid; gap: 8px; }
@@ -607,6 +609,8 @@ button, input { font: inherit; }
   .rwa-preview-page { padding-top: 38px; }
   .rwa-hero { align-items: flex-start; flex-direction: column; gap: 18px; }
   .rwa-hero h1 { font-size: 42px; }
+  .rwa-scenario-panel { padding: 15px; }
+  .rwa-scenario-heading { margin-bottom: 14px; }
   .rwa-metric-grid { grid-template-columns: 1fr 1fr; }
   .rwa-metric-card { min-height: 140px; padding: 15px; }
   .rwa-metric-card strong { font-size: 19px; }
